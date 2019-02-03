@@ -5,14 +5,12 @@
 #   gem 'sqlite3'
 #
 default: &default
-
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: sqlite3
+  pool: 5
   timeout: 5000
-
 
 development:
   <<: *default
-  adapter: sqlite3
   database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
@@ -20,8 +18,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
- adapter: sqlite3
- database: db/development.sqlite3
+  database: db/test.sqlite3
 
 production:
   <<: *default
@@ -31,3 +28,4 @@ production:
   password: p2lx9v1eq5zpb5t6
   port: 3306
   database: ccp1yjplemk70ya4
+

@@ -22,6 +22,6 @@ test:
 
 production:
   <<: *default
-  adapter: mysql
+  url: <%= ENV['DATABASE_URL'] %>
   
 

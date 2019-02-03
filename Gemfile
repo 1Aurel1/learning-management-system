@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'tzinfo-data'
-gem 'pg'
+gem 'mysql2', '~> 0.4.0'
 # Fix autoprefixer-rails verstion 8 to precompile assets with therubyracer
 gem 'autoprefixer-rails', '~>8.6.5'
 gem 'autosize', '~> 2.4'
@@ -68,7 +68,7 @@ group :test do
 end
 
 group :production do
-  gem 'mysql2', '~> 0.4.0'
+  
   # Use Puma as the app server
   gem 'puma', '~> 3.0'
   # Use Unicorn as the app server

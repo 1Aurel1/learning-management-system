@@ -1,0 +1,2 @@
+$('#sticky-toolbar').html("<%= j render(partial: 'stickies/toolbar', locals: {stickies: stickies, url_hash: url_hash}) %>");
+$('#sticky-panel').html("<%= j render(partial: 'stickies/sticky_panel', locals: {stickies: stickies}) %>");

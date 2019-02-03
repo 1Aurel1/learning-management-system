@@ -1,0 +1,15 @@
+<div id="note-items" style="overflow: auto;">
+  <%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
+  <%= render partial: 'notes/note_item', collection: @note_items, locals: {editable_snippet: true} %>
+</div>
+
+
+<script>
+$(function () {
+  sortNoteItems(<%= @note.id %>, <%= @note.category == 'lesson' %>);
+  // for snippet edit form
+  autosize($('.elastic_textarea'));
+  // for snippet edit form: this is necessary to fit height when initial text exists in textarea
+  $('.to-be-hidden').hide();
+})
+</script>

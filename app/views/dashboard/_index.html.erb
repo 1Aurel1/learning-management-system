@@ -1,0 +1,31 @@
+<div id="dashboard-resource" class="scroll-pane">
+  <div class="row">
+    <div class="col-md-12 block">
+      <% cards = current_user.dashboard_cards %>
+      <% if cards.size.zero? %>
+      <%= render partial: 'layouts/system_message', locals: {message: t('.no_dashboard_cards'), message_category: 'info'} %>
+      <% else %>
+      <% cards.each do |card| %>
+      <div class="card">
+        <h2 class="card-header"><%= card[:title] %></h2>
+        <ul class="list-group list-group-flush">
+          <% if card[:list] %>
+          <% card[:list].each do |li| %>
+          <li class="list-group-item">
+            <% case li[:category] when 'learner_outcome', 'evaluator_outcome' %>
+            <%= link_to(t(".#{li[:category]}", display_order: li[:display_order], outcome_num: li[:outcome_num]), {controller: li[:controller], action: li[:action], nav_section: li[:nav_section], nav_id: li[:nav_id], lesson_id: li[:lesson_id], page_num: li[:page_num]}, {remote: true}) %>
+            <% when 'lesson_note_update' %>
+            <%= link_to(t(".#{li[:category]}", display_order: li[:display_order]), {controller: li[:controller], action: li[:action], nav_section: li[:nav_section], nav_id: li[:nav_id], lesson_id: li[:lesson_id], page_num: li[:page_num]}, {remote: true}) %>
+            <% when 'archived_course' %>
+            <%= link_to(t(".#{li[:category]}"), {controller: li[:controller], action: li[:action], nav_section: li[:nav_section], nav_id: li[:nav_id]}, {remote: true}) %>
+            <% end %>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

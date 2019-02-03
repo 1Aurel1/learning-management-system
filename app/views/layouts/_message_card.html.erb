@@ -1,0 +1,10 @@
+<div id="shortcut-key" class="card-info ">
+  <h2><%= t('.shortcut_keys') %></h2>
+  <%= render 'layouts/shortcut_keys' %>
+  <div style="margin-top: 8px; text-align: right;">
+    <a id="message-card-closer" style="cursor:pointer;"><%= t('.card_closer') %></a>
+  </div>
+</div>
+<script>
+$("#message-card-closer").click(function(){toggleShortcutKey();})
+</script>

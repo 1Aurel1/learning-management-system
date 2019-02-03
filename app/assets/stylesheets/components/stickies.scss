@@ -1,0 +1,130 @@
+//
+// CSS for sticky
+//
+
+@import 'components/color';
+@import 'components/image';
+@import 'components/toolbar';
+@import 'components/triangle_corner';
+
+#resource #sticky-panel {
+  @include image-40px;
+  background-color: $toolbar-bgcolor;
+  border: 1px solid #ccc;
+  border-top: 0;
+  color: #000;
+  max-height: 92%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 4px;
+  position: absolute;
+  right: 16px;
+  top: $toolbar-height;
+  z-index: 1;
+  .show, .edit {
+    margin: 0 16px 4px 4px;
+    width: 358px;
+    .sticky {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+
+#resource #sticky-reports, #resource #course-stickies, #resource #private-stickies, #resource #hot-stickies, #resource #user-stickies {
+  a.btn {
+    display: block;
+    float: right;
+    margin-right: 8px;
+    min-width: 40px;
+    i.fa {
+      line-height: 100%;
+    }
+    &#related-btn {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+  .sticky {
+    margin: 4px;
+  }
+}
+#resource #sticky-panel, #resource #sticky-reports, #resource #course-stickies, #resource #private-stickies, #resource #hot-stickies, #resource #user-stickies, #resource #note-items {
+  .show, .edit {
+    clear: both;
+    #sort-btn, #reload-btn {
+      i.fa {
+        line-height: 100%;
+      }
+    }
+  }
+  .sticky {
+    background-color: #fff;
+    border-right-style: solid;
+    border-right-width: 10px;
+    display: flex;
+    width: 356px;
+    .word-wrap {
+      white-space: pre-line;
+    }
+    .side-area {
+      @include image-40px;
+      @include triangle-corner;
+      height: 100%;
+      margin: 0;
+      position: relative;
+      text-align: center;
+      width: 56px;
+      .side-image {
+        margin: 8px 0 0 8px;
+      }
+      .side-caption {
+        color: #333;
+        font-size: 10px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding-top: 0;
+        text-align: center;
+        width: 56px;
+      }
+    }
+    .main-area {
+      margin-bottom: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding: 4px;
+      width: 100%;
+      .header a {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .body {
+        color: #000;
+        min-height: 40px;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+        .left-footer {
+          color: #888;
+        }
+        .right-footer {
+          a {
+            padding: 0 5px;
+          }
+        }
+      }
+    }
+  }
+  #new-sticky {
+    padding: 0 12px 0 2px;
+    textarea {
+      height: 50px;
+      margin: 2px 0;
+      max-height: 300px;
+      width: 100%;
+    }
+  }
+}

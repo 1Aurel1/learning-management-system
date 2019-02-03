@@ -1,0 +1,3 @@
+<div class="operation-direct">
+  <%= link_to(raw("<i class='fa fa-trash-o fa-lg'></i>"), {controller: :snippets, action: 'ajax_destroy', id: snippet.id, note_id: @note.id}, {title: t('.delete'), remote: true}) %>
+</div>

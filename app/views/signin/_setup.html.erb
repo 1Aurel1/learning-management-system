@@ -1,0 +1,132 @@
+<div id="setup-resource" class="scroll-pane">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div id="setup-card" class="card">
+        <div class="card-header">
+          <h1 class="card-title" style="margin-bottom:0;padding-bottom:0;"><%= t('.header') %></h1>
+        </div>
+        <div class="card-body">
+          <%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: 'error'} %>
+          <% initial_setup = User.all.size.zero? %>
+          <% if initial_setup %>
+          <p><%= t('.message1') %></p>
+          <% else %>
+          <div class="alert alert-success" role="alert">
+            <p><%= t('.message2') %></p>
+            <p><%= t('.message3') %></p>
+          </div>
+          <% end %>
+          <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="card">
+              <div class="card-header" role="tab" id="headingOne">
+                <h5 class="mb-0">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Step 1. <%= t('.license_header') %>
+                  </a>
+                </h5>
+              </div>
+              <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="card-body">
+                  <p>
+                    <%= t('.license_message1') %>
+                  </p>
+                  <p>
+                    <%= t('.license_message2') %>
+                  </p>
+                  <p>
+                    <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">https://www.gnu.org/licenses/agpl-3.0.en.html</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" role="tab" id="headingTwo">
+                <h5 class="mb-0">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Step 2. <%= t('.config_header') %>
+                  </a>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="card-body">
+                  <h5>/config/initializers/constans.rb</h5>
+                  <ul>
+                    <li><%= t('.config_message1') %></li>
+                  </ul>
+                  <h5>/config/database.yml</h5>
+                  <ul>
+                    <li><%= t('.config_message2') %></li>
+                  </ul>
+                  <h5>/config/secrets.yml</h5>
+                  <ul>
+                    <li><%= t('.config_message3') %></li>
+                    <li><%= t('.config_message4') %></li>
+                  </ul>
+                  <p><%= t('.config_message5') %></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" role="tab" id="headingThree">
+                <h5 class="mb-0">
+                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Step 3. <%= t('.admin_account_header') %>
+                  </a>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="card-body">
+                  <% if initial_setup %>
+                  <p>
+                    <%= t('.admin_account_message1') %>
+                  </p>
+                  <ul>
+                    <li>
+                      <%= t('.admin_account_message2') %> : <%= USER_PASSWORD_MIN_LENGTH %> - <%= USER_PASSWORD_MAX_LENGTH %>
+                    </li>
+                    <li>
+                      <%= t('.admin_account_message3') %> : <%= SYSTEM_STAFF_SIGNIN_IP %>
+                    </li>
+                  </ul>
+                  <%= form_tag({action: 'ajax_create_admin_account'}, remote: true) do %>
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-sm-right" for="signin_name"><%= t('activerecord.attributes.user.signin_name') %></label>
+                    <div class="col-md-8">
+                      <%= text_field_tag :signin_name, params[:signin_name], {placeholder: t('activerecord.attributes.user.signin_name'), class: 'form-control'} %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-sm-right" for="password">Password</label>
+                    <div class="col-md-8">
+                      <%= password_field_tag :password, params[:password], {placeholder: 'Password', class: 'form-control', autocomplete: 'off'} %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label text-sm-right" for="password"><%= t('.password_confirmation') %></label>
+                    <div class="col-md-8">
+                      <%= password_field_tag :password_confirmation, params[:password_confirmation], {placeholder: t('.password_confirmation'), class: 'form-control', autocomplete: 'off'} %>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="controls col-md-8 ml-auto">
+                      <%= submit_tag t('.ok'), class: 'btn btn-primary btn-block' %>
+                    </div>
+                  </div>
+                  <% end %>
+                  <% else %>
+                  <p>
+                    <p><%= t('.admin_account_message4') %></p>
+                  </p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

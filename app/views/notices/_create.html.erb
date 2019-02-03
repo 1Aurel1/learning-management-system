@@ -1,0 +1,16 @@
+<%#= f.error_messages %>
+<div class="bordered-block">
+	<h2>新しいお知らせの登録</h2>
+	<% if @open_notices.size >= 10 %>
+	<p>一度に公開できるお知らせは、10件までです。</p>
+	<% else %>
+	<div class="form-group row">
+		<div class="col-md-8">
+			<%= f.text_area :message, rows: '5', value: '', class: 'elastic_textarea form-control' %>
+			<div class="button-block">
+				<%= render partial: 'layouts/buttons/create' %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>

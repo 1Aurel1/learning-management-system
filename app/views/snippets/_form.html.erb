@@ -1,0 +1,36 @@
+<div style="margin: 8px 40px 4px 16px;">
+  <% case category when 'text', 'pdf' %>
+  <%= f.text_area :description, style: 'width: 100%;', rows: 4, class: 'form-control elastic_textarea' %>
+  <div style="margin-top: 2px; text-align:right;">
+    <span id="char-count"></span>
+    <span id="char-count"><span id="char-count-num"></span> <%= t('notes.header.characters') %></span>
+    <span id="char-count-error" style="display:none;"><%= t('.char_num_error') %></span>
+  </div>
+  <% when 'header', 'subheader' %>
+  <%= f.text_field :description, class: 'form-control', style: 'width: 100%;' %>
+  <% end %>
+</div>
+<div style="margin-left: 16px;margin-bottom: 10px;">
+  <a id="<%= 'cancel-' + form_id %>" class="btn btn-light btn-lg" style="cursor:pointer;" title="cancel"><i class="fa fa-times-circle"></i> <%= t('.cancel') %></a>
+  <span style="margin-left: 1rem;">
+    <% btn_partial = (defined? snippet) ? 'layouts/buttons/update' : 'layouts/buttons/create' %>
+    <%= render partial: btn_partial %>
+  </span>
+  <% if (defined? snippet) && snippet.category != 'pdf' %>
+  <span style="margin-left: 5rem;">
+    <%= render partial: 'layouts/buttons/delete', locals: {action_hash: {controller: :snippets, action: 'ajax_destroy', id: snippet.id, note_id: @note.id}, id_attr: ''} %>
+  </span>
+  <% end %>
+</div>
+
+
+<% if category == 'text' || category == 'pdf' %>
+<script>
+$(function(){
+  $('#<%= form_id %> textarea').bind('keydown keyup change',function () {
+    charCount("<%= form_id %>", $(this).val().length, <%= SNIPPET_MAX_LENGTH %>);
+  });
+  charCount("<%= form_id %>", $('#<%= form_id %> textarea').val().length, <%= SNIPPET_MAX_LENGTH %>);
+});
+</script>
+<% end %>

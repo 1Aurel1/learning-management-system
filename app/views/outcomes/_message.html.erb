@@ -1,0 +1,22 @@
+<% side = message_side message.manager_id, outcome_manager_id %>
+<div class="dialogue-card <%= side %>">
+  <div class="side-area" title="<%= message.manager.full_name %>">
+    <div class="image">
+      <%= render partial: 'layouts/image', locals: {obj: message.manager, fa_class: 'fa-user', img_px: '40'} %>
+    </div>
+    <div class="side-caption"><%= message.manager.short_name %></div>
+  </div>
+  <% popover_side = side == 'left' ? 'right' : 'left' %>
+  <div class="main-area popover popover-<%= popover_side %>" data-toggle="popover" data-placement="<%= popover_side %>">
+    <div class="popover-title">
+      <div class="score"><%= message.score.to_s + t('.points', score: 5) if message.score %></div>
+      <div><%= l(message.updated_at, format: :default) %></div>
+    </div>
+    <div class="popover-content">
+      <div>
+        <% message = (message.message.size == 0) ? '...' : message.message %>
+        <%= sanitize add_br message %>
+      </div>
+    </div>
+  </div>
+</div>

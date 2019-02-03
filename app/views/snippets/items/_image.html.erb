@@ -1,0 +1,18 @@
+<% case snippet.source_type when 'upload' %>
+<div class="snippet-direct">
+  <div class="body" style="max-width: 640px; margin: 0.5rem auto; text-align: center;">
+    <%= image_tag snippet.image_rails_url, { class: 'rounded', style: 'max-width: inherit;'} %>
+  </div>
+  <%= render(partial: 'snippets/items/operations_upload', locals: {snippet: snippet})  if editable_snippet %>
+</div>
+
+<% when 'web' %>
+<div class="snippet-card card">
+  <div class="main-area">
+    <div class="snippet-image">
+      <img src="<%= snippet.description %>">
+    </div>
+    <%= render(partial: 'snippets/items/footer_web', locals: {snippet: snippet}) %>
+  </div>
+</div>
+<% end %>

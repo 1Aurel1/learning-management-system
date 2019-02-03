@@ -1,0 +1,13 @@
+<% unless session[:sticky_panel] == 'hide' %>
+<div class="<%= session[:sticky_panel] %>">
+	<%= render partial: 'stickies/edit', locals: {sticky: @sticky, view_category: 'panel'} %>
+	<!-- for existing stickies -->
+	<div class="stickies">
+		<%= render partial: 'stickies/sticky', collection: stickies, locals: {view_category: 'panel'} %>
+	</div>
+</div>
+
+<script>
+$("#create-sticky-btn").click(function(){toggleCreateSticky();});
+</script>
+<% end %>

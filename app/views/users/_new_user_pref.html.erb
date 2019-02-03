@@ -1,0 +1,63 @@
+<div id="user-resource" class="scroll-pane">
+	<div class="block alert alert-info">
+		<h4 class="alert-heading"><%= t('activerecord.models.course_member') + t('activerecord.attributes.course_member.role') %></h4>
+		<dl>
+			<dt>
+				<%= t('activerecord.others.user.role.admin') %>
+			</dt>
+			<dd>
+				システムの全管理作業 / 1アカウント（Local認証）を必ず作成
+			</dd>
+			<dt>
+				<%= t('activerecord.others.user.role.manager') %>
+			</dt>
+			<dd>
+				<%= t('activerecord.others.user.role.admin') + 'と' + t('activerecord.others.user.role.manager') %>の編集を除く、システムの全管理作業
+			</dd>
+			<dt>
+				<%= t('activerecord.others.user.role.user') %>
+			</dt>
+			<dd>
+				システム管理以外の活動
+			</dd>
+			<dt>
+				<%= t('activerecord.others.user.role.suspended') %>
+			</dt>
+			<dd>
+				システムにサインインできない状態
+			</dd>
+		</dl>
+	</div>
+
+	<div class="block alert alert-info">
+		<h4 class="alert-heading">ユーザ登録に用いるCSVフォーマット</h4>
+		<dl>
+			<dt>
+				role, authentication, signin_name, password, family_name, given_name<%= ', phonetic_family_name, phonetic_given_name' if USER_PHONETIC_NAME_FLAG %>
+			</dt>
+			<dd>
+				<ul>
+					<li>role：manager (システム管理者) / user (一般ユーザ)</li>
+					<li>authentication：local / ldap</li>
+					<li>authentication が ldap の場合は、passwordの設定値は無視</li>
+					<li>CSV要素の先頭/最後の空白は削除</li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
+			<%= render partial: 'users/csv_users' %>
+
+			<% existing_users_array = [[@admin, 'admin', '']] %>
+			<% existing_users_array = existing_users_array.concat(@managers.zip Array.new(@managers.size, 'manager'), Array.new(@managers.size, 'suspended')) %>
+			<% existing_users_array = existing_users_array.concat(@users.zip Array.new(@users.size, 'user'), Array.new(@users.size, 'suspended')) %>
+			<% footer = @users.size < @users_size ? '一般ユーザ：利用停止中でないアカウントの内、最新10アカウントを表示（全' + @users_size.to_s + 'アカウントが利用中）' : '' %>
+			<%= render(partial: 'layouts/member_candidates', locals: {title: '現在のメンバー', category: 'system', form_category: 'index', users: existing_users_array, resource_id: 0, footer: footer}) %>
+			<%= render partial: 'layouts/buttons/ok', locals: {action_hash: {action: 'ajax_index', nav_section: 'home'}} %>
+		</div>
+	</div>
+
+</div>

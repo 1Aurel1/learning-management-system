@@ -1,0 +1,70 @@
+<% note_class = droppable ? 'note-card card droppable' : 'note-card card' %>
+<div id="note_<%= note.id %>" class="<%= note_class %>">
+  <div class="card-body">
+    <% if !droppable %>
+    <div class="triangle-corner <%= note_star_btn_class session[:id], note %>">
+      <%= link_to( raw("<i class='fa fa-star fa-lg'></i>"), {controller: 'notes', action: 'ajax_toggle_star', id: note.id, resource: resource}, {remote: true}) %>
+    </div>
+    <% end %>
+    <% if resource == 'course_index' %>
+    <h3>
+      <%= link_to((note.title), {controller: 'notes', action: 'ajax_show_from_others', nav_id: course_id, id: note.id}, {remote: true}) %>
+    </h3>
+    <% else %>
+    <%= render partial: 'notes/subtitle', locals: {note: note, char_limit: 12} %>
+    <h2 class="card-title">
+      <%= link_to(sanitize("<div>#{note.title}</div>"), {controller: 'notes',  action: 'ajax_show', id: note.id }, {remote: true}) %>
+    </h2>
+    <% end %>
+  </div>
+
+  <div class="card-body-flex">
+    <div class="side-area">
+      <% case note.category when 'work' %>
+      <% obj = (@course && @course.learner?(session[:id]) && note.anonymous?(session[:id])) ? nil : note.manager %>
+      <%= render partial: 'layouts/image', locals: {obj: obj, fa_class: 'fa-user', img_px: '80'} %>
+      <div class='caption'>
+        <% if obj.nil? %>
+        ---
+        <% else %>
+        <%= sanitize note.manager.full_name %>
+        <% end %>
+      </div>
+      <% else %>
+      <div style="margin-top:10px;">
+        <%= render partial: 'layouts/image', locals: {obj: nil, fa_class: 'fa-file-text', img_px: '80'} %>
+      </div>
+      <% end %>
+    </div>
+    <div class="main-area">
+      <%= sanitize(add_br note.overview) %>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <div class="align-left" title="<%= t('helpers.char_count') %>">
+      <i class='fa fa-font fa-lg'></i><%= note.snippets_char_count 'all' %>
+    </div>
+    <div class="align-left" title="<%= t('.media_count') %>">
+      <i class='fa fa-picture-o fa-lg'></i><%= note.snippets_media_count 'all' %>
+    </div>
+    <% if note.stickies.size > 0 %>
+    <% title = (current_user && @course)? note_snippet_text(@course.manager?(session[:id]), note.stickies) : t('.sticky_count') %>
+    <div class="align-left" title="<%= title %>">
+      <i class='fa fa-comments fa-lg'></i><%= note.stickies.size %>
+    </div>
+    <% end %>
+    <% if (note.stars_count > 0) %>
+    <% title = (current_user && @course)? note_star_text(@course.manager?(session[:id]), note.stared_users) : t('.star_count') %>
+    <div class="align-left" title="<%= title %>">
+      <i class='fa fa-star fa-lg'></i><%= note.stars_count %>
+    </div>
+    <% end %>
+    <% if note.id == current_user.default_note_id %>
+    <div class="align-right" style="font-size: large;">
+      <span class='badge badge-primary'><%= t('.default') %></span>
+    </div>
+    <% end %>
+  </div>
+
+</div>

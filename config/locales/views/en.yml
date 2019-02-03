@@ -1,0 +1,375 @@
+en:
+  bookmarks:
+    new:
+      created_bookmark: Created bookmark
+      exceeding_the_upper_limit: "Exceeding the upper limit of the bookmarks, %{size}"
+      page_title: Bookmark preference
+      private_bookmark: Private bookmark
+      same_url_bookmark: Bookmark creation with same URL updates the title
+      system_bookmark: System bookmark
+      unchangeable: Unchangeable
+
+  contents:
+    contents_card:
+      course_num: Courses
+      manual: Manual
+      no_contents: No contents to display
+      pages: "pp.%{num}"
+      updated_at: Upated at
+    edit_pages:
+      asset_file_explanation: Image file etc. used for page file
+      asset_file_content_type: 'File type: No constraint'
+      asset_file_upload_folder: 'Upload folder: Same as page file'
+      attachment_file_explanation: Attached to the cover page
+      attachment_file_content_type: 'File type: No constraint'
+      attachment_file_upload_folder: 'Upload folder: Different to page / asset files'
+      content_file_edit: Content file edit
+      max_file_size: "File size limit: %{size}MB/file"
+      page_file_explanation: Construct content pages
+      page_file_content_type: 'File type: HTML, PDF, Image (gif, jpg, png), Video (mov, mp4)'
+      page_file_sort: 'Page order: Set by drag & drop'
+    index:
+      course_content_management: Course & Content Management
+      newest: newest
+      recommended_browsers: Recommended Web Browsers
+      released_at: Released at
+      remarks_for_edge: Note function can not be used with Edge browser.
+      shortcut_keys: Shortcut Keys
+      system_version: System Version
+      use_following_browsers: Please use LePo in the following web browsers
+    toolbar_show:
+      edit: :layouts.buttons.edit.edit
+
+  courses:
+    course_pref:
+      course_preferences: Course Preferences
+    course_manager_select:
+      add: Add
+      input_id_or_name: Input part of user ID or name, and select user.
+      unregister: UnReg.
+    form:
+      auto_register_of_course_manager: If not specified, the course creater becomes manager.
+      disabled_to_be_draft: Draft status can not select from open / archived status.
+      group_default: Set 1 when not using group
+      group_explanation: Classify learners into groups for browsing and peer-reviewing the worksheets
+      no_course_manager_form: For open / archive status, managers can be edit at the course member page
+      remove_image: Remove image
+    goal_card:
+      assigned_objectives: Assigned Lesson Objectives
+      goals: Course Goals
+      none: none
+      points: points
+      show_details: Show / Hide Details
+    lessons_card:
+      no_lessons: No lessons to display
+      pages: :contents.contents_card.pages
+      to_draft: to draft
+      to_open: to open
+    option_form:
+      duplication_settings: Duplication course settings.
+    search_courses:
+      search_course: Search Course
+      select_course: Select course
+      exp_search_course: Search courses with term, title, status, manager up to a maximum of %{num}
+      placeholder_title: Input title
+      placeholder_manager: Input name
+    select_course:
+      current_course: Current Course
+      select_course: Select Course
+    toolbar_show:
+      create_sticky: :stickies.toolbar.create_sticky
+      highlight_text: Highlight text
+      show_content: Show content
+      show_note: Show lesson note
+
+  course_members:
+    edit_group:
+      group: "#%{index}"
+    index:
+      group: "Group #%{index}"
+    members:
+      users:  "%{num} users"
+    signin_reports:
+      show_learners_details: Show / Hide Learner Info.
+    toolbar:
+      edit_group: Edit group
+
+  dashboard:
+    index:
+      archived_course: The course has moved to the repository because it was completed.
+      evaluator_outcome: "Lesson %{display_order} : There are unevaluated %{outcome_num} outcome(s)."
+      learner_outcome: "Lesson %{display_order} : There is unchecked evaluation."
+      lesson_note_update: "Lesson %{display_order} : Lesson note contents have been updated."
+      no_dashboard_cards: Currently no information on the dashboard.
+
+  devices:
+    index:
+      new_device: New Device
+
+  layouts:
+    assignment_page:
+      assignment: :layouts.cover_page.assignment
+    breadcrumb:
+      top: Top
+    buttons:
+      back:
+        back: Back
+      cancel:
+        cancel: Cancel
+      create:
+        create: Create
+      csv_check:
+        csv_check: CSV format check
+      delete:
+        delete: Delete
+      duplicate:
+        duplicate: Duplicate
+      edit:
+        edit: Edit
+      file_submit:
+        choose_file: Choose file
+        uploading: Uploading
+      ok:
+        ok: OK
+      save_and_next:
+        save_and_next: Save & Next
+      search:
+        search: Search
+      toolbar_create:
+        create: :layouts.buttons.create.create
+      toolbar_save_and_next:
+        save_and_next: :layouts.buttons.save_and_next.save_and_next
+      toolbar_update:
+        update: :layouts.buttons.update.update
+      update:
+        update: Update
+    card_l:
+      show_rest: Show / Hide the rest
+    cover_page:
+      assignment: Assignment
+      objectives: Lesson Objectives
+    main_nav:
+      home: Home
+      open_courses: Open Courses
+      repository: Repository
+    member_candidates:
+      no_search_results: No Search Results
+    message_card:
+      card_closer: close
+      snippet_saved: Saved to the lesson note !
+      shortcut_keys: :contents.index.shortcut_keys
+    page_number:
+      portfolio: :helpers.portfolio
+    required:
+      required_item: required item
+    search_members:
+      search_word: search word
+    shortcut_keys:
+      page_operations: Page Operations
+      one_page_back: Show previous page
+      one_page_next: Show next Page
+      five_pages_back: Show 5 pages back
+      five_pages_next: Show 5 pages next
+      cover_page: Show cover page
+      assignment_page: Show assignment page
+      sticky_operations: Sticky Operations
+      create_sticky: Create sticky
+      submit_edited_sticky: Submit edited sticky
+      cancel_edited_sticky: Cancel edited sticky
+      other_operations: Other operations
+      toggle_lesson_note_display: Toggle lesson note display
+      toggle_sub_pane_display: Toggle side pane display
+      toggle_message_card: Toggle message card
+    sub_toolbar:
+      add: :courses.course_manager_select.add
+      new_bookmark: New Bookmark
+      new_content: New Content
+      new_course: New Course
+      signout: Signout
+
+  notes:
+    form:
+      char_num_error: Number of characters exceeded
+      status_message1: Other states become selectable after creating the work sheet
+      status_message2: Distributed work sheets can only be edited by distributed learners
+      status_message3: Only one work sheet can be distributed to learners in the course
+      review_message: Changing the number of reviews after starting the review makes also changing the work sheets to review by learners
+    group:
+      group: :course_members.index.group
+      users: :course_members.members.users
+    header:
+      characters: characters
+      media_count: media count
+      pages: pages
+      pieces: pieces
+      referenced_web_count: referenced web count
+      star_count: star count
+      uploaded_media_count: uploaded media count
+      written_char_count: written char count
+    header_index:
+      index: Index
+    index_courses:
+      no_worksheet_notes: Currently no worksheets
+    index_group:
+      for_peer_review: For peer review
+      for_peer_review_message: Please review the following worksheet(s) using sticky or star. The target of review varies from learner to learner.
+      no_open_worksheet: Currently, there is no opened worksheet.
+      not_for_peer_review: Not for peer review
+      not_for_peer_review_message: You do not have to review the following worksheet(s).
+    index_home:
+      no_note_resources: Currently no notes managed
+      no_snippets: Currently no snippets
+      snippet_transfer: Please transfer the citation to the note by drag and drop or select the item in "Operation"
+    subtitle:
+      private: :activerecord.others.note.category.private
+      lesson: :activerecord.others.note.category.lesson
+      work: :activerecord.others.note.category.work
+    note:
+      default: Default
+      media_count: :notes.header.media_count
+      star_count: :notes.header.star_count
+      sticky_count: sticky count
+    show:
+      accessed: "accessed %{date}"
+      references: References
+    toolbars:
+      courses:
+        group: :course_members.index.group
+      home:
+        export: Export to text
+        reload: Reload
+
+  outcomes:
+    evaluator:
+      points: :courses.goal_card.points
+    message:
+      points: :courses.goal_card.points
+    messages:
+      no_messages: No messages
+
+  portfolios:
+    achievement_reports:
+      learning_progress: Learning Progress
+      show_learners_details: :course_members.signin_reports.show_learners_details
+    goal_reports:
+      goal_achievement_rate: Goal Achievement Rate
+    lessons_card:
+      no_lessons: :courses.lesson_card.no_lessons
+    star_reports:
+      show_learners_details: :course_members.signin_reports.show_learners_details
+      star_acquisition_status: Star Acquisition Status
+    toolbar:
+      portfolio: :helpers.portfolio
+
+  preferences:
+    index:
+      system_preferences: System Preferences (Limited for System Managers)
+      user_preferences: User Preferences
+    toolbar:
+      new_user: :helpers.new_user
+      note: :helpers.note
+      user_account: :helpers.user_account
+    update_pref:
+      version_header: 'Update from v%{from_ver} to v%{to_ver}'
+
+  signin:
+    setup:
+      admin_account_header: Administrator Account
+      admin_account_message1: Please create a system administrator account from the form below. One administrator account must be created in the system and it can manage some system manager accounts.
+      admin_account_message2: The password must be alphanumeric and within the range of the following number of characters.
+      admin_account_message3: System administrator and managers can sign-in only from the following IP addresses.
+      admin_account_message4: The creation of the administrator account has already been completed.
+      config_header: Config. Files
+      config_message1: Please check the configurations in the above file and set appropriate values ​​as necessary.
+      config_message2: Please set the information of the database to use in the above file. When using SQLite 3 in the development environment, you can skip this step here.
+      config_message3: Please set values for secret_key_base in the above file. For the production environment, set the value of secret_key_base as an environment variable.
+      config_message4: To generate random string of secret_key_base, you can use "rails secret" command etc.
+      config_message5: After correcting the config files, restart the Rails server and proceed to Step 3.
+      header: Welcome to LePo !
+      license_header: License
+      license_message1: This software is released under the GNU Affero General Public License, version 3 as open source software.
+      license_message2: For this license, please check the link below.
+      message1: Before using LePo, let's complete the following steps.
+      message2: Creation of administrator account is complete !
+      message3: Please reload the page, display the sign in page, and sign-in to LePo as administrator.
+      password_confirmation: Password (Confirmation)
+      ok: :layouts.buttons.ok.ok
+    sub_toolbar:
+      add: :courses.course_manager_select.add
+      signout: :layouts.sub_toolbar.signout
+
+  snippets:
+    create_file:
+      image: Image
+      uploading: :layouts.buttons.file_submit.uploading
+    create_snippet_btns:
+      header: Header
+      subheader: Subheader
+      text: Paragraph
+    form:
+      cancel: :layouts.buttons.cancel.cancel
+      char_num_error: :notes.form.char_num_error
+    items:
+      footer_page:
+        delete: :layouts.buttons.delete.delete
+      footer_web:
+        operations: Operations
+      operations_direct:
+        edit: :layouts.buttons.edit.edit
+      operations_upload:
+        delete: :layouts.buttons.delete.delete
+        edit: :layouts.buttons.edit.edit
+      operations_web:
+        cited_at: 'Cited at %{datetime}'
+        delete: :layouts.buttons.delete.delete
+        enter_citation: Enter citation text from PDF file
+        move_to: 'Move under %{title}'
+        remove: Transfer this out of note
+        transfer_to: 'Transfer this to %{note_title}'
+      pdf:
+        input_pdf_text: You can not cite directly from PDF file. Please enter the cited text from "Operations" button.
+
+  stickies:
+    edit:
+      cancel: :layouts.buttons.cancel.cancel
+      course_sticky: :activerecord.others.sticky.category.course
+      private_sticky: :activerecord.others.sticky.category.private
+      save: Save
+    hot_stickies:
+      hot_stickies: Hot Stickies
+    sticky:
+      course: Course
+      delete: :layouts.buttons.delete.delete
+      edit: :layouts.buttons.edit.edit
+      last_updated_at: :helpers.last_updated_at
+      no_update: no update
+      private: Private
+    sticky_reports:
+      search: :layouts.buttons.search.search
+    toolbar:
+      create_sticky: Create sticky
+      hide_sticky_panel: Hide sticky panel
+      reload_stickies: Reload stickies
+      show_sticky_panel: Show sticky panel
+      stickies_by_date: Stickies by date
+      stickies_by_stars: Stickies by stars
+
+  users:
+    account_pref:
+      impossible: :helpers.impossible
+      possible: :helpers.possible
+    profile_pref:
+      open_within_courses: Open within registered courses
+      remove_image: :courses.form.remove_image
+    search_users:
+      search: :layouts.buttons.search.search
+      search_word: :layouts.search_members.search_word
+    update_user:
+      account: :helpers.account
+      impossible: :helpers.impossible
+      no_password_edit: Leave blank for no password change
+      none: :courses.goal_card.none
+      possible: :helpers.possible
+      self_password_edit: Self account password can be edit from Settings> Account
+    user_account_pref:
+      user_account: :helpers.user_account

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title><%= @note.title %></title>
+  <style>
+  .header {
+    font-weight: bold;
+  }
+  </style>
+</head>
+<body>
+  <%= raw @note.export_html %>
+</body>
+</html>

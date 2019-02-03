@@ -1,0 +1,33 @@
+en:
+  controllers:
+    bookmarks:
+      created: Bookmark created
+      creation_failed: Bookmark creation failed
+      updated: Bookmark updated
+    contents:
+      save_error: Content save failed
+      no_object: (object unset)
+      no_object_error: Please set at least one object
+      updated: "%{name} updated."
+      update_failed: " %{name} update failed."
+      upload_failed: " %{name} upload failed."
+    courses:
+      no_courses_with_criteria: No courses with these criteria.
+    notes:
+      creation_error: Creating note failed. Please check the input values.
+    preferences:
+      update_success: "Update to v%{version} success!"
+      update_failed: "Update to v%{version} failed."
+    signin:
+      error1: You are not allowed to access.
+      error2: There is a mistake in User ID or Password.
+      setup_error1: Creating admin account failed. Please check the input character string and try to create it again.
+      setup_error2: As the admin account has already been registered, you can not register again.
+    snippets:
+      character_numbers_error: "Character numbers (%{current}) exceed the limit (%{limit})"
+      creation_error: Failed to save text
+      inside_lepo_error: +Note is invalid inside LePo
+      pdf_creation: "PDF: Only the URL was saved (Not the selected characters)"
+      re_register_button_error: Please re-register +Note button
+      transfer_error: Transferring note failed
+      upload_error: Failed to save file

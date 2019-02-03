@@ -1,0 +1,45 @@
+<div id="note-resource" class="scroll-pane">
+  <div class="row">
+    <div class="col-md-12">
+      <% case session[:nav_section] when 'home' %>
+      <div class="block">
+        <%= render partial: 'notes/header' %>
+        <%= render(partial: 'snippets/create_snippet_btns', locals: {display_order: 0, note_id: @note.id}) if @note.category != 'lesson' %>
+        <%= render partial: 'notes/note_items' %>
+      </div>
+      <% when 'open_courses', 'repository' %>
+      <div class="block">
+        <%= render partial: 'notes/header' %>
+        <div id="note-items">
+          <%= render partial: 'notes/note_item', collection: @note_items, locals: {editable_snippet: false} %>
+        </div>
+      </div>
+      <% references = @note.references %>
+      <% unless references.size.zero? %>
+      <div id="references" class="block">
+        <h1><%= t('.references') %></h1>
+        <ol>
+          <% references.each do |ref| %>
+          <li><%= display_title ref %>, <%= link_to(ref.url, ref.url, { target: '_blank'}) %> (<%= t('.accessed', date: l(ref.created_at, format: :short)) %>)</li>
+          <% end %>
+        </ol>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<% if @note.category == 'work' && @note.status='original_ws' && session[:nav_section] == 'open_courses' %>
+<div id="sticky-panel">
+  <%= render partial: 'stickies/sticky_panel', locals: { stickies: @stickies } %>
+</div>
+<% end %>
+
+<% if @note.category == 'lesson' && @content%>
+<script>
+// offset: toolbar height + 4px margin
+$("#note-resource").animate({scrollTop:$('#item_<%= @note.content_header_id @content.id %>').offset().top - 36}, 200);
+</script>
+<% end %>

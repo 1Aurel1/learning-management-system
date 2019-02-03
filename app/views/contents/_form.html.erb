@@ -1,0 +1,91 @@
+<%= form_for(@content, url: {action: submit_action, id: @content.id}, html: {id: 'content-form', name: 'content-form', class: 'form-horizontal', remote: true}) do |f| %>
+<%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
+<%#= f.error_messages %>
+
+<div class="bordered-block">
+  <h2>基本情報</h2>
+  <%= render partial: 'layouts/required' %>
+  <div class="form-group row">
+    <%= f.label :title, raw("<span class='required'>*</span>") + t('activerecord.attributes.content.title'), class: 'col-md-3 col-form-label text-sm-right' %>
+    <div class="col-md-7">
+      <%= f.text_field :title, {class: 'form-control', placeholder: t('activerecord.attributes.content.title')} %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :overview, raw("<span class='required'>*</span>") + t('activerecord.attributes.content.overview'), class: 'col-md-3 col-form-label text-sm-right' %>
+    <div class="col-md-7">
+      <%= f.text_area :overview, {class: 'form-control', rows: '8', placeholder: t('activerecord.attributes.content.overview')} %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :condition, class: 'col-md-3 col-form-label text-sm-right' %>
+    <div class="col-md-7">
+      <%= f.text_area :condition, {class: 'form-control', rows: '5', placeholder: t('activerecord.attributes.content.condition')} %>
+      <div class="form-text">学習に必要な知識や器具があれば記載</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :status, raw("<span class='required'>*</span>コースへの新規登録"), class: 'col-md-3 col-form-label text-sm-right' %>
+    <div class="col-md-7">
+      <%= f.select :status, [['可能', 'open'], ['不可能（アーカイブ）', 'archived']], {}, {class: 'form-control'} %>
+    </div>
+  </div>
+  <%= f.hidden_field :category, value: @content.category %>
+</div>
+
+<div class="bordered-block">
+  <h2>学習目標
+    <div class="header-explanation">教材の学習目標を、1〜<%= CONTENT_OBJECTIVE_MAX_SIZE %>個設定
+    </div>
+  </h2>
+  <%= render partial: 'layouts/required' %>
+  <% editable = @content.editable_objectives? %>
+  <% required = true %>
+  <%= f.fields_for :objectives do |objective_form| %>
+  <%= render partial: 'objective_form', locals: {required: required, editable: editable, objective_form: objective_form} %>
+  <% required = false %>
+  <% end %>
+
+  <div class="form-group row">
+    <div class="col-md-11 ml-auto">
+      <ul class="form-list">
+        <li>削除したい目標は、目標を空欄に設定</li>
+        <li>各目標に設定した配点により、課題評価を実施</li>
+        <li>全目標の配点合計は、1教材10点に規格化（10点になっていない場合は自動修正）</li>
+        <li>課題提出が既にある教材は、目標の数、内容、配点の変更不可</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="bordered-block">
+  <%= render partial: 'layouts/required' %>
+  <h2>課題
+    <div class="header-explanation">課題を必ず1つ設定</div>
+  </h2>
+  <div class="form-group row">
+    <label class="col-md-3 col-form-label text-sm-right"><span class="required">*</span>種別</label>
+
+    <div class="col-md-7">
+      <%= f.select :as_category, assignment_categories, {}, {class: 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-md-3 col-form-label text-sm-right">概要</label>
+    <div class="col-md-7">
+      <%= f.text_area :as_overview, {class: 'form-control', rows: '5', placeholder: t('activerecord.attributes.content.as_overview')} %>
+    </div>
+  </div>
+</div>
+
+<% action_hash = submit_action == 'ajax_create' ? {action: 'ajax_index', nav_section: 'repository'} : {action: 'ajax_show', id: @content.id} %>
+<%= render partial: 'layouts/buttons/cancel', locals: {action_hash: action_hash} %>
+<%= render partial: 'layouts/buttons/save_and_next' %>
+<% end %>
+
+<script>
+$(function () {
+  $('#content_title').focus();
+})
+</script>

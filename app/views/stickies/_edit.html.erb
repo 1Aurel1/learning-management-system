@@ -1,0 +1,55 @@
+<% if sticky.new_record? %>
+<% id = 0 %>
+<% form_id = 'create_sticky' %>
+<% url = {action: 'ajax_create_sticky', view_category: view_category} %>
+<% else %>
+<% id = sticky.id %>
+<% form_id = 'update_sticky_' + id.to_s %>
+<% url = {action: 'ajax_update_sticky', id: id, view_category: view_category} %>
+<% end %>
+
+<div id="<%= form_id %>" class="sticky <%= sticky.category %>-border to-be-hidden" style="display: none;">
+  <div class="clearfix" style="margin: 4px;" >
+    <%= form_for(sticky, url: url, html: {id: 'sticky_form', name: 'sticky_form', remote: true}) do |f| %>
+    <div id="new-sticky">
+      <%= f.text_area :message, id: 'sticky_message', class: 'elastic_textarea' %>
+      <%= f.hidden_field(:course_id, value: sticky.course_id) if sticky.course_id %>
+      <%= f.hidden_field(:target_type, value: sticky.target_type) %>
+      <%= f.hidden_field(:target_id, value: sticky.target_id) %>
+      <%= f.hidden_field(:content_id, value: sticky.content_id) if (sticky.target_type == 'Page') %>
+    </div>
+    <div class="form-inline" style="margin: 2px; display:flex; justify-content: space-between;">
+      <% categories = [] %>
+      <!-- for private sticky creation -->
+      <% categories.push ["#{t('.private_sticky')}", 'private'] %>
+      <!-- for course sticky creation -->
+      <% if session[:nav_id] > 0 %>
+      <% categories.push ["#{t('.course_sticky')}", 'course'] %>
+      <% end %>
+      <%= f.select :category, categories, {}, {class: 'form-control', style: 'width: 9rem;'} %>
+      <%= f.submit "#{t('.save')}", class: 'btn btn-primary', style: 'min-width:7rem;' %>
+      <a id="cancel_<%= form_id %>" class='btn btn-light' style='cursor:pointer; min-width:7rem;'><%= t('.cancel') %></a>
+    </div>
+    <% end %>
+  </div>
+
+
+  <script>
+  $(function () {
+    function cancelSticky () {
+      <% if sticky.new_record? %>
+      toggleCreateSticky();
+      <% else %>
+      toggleUpdateSticky(<%= sticky.id %>);
+      <% end %>
+    }
+    function submitSticky() {
+      $('#<%= form_id %> #sticky_form').submit();
+    }
+    autosize($('.elastic_textarea'));
+    $("#cancel_<%= form_id %>").click(cancelSticky);
+    $("#<%= form_id %> #sticky_message").on('keydown', null, 'shift+return', submitSticky);
+    $("#<%= form_id %> #sticky_message").on('keydown', null, 'esc', cancelSticky);
+  });
+  </script>
+  </div>

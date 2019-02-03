@@ -1,0 +1,375 @@
+ja:
+  bookmarks:
+    new:
+      created_bookmark: 登録済みブックマーク
+      exceeding_the_upper_limit: "ブックマークは%{size}個までしか登録できません"
+      page_title: ブックマークの設定
+      private_bookmark: 個人ブックマーク
+      same_url_bookmark: 同URLのブックマーク登録はタイトルを更新
+      system_bookmark: システムブックマーク
+      unchangeable: 変更不可
+
+  contents:
+    contents_card:
+      course_num: 利用コース数
+      manual: マニュアル
+      no_contents: 表示する教材はありません
+      pages: "%{num}ページ"
+      updated_at: 最終更新日
+    edit_pages:
+      asset_file_explanation: ページファイルで用いる画像ファイル等
+      asset_file_content_type: ファイル形式：制限無し
+      asset_file_upload_folder: アップロードフォルダ：ページファイルと同じ
+      attachment_file_explanation: 教材の表紙に添付
+      attachment_file_content_type: ファイル形式：制限無し
+      attachment_file_upload_folder: アップロードフォルダ：ページ・素材ファイルとは別
+      content_file_edit: 教材ファイルの編集
+      max_file_size: "ファイルサイズの上限：%{size}MB/ファイル"
+      page_file_explanation: 教材のページを構成
+      page_file_content_type: ファイル形式：HTML, PDF, 画像 (gif, jpg, png), 映像 (mov, mp4)
+      page_file_sort: ページ順：ドラッグ＆ドロップで設定
+    index:
+      course_content_management: コースと教材の管理
+      newest: 最新版
+      recommended_browsers: 推奨するWebブラウザ
+      released_at: 公開日
+      remarks_for_edge: なお、Edgeブラウザでは、ノート機能が利用できません
+      shortcut_keys: ショートカットキー
+      system_version: システムのバージョン
+      use_following_browsers: LePoは、以下のwebブラウザで利用してください
+    toolbar_show:
+      edit: :layouts.buttons.edit.edit
+
+  courses:
+    course_pref:
+      course_preferences: コース設定
+    course_manager_select:
+      add: 追加
+      input_id_or_name: IDまたは氏名の一部を入力して選択
+      unregister: 解除
+    form:
+      auto_register_of_course_manager: 指定しない場合は、コース作成ユーザを教師に自動登録
+      disabled_to_be_draft: 公開中/アーカイブの状態から、準備中には戻せません
+      group_default: グループを利用しない場合は1を設定
+      group_explanation: 学生をグループに分類して、ワークシートを閲覧/相互評価可能
+      no_course_manager_form: 公開中またはアーカイブのコースでは、コースメンバーページから編集可能
+      remove_image: 画像を削除
+    goal_card:
+      assigned_objectives: 対応するレッスン目標
+      goals: コース目標
+      none: なし
+      points: 点
+      show_details: 詳細を表示 / 非表示
+    lessons_card:
+      no_lessons: 表示するレッスンはありません
+      pages: :contents.contents_card.pages
+      to_draft: 非公開に変更
+      to_open: 公開に変更
+    option_form:
+      duplication_settings: 複製先コースの設定
+    search_courses:
+      search_course: コースの検索
+      select_course: コースの選択
+      exp_search_course: '%{num}コースまでを上限に、学期 / タイトル / 状態/ 教師 で検索'
+      placeholder_title: タイトル名を入力
+      placeholder_manager: 氏名を入力
+    select_course:
+      current_course: 現在のコース
+      select_course: コースの選択
+    toolbar_show:
+      create_sticky: :stickies.toolbar.create_sticky
+      highlight_text: 文字をハイライト
+      show_content: 教材を表示
+      show_note: レッスンノートを表示
+
+  course_members:
+    edit_group:
+      group: :course_members.index.group
+    index:
+      group: "%{index}班"
+    members:
+      users:  "%{num}名"
+    signin_reports:
+      show_learners_details: 学生の情報を表示 / 非表示
+    toolbar:
+      edit_group: グループ編集
+
+  dashboard:
+    index:
+      archived_course: コースが終了したため、保管庫に移動しました
+      evaluator_outcome: "Lesson %{display_order} : 未評価の提出課題が%{outcome_num}件あります"
+      learner_outcome: "Lesson %{display_order} : 未確認の課題評価があります"
+      lesson_note_update: "Lesson %{display_order} : レッスンノートの内容を更新しました"
+      no_dashboard_cards: 現在、ダッシュボードに表示する情報はありません
+
+  devices:
+    index:
+      new_device: 新規登録
+
+  layouts:
+    assignment_page:
+      assignment: :layouts.cover_page.assignment
+    breadcrumb:
+      top: トップ
+    buttons:
+      back:
+        back: 戻る
+      cancel:
+        cancel: キャンセル
+      create:
+        create: 登録
+      csv_check:
+        csv_check: CSV形式の確認
+      delete:
+        delete: 削除
+      duplicate:
+        duplicate: 複製
+      edit:
+        edit: 編集
+      file_submit:
+        choose_file: ファイルを選択
+        uploading: アップロード中
+      ok:
+        ok: 完了
+      save_and_next:
+        save_and_next: 保存して次へ
+      search:
+        search: 検索
+      toolbar_create:
+        create: :layouts.buttons.create.create
+      toolbar_save_and_next:
+        save_and_next: :layouts.buttons.save_and_next.save_and_next
+      toolbar_update:
+        update: :layouts.buttons.update.update
+      update:
+        update: 更新
+    card_l:
+      show_rest: 続きを表示 / 非表示
+    cover_page:
+      assignment: 課題
+      objectives: レッスン目標
+    main_nav:
+      home: ホーム
+      open_courses: 実行中のコース
+      repository: 保管庫
+    member_candidates:
+      no_search_results: 検索条件を満たす結果はありません
+    message_card:
+      card_closer: 閉じる
+      snippet_saved: レッスンノートに保存しました
+      shortcut_keys: :contents.index.shortcut_keys
+    page_number:
+      portfolio: :helpers.portfolio
+    required:
+      required_item: 設定必須項目
+    search_members:
+      search_word: 検索語句
+    shortcut_keys:
+      page_operations: ページ操作
+      one_page_back: 前のページを表示
+      one_page_next: 次のページを表示
+      five_pages_back: 5ページ前を表示
+      five_pages_next: 5ページ先を表示
+      cover_page: 表紙ページを表示
+      assignment_page: 課題ページを表示
+      sticky_operations: ふせん操作
+      create_sticky: ふせんを作成
+      submit_edited_sticky: 編集中のふせんを貼る
+      cancel_edited_sticky: 編集中のふせんをキャンセル
+      other_operations: その他
+      toggle_lesson_note_display: レッスンノートの表示/非表示
+      toggle_sub_pane_display: サイドパネルの開閉
+      toggle_message_card: このメッセージの開閉
+    sub_toolbar:
+      add: :courses.course_manager_select.add
+      new_bookmark: ブックマークを作成
+      new_content: 教材を作成
+      new_course: コースを作成
+      signout: サインアウト
+
+  notes:
+    form:
+      char_num_error: 文字数オーバー
+      status_message1: ワークシートを登録すると、他の状態が選択可能
+      status_message2: 学生に配布したワークシートは、配布された学生のみ編集可能
+      status_message3: 学生に配布できるワークシートは、コースで最大1つのみ
+      review_message: 評価開始後に評価対象数を変更すると、学習者が評価するワークシートも変更
+    group:
+      group: :course_members.index.group
+      users: :course_members.members.users
+    header:
+      characters: 字
+      media_count: 画像等の数
+      pages: ページ
+      pieces: 個
+      referenced_web_count: 参考Webページ数
+      star_count: スター数
+      uploaded_media_count: アップロードした画像等の数
+      written_char_count: 書き込んだ文字の数
+    header_index:
+      index: 目次
+    index_courses:
+      no_worksheet_notes: 現在、ワークシートはありません
+    index_group:
+      for_peer_review: 相互評価の対象
+      for_peer_review_message: ふせんやスターを用いて、以下のワークシートを評価をして下さい。評価の対象は人により異なります。
+      no_open_worksheet: 現在、公開されているワークシートは、ありません。
+      not_for_peer_review: 相互評価の対象外
+      not_for_peer_review_message: あなたは以下のワークシートを評価しなくて構いません。
+    index_home:
+      no_note_resources: 現在、管理しているノートはありません
+      no_snippets: 現在、ノートに未保存のWebから記録した情報はありません
+      snippet_transfer: 引用した情報はドラッグ＆ドロップ、またはメニュー「操作」からノートに移動して下さい
+    subtitle:
+      private: :activerecord.others.note.category.private
+      lesson: :activerecord.others.note.category.lesson
+      work: :activerecord.others.note.category.work
+    note:
+      default: 標準
+      media_count: :notes.header.media_count
+      star_count: :notes.header.star_count
+      sticky_count: ふせんの数
+    show:
+      accessed: "%{date} 閲覧"
+      references: 参考資料
+    toolbars:
+      courses:
+        group: :course_members.index.group
+      home:
+        export: テキスト出力
+        reload: 再読み込み
+
+  outcomes:
+    evaluator:
+      points: :courses.goal_card.points
+    message:
+      points: :courses.goal_card.points
+    messages:
+      no_messages: メッセージはありません
+
+  portfolios:
+    achievement_reports:
+      learning_progress: 学習の進捗
+      show_learners_details: :course_members.signin_reports.show_learners_details
+    goal_reports:
+      goal_achievement_rate: コース目標の達成率
+    lessons_card:
+      no_lessons: :courses.lesson_card.no_lessons
+    star_reports:
+      show_learners_details: :course_members.signin_reports.show_learners_details
+      star_acquisition_status: スターの獲得状況
+    toolbar:
+      portfolio: :helpers.portfolio
+
+  preferences:
+    index:
+      system_preferences: システム設定（システム管理者限定）
+      user_preferences: ユーザ設定
+    toolbar:
+      new_user: :helpers.new_user
+      note: :helpers.note
+      user_account: :helpers.user_account
+    update_pref:
+      version_header: 'v%{from_ver} から v%{to_ver} に更新'
+
+  signin:
+    setup:
+      admin_account_header: システム最高管理者アカウント
+      admin_account_message1: 以下のフォームより、システム最高管理者のアカウントを作成しましょう。システム最高管理者のアカウントはシステムに1つだけ作成する必要があり、複数作成できるシステム管理者アカウントを管理します。
+      admin_account_message2: パスワードは英数字で、次の文字数の範囲で設定してください
+      admin_account_message3: システム最高管理者とシステム管理者は、次のIPアドレスからのみサインイン可能です。
+      admin_account_message4: システム最高管理者の作成は完了しています。
+      config_header: 設定ファイル
+      config_message1: ファイルの記載事項を確認し、必要に応じて適切な値を設定しましょう。
+      config_message2: 利用するデータベースの情報を、ファイルに設定しましょう。開発環境で SQLite3 を用いる場合は、ここでは修正せずに先に進んでも構いません。
+      config_message3: secret_key_base の値を、ファイルに設定しましょう。なお、Production 環境では、環境変数として secret_key_base の値を設定します。
+      config_message4: secret_key_base のランダム文字列を生成するには、「rails secret」コマンドなどが利用できます。
+      config_message5: 上記の設定ファイルの修正が終わったら、Railsサーバを再起動してからStep 3. に進みます。
+      header: 学習支援システム LePo にようこそ!
+      license_header: ライセンス
+      license_message1: このソフトウェアは、GNU Affero General Public License, version 3 に基づき、オープンソースソフトウェアとして公開しています。
+      license_message2: このライセンスについては、以下のリンクから確認して下さい。
+      message1: LePoを利用する前に、以下のステップを完了しましょう。
+      message2: システム最高管理者の作成が完了しました！
+      message3: ページを再読み込みしてサインインページを表示し、システム最高管理者でLePoにサインインしましょう。
+      password_confirmation: Password（確認用）
+      ok: :layouts.buttons.ok.ok
+    sub_toolbar:
+      add: :courses.course_manager_select.add
+      signout: :layouts.sub_toolbar.signout
+
+  snippets:
+    create_file:
+      image: 画像
+      uploading: :layouts.buttons.file_submit.uploading
+    create_snippet_btns:
+      header: 見出し
+      subheader: 小見出し
+      text: 段落
+    form:
+      cancel: :layouts.buttons.cancel.cancel
+      char_num_error: :notes.form.char_num_error
+    items:
+      footer_page:
+        delete: :layouts.buttons.delete.delete
+      footer_web:
+        operations: 操作
+      operations_direct:
+        edit: :layouts.buttons.edit.edit
+      operations_upload:
+        delete: :layouts.buttons.delete.delete
+        edit: :layouts.buttons.edit.edit
+      operations_web:
+        cited_at: '%{datetime} 引用'
+        delete: :layouts.buttons.delete.delete
+        enter_citation: PDFファイルからの引用文を入力
+        move_to: '%{title} の下に移動'
+        remove: ノートの外に移動
+        transfer_to: '%{note_title}に移動'
+      pdf:
+        input_pdf_text: PDFファイルからは直接引用できません。「操作」ボタンから引用文を入力してください。
+
+  stickies:
+    edit:
+      cancel: :layouts.buttons.cancel.cancel
+      course_sticky: :activerecord.others.sticky.category.course
+      private_sticky: :activerecord.others.sticky.category.private
+      save: 保存
+    hot_stickies:
+      hot_stickies: 注目のふせん
+    sticky:
+      course: コース
+      delete: :layouts.buttons.delete.delete
+      edit: :layouts.buttons.edit.edit
+      last_updated_at: :helpers.last_updated_at
+      no_update: 更新なし
+      private: 個人
+    sticky_reports:
+      search: :layouts.buttons.search.search
+    toolbar:
+      create_sticky: ふせんを作成
+      hide_sticky_panel: ふせんパネルを非表示
+      reload_stickies: ふせんを再読み込み
+      show_sticky_panel: ふせんパネルを表示
+      stickies_by_date: ふせんを作成順で表示
+      stickies_by_stars: ふせんをスター順で表示
+
+  users:
+    account_pref:
+      impossible: :helpers.impossible
+      possible: :helpers.possible
+    profile_pref:
+      open_within_courses: 登録コース内で公開
+      remove_image: :courses.form.remove_image
+    search_users:
+      search: :layouts.buttons.search.search
+      search_word: :layouts.search_members.search_word
+    update_user:
+      account: :helpers.account
+      impossible: :helpers.impossible
+      no_password_edit: 変更しない場合は空欄
+      none: :courses.goal_card.none
+      possible: :helpers.possible
+      self_password_edit: 自分のパスワードは、設定 > アカウントから変更
+    user_account_pref:
+      user_account: :helpers.user_account

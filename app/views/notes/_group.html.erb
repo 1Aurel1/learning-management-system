@@ -1,0 +1,17 @@
+<% learners = @course.learners_in_group group_index %>
+<% unless learners.size.zero? %>
+<div class="group-card card">
+  <h2 class="card-header" style="margin-bottom:0;">
+    <%= t('.group', index: group_index + 1) %> : <%= t('.users', num: learners.size) %>
+  </h2>
+  <ul class="list-group list-group-flush">
+    <% learners.each do |l| %>
+    <% if (l.id == session[:id]) %>
+    <li class="list-group-item"><i class='fa fa-user fa-lg'></i> <%= l.full_name %></li>
+    <% else %>
+    <li class="list-group-item" style="text-indent: 1.7rem;"> <%= l.full_name %></li>
+    <% end %>
+    <% end %>
+  </ul>
+</div>
+<% end %>

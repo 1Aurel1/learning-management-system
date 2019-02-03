@@ -1,0 +1,19 @@
+<div id="<%= 'lesson_'+lesson.id.to_s %>" class="associated-object" style="background-color: #777; line-height: 160%; margin-bottom: 4px;">
+  <table>
+    <tr>
+      <th class="draggable-symbol"><i class="fa tentative-grip"></i></th>
+      <th class="serial-number"><%= lesson.display_order %>.</th>
+      <th class="title"><%= lesson.content.title %></th>
+      <th class="l80px">
+        <% status = (lesson.status == 'open') ? 'draft' : 'open' %>
+        <%= link_to({action: 'ajax_update_lesson_status', id: @course.id, lesson_id: lesson.id, status: status, page: 'edit_lessons'}, {class: 'bright-link', remote: true}) do %>
+        <%= status_text(lesson.status) %>
+        <% end %>
+      </th>
+      <td class="l120px"><%= link_to_lesson_evaluator @course, lesson %></td>
+      <td class="r80px">
+        <%= render partial: 'layouts/buttons/delete', locals: {action_hash: {action: 'ajax_destroy_lesson', id: @course.id, lesson_id: lesson.id}, id_attr: '', class_attr: 'bright-link'} %>
+      </td>
+    </tr>
+  </table>
+</div>

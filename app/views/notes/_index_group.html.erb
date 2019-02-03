@@ -1,0 +1,42 @@
+<div id="note-resource" class="scroll-pane">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- With Groups -->
+      <!-- #FIXME: Group work -->
+      <% group_notes = @notes.select{|s| (s.group_index == @group_index) && (@course.learner? s.manager_id)} %>
+
+      <% if group_notes.size == 0 %>
+      <div class="block">
+        <%= render partial: 'layouts/system_message', locals: {message: t('.no_open_worksheet'), message_category: 'info'} %>
+      </div>
+      <% else %>
+
+      <!-- Peer Review -->
+      <% if @course.original_review_work_sheets.size > 0 %>
+      <% group_notes = group_notes.sort! {|a, b| a.id <=> b.id} %>
+      <% peer_review = get_peer_review group_notes, @group_index, session[:id] %>
+      <% if peer_review[:eval].length > 0 %>
+      <div style="margin-top: 5px;">
+        <h2><%= t('.for_peer_review') %></h2>
+        <p><%= t('.for_peer_review_message') %></p>
+        <%= render partial: 'note', collection: peer_review[:eval], locals: {resource: 'index_group', droppable: false} %>
+      </div>
+      <% end %>
+      <% if peer_review[:noeval].size > 0 %>
+      <div style="margin-top: 20px; padding-top: 30px; clear: both;">
+        <h2><%= t('.not_for_peer_review') %></h2>
+        <p><%= t('.not_for_peer_review_message') %></p>
+        <%= render partial: 'note', collection: peer_review[:noeval], locals: {resource: 'index_group', droppable: false} %>
+      </div>
+      <% end %>
+      <%= render(partial: 'peer_review_summary', locals: {group_notes: group_notes}) if @course.staff? session[:id] %>
+
+      <% else %>
+      <div style="margin-top: 10px;">
+        <%= render partial: 'note', collection: group_notes, locals: {resource: 'index_group', droppable: false} %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

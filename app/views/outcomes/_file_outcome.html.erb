@@ -1,0 +1,44 @@
+<div class="loc-subbody">
+  <table class="file-outcome-list">
+    <% if outcome_files.size.zero? %>
+    <tr>
+      <td>ファイルは提出されていません</td>
+    </tr>
+    <% else %>
+    <% outcome_files.each do |file| %>
+    <tr>
+      <th class="file_name"><%= link_to file.file_name, file.upload_rails_url, {target: "_blank"} %></th>
+      <td class="l160px"><%= l(file.created_at, format: :default) %></td>
+      <td class="r80px">
+        <% if show_outcome_form? @lesson_role, outcome_status %>
+        <%= render partial: 'layouts/buttons/delete', locals: {action_hash: {controller: 'outcome_files', action: 'ajax_destroy', id: file.id}, id_attr: '', class_attr: ''} %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </table>
+
+  <% if show_outcome_form? @lesson_role, outcome_status %>
+  <div class="file-outcome-form">
+    <% if (outcome_files.size < OUTCOME_MAX_SIZE) %>
+    <%= form_for :outcome_file, url: {controller: 'outcome_files', action: :ajax_create}, html: {id: 'outcome-file-form', class: 'form-inline', multipart: true}, remote: true do |f| %>
+    <%#= f.error_messages %>
+    <%= f.hidden_field :outcome_id, value: outcome_id %>
+    <div style="padding: 4px;">
+      <%= render partial: 'layouts/buttons/file_submit', locals: {f: f, file_category: 'outcome'} %>
+    </div>
+    <% end %>
+  </div>
+  <% else %>
+  <div class="file-explanation">ファイルは<%= OUTCOME_MAX_SIZE %>個までしか提出できません</div>
+  <% end %>
+  <% end %>
+</div>
+
+
+<script>
+$(function () {
+  fileSubmitStatus("outcome");
+});
+</script>

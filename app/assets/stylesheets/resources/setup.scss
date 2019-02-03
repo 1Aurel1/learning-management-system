@@ -1,0 +1,12 @@
+//
+// CSS for setup-resource
+//
+
+@import 'components/background_image';
+
+#resource #setup-resource {
+	@include background-image;
+	#setup-card {
+		max-width: 720px;
+	}
+}

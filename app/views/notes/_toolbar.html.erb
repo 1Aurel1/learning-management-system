@@ -1,0 +1,6 @@
+<% case session[:nav_section] when 'home' %>
+<%= render partial: 'notes/toolbars/home' %>
+
+<% when 'open_courses', 'repository' %>
+<%= render partial: 'notes/toolbars/courses' %>
+<% end %>

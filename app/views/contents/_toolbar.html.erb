@@ -1,0 +1,26 @@
+<nav id="sub-nav">
+  <%= render partial: 'layouts/breadcrumb', locals: {crumbs: [['']]} %>
+</nav>
+
+<% case controller.action_name when 'index', 'ajax_index' %>
+<% if (session[:nav_section] == 'repository') && (User.content_manageable? session[:id]) %>
+<div id="toolbar-btns">
+  <%= link_to({action: 'ajax_new', category: 'upload'}, {id: 'new-content-btn', class: 'toolbar-btn', remote: true}) do %>
+  <i class='fa fa-plus'></i> <%= t('activerecord.models.content') %>
+  <% end %>
+</div>
+<% end %>
+
+<% when 'ajax_edit', 'ajax_new' %>
+<div id="toolbar-btns">
+  <% action_hash = controller.action_name == 'ajax_new' ? {action: 'ajax_index', nav_section: 'repository'} : {action: 'ajax_show', id: @content.id} %>
+  <%= render partial: 'layouts/buttons/cancel', locals: {action_hash: action_hash, id_attr: 'toolbar-cancel-btn', class_attr: 'toolbar-btn'} %>
+  <%= render partial: 'layouts/buttons/toolbar_save_and_next', locals: {onclick_txt: "$('#content-form').submit()"} %>
+</div>
+
+<% when 'ajax_create', 'ajax_update' %>
+<div id="toolbar-btns">
+  <%= render partial: 'layouts/buttons/back', locals: {action_hash: {action: 'ajax_edit', id: @content.id}, id_attr: 'toolbar-back-btn', class_attr: 'toolbar-btn'} %>
+  <%= render partial: 'layouts/buttons/ok', locals: {action_hash: {action: 'ajax_show', id: @content.id}, id_attr: 'toolbar-ok-btn', class_attr: 'toolbar-btn'} %>
+</div>
+<% end %>

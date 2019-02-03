@@ -1,0 +1,349 @@
+ja:
+  activerecord:
+    models:
+      asset_file: 素材ファイル
+      attachment_file: 添付ファイル
+      attendance: 出席
+      bookmark: ブックマーク
+      content: 教材
+      content_member: 教材メンバー
+      course: コース
+      course_member: コースメンバー
+      device: デバイス
+      goal: 到達目標
+      goals_objective: コースと教材のゴール
+      lesson: レッスン
+      message_template: メッセージテンプレート
+      note: ノート
+      note_star: ノートのスター
+      notice: お知らせ
+      objective: 到達目標
+      outcome: 学習の成果
+      outcome_file: 成果物（ファイル）
+      outcome_message: メッセージ
+      outcome_text: 成果物（テキスト）
+      outcomes_objective: 成果と目的
+      page: ページファイル
+      signin: サインイン
+      snippet: スニペット
+      sticky: ふせん
+      sticky_star: ふせんのスター
+      term: 学期
+      user: ユーザ
+      web_page: Webページ
+
+    attributes:
+      asset_file:
+        content: :activerecord.models.content
+        upload_content_type: アップロードコンテントタイプ
+        upload_file_name: アップロードファイル名
+        upload_file_size: アップロードファイルサイズ
+        upload_updated_at: 更新日時：
+
+      attachment_file:
+        content: :activerecord.models.content
+        upload_content_type: アップロードコンテントタイプ
+        upload_file_name: アップロードファイル名
+        upload_file_size: アップロードファイルサイズ
+        upload_updated_at: 更新日時：
+
+      attendance:
+        lesson: :activerecord.models.lesson
+        memo: メモ
+        user: :activerecord.models.user
+
+      bookmark:
+        display_order: 表示順序
+        manager: 管理者
+        title: タイトル
+
+      content:
+        as_category: 課題カテゴリ
+        as_overview: 課題概要
+        asset_files: :activerecord.models.asset_file
+        attachment_files: :activerecord.models.attachment_file
+        category: カテゴリー
+        condition: 学習の条件
+        content_members: コンテンツユーザ
+        courses: :activerecord.models.course
+        lessons: :activerecord.models.lesson
+        objectives: 目標
+        overview: 概要
+        page_files: :activerecord.models.page
+        status: 状態
+        stickies: ふせん
+        title: タイトル
+
+      content_member:
+        content: :activerecord.models.content
+        role: 役割
+        user: :activerecord.models.user
+
+      course:
+        assistants: アシスタント
+        contents: :activerecord.models.content
+        course_members: コースのユーザ
+        goals: :activerecord.models.goal
+        groups_count: グループ数
+        image_data: 画像ファイル
+        learners: 学習者
+        lessons: :activerecord.models.lesson
+        managers: 教師
+        original_draft_work_sheets: ワークシート（非公開）
+        original_open_work_sheets: ワークシート（公開）
+        original_review_work_sheets: ワークシート（レビュー）
+        members: メンバー
+        notes: ノート
+        notices: :activerecord.models.notice
+        open_lessons: レッスン（公開中）
+        outcomes: :activerecord.models.outcome
+        overview: 概要
+        period: 時限
+        status: 状態
+        notes: :activerecord.models.note
+        term_id: :activerecord.models.term
+        title: タイトル
+        weekday: 曜日
+
+      course_member:
+        course: :activerecord.models.course
+        group: 班
+        role: 役割
+        user: :activerecord.models.user
+
+      device:
+        managers: 管理者
+        title: タイトル
+        registration: 登録
+
+      goal:
+        course: :activerecord.models.course
+        goals_objectives: コースと教材の目標
+        lessons: :activerecord.models.lesson
+        objectives: 目標
+        title: タイトル
+
+      goals_objective:
+        goal: :activerecord.models.goal
+        lesson: :activerecord.models.lesson
+        objective: :activerecord.models.objective
+
+      lesson:
+        attendance_end_at: 出席確認の開始日時
+        attendance_start_at: 出席確認の終了日時
+        attendances: activerecord.models.attendance
+        content: :activerecord.models.content
+        course: :activerecord.models.course
+        display_order: 表示順序
+        evaluator: :activerecord.models.evaluator
+        goals_objectives: 目標の目標
+        no_goal_objectives: 目標の目標はありません
+        outcomes: :activerecord.models.outcome
+        status: 状態
+
+      message_template:
+        content: :activerecord.models.content
+        counter: カウンター
+        manager: 管理者
+        message: メッセージ
+        objective: :activerecord.models.objective
+
+      note:
+        category: カテゴリー
+        course: 利用コース
+        direct_snippets: ダイレクトスニペット
+        direct_text_snippets: ダイレクトテキストスニペット
+        manager: 管理者
+        note_stars: :activerecord.models.note_star
+        overview: 概要
+        peer_reviews_count: 評価対象数
+        snippets: :activerecord.models.snippet
+        stared_users: スターをつけたユーザ
+        status: 状態
+        stickies: :activerecord.models.sticky
+        text_snippets: テキストスニペット
+        title: タイトル
+        web_snippets: Webスニペット
+        web_text_snippets: Webテキストスニペット
+
+      note_star:
+        manager: 管理者
+        note: :activerecord.models.note
+        stared: スター
+
+      notice:
+        course: :activerecord.models.course
+        manager: 管理者
+        message: メッセージ
+        status: 状態
+
+      objective:
+        allocation: 配点
+        content: :activerecord.models.content
+        criterion: 基準
+        goals: ゴール
+        goals_objectives: コースと教材の目標
+        outcomes: :activerecord.models.outcome
+        outcomes_objectives: 学習成果と目的
+        title: タイトル
+
+      outcome:
+        checked: 確認済み
+        course: :activerecord.models.course
+        lesson: :activerecord.models.lesson
+        manager: 管理者
+        objectives: 目標
+        outcome_files: :activerecord.models.outcome_file
+        outcome_messages: :activerecord.models.outcome_message
+        outcome_text: :activerecord.models.outcome_text
+        outcomes_objectives: 学習成果と目的
+        score: スコア
+        status: 状態
+
+      outcome_file:
+        outcome: :activerecord.models.outcome
+        upload_data: アップロードデータ
+
+      outcome_message:
+        manager: 管理者
+        message: メッセージ
+        outcome: :activerecord.models.outcome
+        score: スコア
+
+      outcome_text:
+        entry: エントリー
+        outcome: :activerecord.models.outcome
+
+      outcomes_objective:
+        eval_achievement: 教師評価
+        objective: :activerecord.models.objective
+        outcome: :activerecord.models.outcome
+        self_achievement: 自己評価
+
+      page:
+        content: :activerecord.models.content
+        display_order: 表示順序
+        stickies: ふせん
+        upload_content_type: アップロードコンテントタイプ
+        upload_file_name: アップロードファイル名
+        upload_file_size: アップロードファイルサイズ
+        upload_updated_at: 更新日時：
+
+      signin:
+        src_ip: アクセス元IPアドレス
+        user: :activerecord.models.user
+
+      snippet:
+        category: カテゴリー
+        description: 説明
+        display_order: 表示順序
+        manager: 管理者
+        note: :activerecord.models.note
+        source: :activerecord.models.source
+        source_type: ソースの種類
+
+      sticky:
+        category: カテゴリー
+        content: :activerecord.models.content
+        manager: 管理者
+        message: メッセージ
+        note: :activerecord.models.note
+        page: :activerecord.models.page
+        stared_users: スターをつけたユーザ
+        sticky_stars: :activerecord.models.sticky_star
+        target_type: ターゲットタイプ
+
+      sticky_star:
+        manager: :activerecord.models.manager
+        stared: スター
+        sticky: :activerecord.models.sticky
+
+      term:
+        courses: コース
+        end_at: 終了日
+        start_at: 開始日
+        title: タイトル
+
+      user:
+        attendances: 出席者
+        authentication: 認証方式
+        contents: 内容
+        content_members: 教材ユーザ
+        courses: コース
+        course_members: コースユーザ
+        description: 説明
+        devices: デバイス
+        family_name: 姓
+        phonetic_family_name: 姓よみ
+        given_name: 名
+        phonetic_given_name: 名よみ
+        hashed_password: ハッシュ化したパスワード
+        image_data: 画像データ
+        last_signin_at: 最終サインイン日時
+        lessons: :activerecord.models.lesson
+        notes: :activerecord.models.note
+        outcome_messages: :activerecord.models.outcome_message
+        outcomes: :activerecord.models.outcome
+        role: 役割
+        signin_name: User ID
+        signins: :activerecord.models.signin
+        snippets: :activerecord.models.snippet
+        stickies: :activerecord.models.sticky
+        sticky_stars: :activerecord.models.sticky_star
+        token: トークン
+        web_url: Web URL
+
+      web_page:
+        snippets: :activerecord.models.snippet
+        title: タイトル
+        url: URL
+
+    others:
+      content:
+        as_category:
+          file: ファイル提出
+          outside: システム外
+          text: 文章記述
+      content_member:
+        role:
+          manager: 管理者
+          assistant: アシスタント
+          user: 利用者
+      course:
+        status_archived: アーカイブ
+        status_draft: 準備中
+        status_open: 公開中
+      created_at: 作成日時
+      note:
+        category:
+          private: 個人ノート
+          lesson: レッスンノート
+          work: ワークシートノート
+        status:
+          archived: アーカイブ
+          distributed_draft: 学生に配布
+          draft: 作成中
+          open: 公開中
+          review: 相互評価中
+      outcome:
+        status:
+          draft: 未提出
+          fix: 修正中
+          return: 評価完了
+          self_submit: 自己評価完了
+          submit: 評価依頼中
+      updated_at: 更新日時
+      sticky:
+        category:
+          private: 個人ふせん
+          course: コースふせん
+      user:
+        authentication:
+          local: ローカル
+          ldap: LDAP
+        full_name: 氏名
+        role:
+          admin: システム最高管理者
+          manager: システム管理者
+          user: 一般ユーザ
+          suspended: 利用停止

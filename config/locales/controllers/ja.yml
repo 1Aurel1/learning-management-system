@@ -1,0 +1,33 @@
+ja:
+  controllers:
+    bookmarks:
+      created: ブックマークを登録しました
+      creation_failed: ブックマークの登録に失敗しました
+      updated: ブックマークを更新しました
+    contents:
+      save_error: 教材の保存に失敗しました
+      no_object: (目標 未設定)
+      no_object_error: 到達目標を、1つ以上設定してください
+      updated: " %{name} を更新しました"
+      update_failed: " %{name} の更新に失敗しました"
+      upload_failed: " %{name} のアップロードに失敗しました"
+    courses:
+      no_courses_with_criteria: 条件を満たすコースが見つかりません
+    notes:
+      creation_error: ノートの作成に失敗しました。入力した値を確認して下さい。
+    preferences:
+      update_success: "v%{version} へのアップデートに成功しました！"
+      update_failed: "v%{version} へのアップデートに失敗しました"
+    signin:
+      error1: アクセスを許可されていません
+      error2: User ID または Password に間違いがあります
+      setup_error1: 最高管理者アカウントの作成に失敗しました。入力した文字列を確認し、再度、作成してみましょう
+      setup_error2: 既に最高管理者アカウントが登録されているため、再度、登録することはできません
+    snippets:
+      character_numbers_error: "文字数（%{current}）が上限（%{limit}）を超えています"
+      creation_error: テキストの保存に失敗しました
+      inside_lepo_error: LePo内の情報は、+Noteできません
+      pdf_creation: "PDF: URLのみ保存しました（選択文字は未保存）"
+      re_register_button_error: +Noteボタンを再登録してください
+      transfer_error: ノートの移動に失敗しました
+      upload_error: ファイルの保存に失敗しました

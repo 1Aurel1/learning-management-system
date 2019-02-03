@@ -1,0 +1,4 @@
+<div id="toolbar-btns">
+  <%= render partial: 'layouts/buttons/cancel', locals: {action_hash: course_cancel_hash, id_attr: 'toolbar-cancel-btn', class_attr: 'toolbar-btn'} %>
+  <%= render partial: 'layouts/buttons/toolbar_save_and_next', locals: {onclick_txt: "$('#course-form').submit()"} %>
+</div>

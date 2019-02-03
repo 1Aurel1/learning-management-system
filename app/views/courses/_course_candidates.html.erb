@@ -1,0 +1,36 @@
+<div class="card block">
+  <h2 class="card-header"><%= title %></h2>
+  <div class="card-body" style="padding: 1px;">
+    <table class="table table-sm table-striped course-table">
+      <% courses.each do |course| %>
+      <tr>
+        <td class="image-td">
+          <%= render partial: 'layouts/image', locals: {obj: course, fa_class: 'fa-flag', img_px: '40'} %>
+        </td>
+        <td class="name-td">
+          <%= term_display_title course.term.title %>
+        </td>
+        <% managers = course_managers_display_list(course) %>
+        <td class="name-td">
+          <%= course.title %>
+        </td>
+        <td class="name-td">
+          <span class="badge badge-secondary"><%= t('activerecord.others.course.status_'+course.status) %></span>
+        </td>
+        <td class="name-td">
+           <span class="Label label-info" data-toggle="tooltip" data-original-title="<%= managers %>">
+            <%= managers.truncate(COURSE_MANAGER_DISPLAY_MAX_LENGTH) %></span>
+        </td>
+        <td class="button-td">
+          <%= render partial: 'layouts/buttons/edit', locals: {action_hash: {action: 'ajax_index_by_system_staff', id: course.id}, class_attr: 'btn btn-light'} %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<script>
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip( { trigger: "hover"})
+})
+</script>

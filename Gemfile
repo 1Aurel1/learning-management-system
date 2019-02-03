@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'tzinfo-data'
+gem 'pg'
 # Fix autoprefixer-rails verstion 8 to precompile assets with therubyracer
 gem 'autoprefixer-rails', '~>8.6.5'
 gem 'autosize', '~> 2.4'

@@ -8,6 +8,7 @@ gem 'tzinfo-data'
 # Fix autoprefixer-rails verstion 8 to precompile assets with therubyracer
 gem 'autoprefixer-rails', '~>8.6.5'
 gem 'autosize', '~> 2.4'
+gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'bootstrap', '~> 4.1.0'
 # gem "chartkick"
 gem 'coffee-rails', '~> 4.2.0'
@@ -39,7 +40,7 @@ gem 'uglifier', '~> 4.1.14'
 gem 'whenever', require: false
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.0'
+  
 end
 
 group :development do
@@ -67,7 +68,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.1', '>= 1.1.4'
+  
   # Use Puma as the app server
   # gem 'puma', '~> 3.0'
 

@@ -5,9 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create  signin_name: "reli",
-                    authentication: "local",
-                    hashed_password: "12345678",
-                    role: "admin",
-                    family_name: "marishta",
-                    given_name: "reli"
+user = User.create  signin_name: "root", family_name: "Marishta", given_name: "Aurel", password: "progprog", role: "admin", phonetic_family_name: "master", phonetic_given_name: "reli"

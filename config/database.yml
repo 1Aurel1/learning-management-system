@@ -23,9 +23,5 @@ test:
 production:
   <<: *default
   adapter: mysql
-  host: uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com
-  username: eagve6j0hcuzb50k
-  password: p2lx9v1eq5zpb5t6
-  port: 3306
-  database: ccp1yjplemk70ya4
+  
 

@@ -1,11 +1,11 @@
 <% outcome = observer %>
 <div class="loc">
  <div class="loc-header">
-   提出物と評価 &nbsp; &nbsp;[<%= outcome_status_text outcome.status, outcome.score %>： <%= outcome.score ? outcome.score.to_s+'点' : '-----' %>]
+   Submission and evaluation &nbsp; &nbsp;[<%= outcome_status_text outcome.status, outcome.score %>： <%= outcome.score ? outcome.score.to_s+'点' : '-----' %>]
  </div>
 
  <div class="loc-body">
-  <div class="loc-subheader">提出物</div>
+  <div class="loc-subheader">Submission</div>
   <% case @content.as_category when 'file' %>
   <%= render partial: 'outcomes/file_outcome', locals: {outcome_files: outcome.outcome_files, outcome_id: outcome.id, outcome_status: outcome.status} %>
   <% end %>
@@ -20,12 +20,12 @@
   <%= render partial: 'outcomes/outside_outcome' %>
   <% end %>
 
-  <div class="loc-subheader">達成度評価</div>
+  <div class="loc-subheader">Achievement evaluation</div>
   <div class="loc-subbody">
     <%= render partial: 'outcomes/outcome_objective', collection: outcome.outcomes_objectives, locals: {evaluator_id: 0} %>
   </div>
 
-  <div class="loc-subheader" style="margin-top:10px;">学習を振り返っての<%= outcome_message_text 0 %></div>
+  <div class="loc-subheader" style="margin-top:10px;">Looking back on learning<%= outcome_message_text 0 %></div>
   <div class="loc-subbody">
     <%= outcome_form.fields_for :outcome_messages, Outcome.reflect_on_association(:outcome_messages).klass.new do |message_form| %>
     <%= message_form.text_area :message, style: 'width: 100%; height:4em; padding:0;' %>

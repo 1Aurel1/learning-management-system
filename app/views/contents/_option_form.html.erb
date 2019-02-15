@@ -1,15 +1,15 @@
 <div class="bordered-block">
-  <h2>オプション
+  <h2>option
     <div class="header-explanation">
-      <span id="option_form_opener"><a style="cursor:pointer;" class="bright-link">オプションを表示/非表示</a></span>
+      <span id="option_form_opener"><a style="cursor:pointer;" class="bright-link">Show / hide options</a></span>
     </div>
   </h2>
   <div id="option_form" style="display: none; margin-left:20px;">
-    <h3>教材の削除</h3>
+    <h3>Delete teaching materials</h3>
     <% if @content.lessons.size > 0 %>
-    <p>コースで利用している教材は、削除できません</p>
+    <p>You can not delete teaching materials used in the course</p>
     <% else %>
-    <p>この操作は、取り消すことができません</p>
+    <p>You can not delete teaching materials used in the course</p>
     <%= render partial: 'layouts/buttons/delete', locals: {action_hash: {action: 'ajax_destroy', id: @content.id}} %>
     <% end %>
   </div>

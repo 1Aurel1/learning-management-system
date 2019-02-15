@@ -25,18 +25,18 @@ module OutcomesHelper
   def outcome_message_text(evaluator_id)
     case evaluator_id
     when 0
-      'コメント'
+      ' comment'
     else
-      'メッセージ'
+      ' message'
     end
   end
 
   def outcome_score_text(evaluator_id, score)
     case evaluator_id
     when 0
-      '目標達成率 ' + (score * 10).to_s + '%'
+      'Goal achievement rate ' + (score * 10).to_s + '%'
     else
-      '得点 ' + score.to_s + '点'
+      'score ' + score.to_s + 'point/s'
     end
   end
 
@@ -55,19 +55,19 @@ module OutcomesHelper
     when 'learner'
       case evaluator_id
       when 0
-        '自己評価を保存'
+        'Save self evaluation'
       else
-        '課題を提出'
+        'Submit assignment'
       end
     when 'evaluator'
       case evaluator_id
       when 0
-        'メッセージを送信'
+        'Send message'
       else
-        '評価を確定'
+        'Confirm evaluation'
       end
     when 'manager'
-      'メッセージを送信'
+      'Send message'
     end
   end
 

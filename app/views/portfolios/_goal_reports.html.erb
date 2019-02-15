@@ -14,8 +14,8 @@
       <th class="width240 text-center" colspan="2"><%= t('.goal_achievement_rate') %> [%]</th>
     </tr>
     <tr>
-      <th class="width120 text-center">自己評価</th>
-      <th class="width120 text-center">教師評価</th>
+      <th class="width120 text-center">Self assessment</th>
+      <th class="width120 text-center">Teacher evaluation</th>
     </tr>
     <% end %>
     <%= render partial: 'goal_objective_report', collection: goal_reports(@course, @lessons, @learners, @course_role), locals: {eval_report: (eval_category != 'none')} %>

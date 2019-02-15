@@ -18,8 +18,8 @@
 	<%= render partial: 'stickies/sticky', collection: @stickies, locals: {view_category: 'search'} %>
 </div>
 
-<%= render(partial: 'layouts/system_message', locals: {message: '最新20枚の検索結果を表示', message_category: 'information'}) if @stickies.size == 10 %>
+<%= render(partial: 'layouts/system_message', locals: {message: 'Display the latest 20 results', message_category: 'information'}) if @stickies.size == 10 %>
 <% else %>
-<%= render partial: 'layouts/system_message', locals: {message: '見つかりませんでした', message_category: 'information'} %>
+<%= render partial: 'layouts/system_message', locals: {message: 'Could not be located', message_category: 'information'} %>
 <% end %>
 <% end %>

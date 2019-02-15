@@ -27,13 +27,13 @@
           </button>
           <% when 'none' %>
           <button type="button" class="btn btn-danger">
-            <%= t('activerecord.models.'+category) %>から登録解除
+            <%= t('activerecord.models.'+category) %>Unregister from
           </button>
           <% else %>
           <% button_title = member_role_text category, user[2] %>
           <% if button_title %>
           <button type="button" class="btn btn-primary">
-            <%= button_title %>として登録
+            <%= button_title %>Register as
           </button>
           <% end %>
           <% end %>

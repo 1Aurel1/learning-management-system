@@ -6,8 +6,10 @@ module TermsHelper
 
   def term_display_title term_title
     # FIXME: term format condition, xxxx-yyyyy
-    term_words = term_title.split '-'
-    t('helpers.term_year', year: term_words[0]) + t("helpers.term_category_#{term_words[1]}")
+    term_words = term_title.split ''
+    t('helpers.term_year', year: term_words[0])
+    #unmodified
+    #   t('helpers.term_year', year: term_words[0]) + t("helpers.term_category_#{term_words[1]}")
   end
 
   def selectable_terms(category)

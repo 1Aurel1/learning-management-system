@@ -12,7 +12,7 @@
     <% unchecked = (template.objective_id == obj.id) ? '' : 'unchecked' %>
 
     <%= link_to({controller: 'message_templates', action: 'ajax_toggle_objective', id: template.id, lesson_id: lesson_id, objective_id: obj.id}, {class: 'dropdown-item', remote: true}) do %>
-    <i class='fa fa-check <%= unchecked %>'></i> 目標<%= index + 1 %>の減点テンプレートに設定
+    <i class='fa fa-check <%= unchecked %>'></i> Set as deduction template for target <% = index + 1%>
     <% end %>
     <% end %>
     <% end %>
@@ -20,13 +20,13 @@
     <% toggled_content_id = (template.content_id > 0) ? 0 : session[:content_id] %>
     <% unchecked = (template.content_id > 0) ? 'unchecked' : '' %>
     <%= link_to({controller: 'message_templates', action: 'ajax_toggle_contents', id: template.id, lesson_id: lesson_id, toggled_content_id: toggled_content_id}, {class: 'dropdown-item', remote: true}) do %>
-    <i class='fa fa-check <%= unchecked %>'></i> 全教材テンプレートに設定
+    <i class='fa fa-check <%= unchecked %>'></i> Set as all teaching material template
     <% end %>
 
     <div class="dropdown-divider"></div>
     <%= render partial: 'layouts/buttons/delete', locals: {action_hash: {controller: 'message_templates', action: 'ajax_destroy', id: template.id, lesson_id: lesson_id}, id_attr: '', class_attr: 'dropdown-item'} %>
     <% if template.content_id > 0 %>
-    <div style="float: right; margin-right:16px; font-size:x-small"><%= template.counter %>回使用</div>
+    <div style="float: right; margin-right:16px; font-size:x-small"><%= template.counter %>Times use</div>
     <% end %>
 
   </div>

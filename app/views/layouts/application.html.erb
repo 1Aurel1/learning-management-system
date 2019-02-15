@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -8,8 +8,8 @@
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path 'icon_180.png' %>">
-  <link rel="icon" sizes="192x192" href="<%= asset_path 'icon_192.png' %>">
+  <%= favicon_link_tag 'lms-fav.png' %>
+  
   <!-- FIXME: PushNotification -->
   <!-- <link rel="manifest" href="<%#= asset_path 'manifest.json' %>"> -->
   <title><%= SYSTEM_NAME %></title>

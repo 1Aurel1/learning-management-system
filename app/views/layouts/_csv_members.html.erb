@@ -1,8 +1,8 @@
 <% selected_form = (@form_category == 'csv') %>
 
 <div class="bordered-block <%= 'selected' if selected_form %>">
-  <h2>メンバーのCSV検索と登録
-    <div class="header-explanation">形式： signin_name, role ( manager / assistant / <%= (update_model == 'content_member') ? 'user' : 'learner' %> ) </div>
+  <h2>Member's CSV search and registration
+    <div class="header-explanation">form: signin_name, role ( manager / assistant / <%= (update_model == 'content_member') ? 'user' : 'learner' %> ) </div>
   </h2>
   <div style="margin:4px">
     <%= form_tag({action: 'ajax_csv_candidates'}, remote: true) do %>
@@ -20,6 +20,6 @@
 
   <% if selected_form %>
   <% category = (update_model == 'content_member') ? 'content' : 'course' %>
-  <%= render(partial: 'layouts/member_candidates', locals: {title: '一括検索結果', category: category, form_category: 'csv', users: @candidates, resource_id: resource_id, footer: ''}) %>
+  <%= render(partial: 'layouts/member_candidates', locals: {title: 'Collective search result', category: category, form_category: 'csv', users: @candidates, resource_id: resource_id, footer: ''}) %>
   <% end %>
 </div>

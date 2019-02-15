@@ -38,21 +38,21 @@ module CoursesHelper
   end
 
   def lesson_icon(status, marked_lessons, lesson_id, lesson_role, learner_size)
-    return { class: 'fa fa-lock fa-lg', text: '非公開' } if status == 'draft'
-    return { class: 'fa fa-comment fa-lg icon-red', text: '未確認' } if marked_lessons && marked_lessons[lesson_id] && (marked_lessons[lesson_id] > 0)
+    return { class: 'fa fa-lock fa-lg', text: 'private' } if status == 'draft'
+    return { class: 'fa fa-comment fa-lg icon-red', text: 'unconfirmed' } if marked_lessons && marked_lessons[lesson_id] && (marked_lessons[lesson_id] > 0)
 
     case lesson_role
     when 'learner'
       outcome = Outcome.find_by(manager_id: session[:id], lesson_id: lesson_id)
       if outcome && outcome.score && (outcome.status != 'draft')
-        return { class: 'fa fa-check fa-lg', text: '評価済み[満点]' } if outcome.score == 10
-        return { class: 'fa fa-check fa-lg icon-gray', text: '評価済み' }
+        return { class: 'fa fa-check fa-lg', text: 'Evaluated [full mark]' } if outcome.score == 10
+        return { class: 'fa fa-check fa-lg icon-gray', text: 'Evaluated' }
       end
     when 'evaluator', 'manager', 'assistant'
       outcomes = Outcome.where(lesson_id: lesson_id).to_a
       outcomes.delete_if { |oc| oc.status == 'draft' || !oc.score }
-      return { class: 'fa fa-check fa-lg', text: '評価済み[全員]' } if outcomes.size == learner_size
-      return { class: 'fa fa-check fa-lg icon-gray', text: '評価済み[一部]' } unless outcomes.empty?
+      return { class: 'fa fa-check fa-lg', text: 'Evaluated [everyone]' } if outcomes.size == learner_size
+      return { class: 'fa fa-check fa-lg icon-gray', text: 'Evaluated [part]' } unless outcomes.empty?
     end
     { class: 'no-icon', text: '' }
   end

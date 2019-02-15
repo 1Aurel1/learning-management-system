@@ -150,9 +150,9 @@ module ApplicationHelper
   def sticky_category_short_text(category)
     case category
     when 'course'
-      'コース'
+      'course'
     when 'private'
-      '個人'
+      'private'
     end
   end
 
@@ -161,18 +161,18 @@ module ApplicationHelper
     when 'course', 'private'
       return sticky_category_short_text(category) + 'ふせん'
     when 'user'
-      'ユーザのコースふせん'
+      'Users course'
     end
   end
 
   def status_text(status)
     case status
     when 'draft'
-      '準備中'
+      'in preparation'
     when 'open'
-      '公開中'
+      'Now open'
     when 'archived'
-      'アーカイブ'
+      'archive'
     end
   end
 
@@ -182,9 +182,9 @@ module ApplicationHelper
     assisting_contents = Content.associated_by user.id, 'assistant'
     card = {}
     card['icon'] = 'fa fa-book'
-    card['header'] = '教材に関する活動'
-    card['body'] = "管理している教材： #{managing_contents.size}教材\n"
-    card['body'] += "補助している教材： #{assisting_contents.size}教材\n"
+    card['header'] = 'Activities on teaching materials'
+    card['body'] = "Managed teaching materials: #{managing_contents.size}Teaching materials\n"
+    card['body'] += "Supplementary teaching materials: #{assisting_contents.size}Teaching materials\n"
     card['summary'] = false
     card['footnotes'] = [t('helpers.last_used_at') + ' : ' + last_signin_at_text(user.last_signin_at)]
     card
@@ -196,10 +196,10 @@ module ApplicationHelper
     assisting_courses = Course.associated_by user.id, 'assistant'
     card = {}
     card['icon'] = 'fa fa-flag'
-    card['header'] = 'コースに関する活動'
-    card['body'] = "学習しているコース： #{learning_courses.size}コース\n"
-    card['body'] += "管理しているコース： #{managing_courses.size}コース\n"
-    card['body'] += "補助しているコース： #{assisting_courses.size}コース\n"
+    card['header'] = 'Course activity'
+    card['body'] = "Learning course: #{learning_courses.size}course\n"
+    card['body'] += "Courses being managed: #{managing_courses.size}course\n"
+    card['body'] += "Assisted courses: #{assisting_courses.size}course\n"
     card['summary'] = false
     card['footnotes'] = [t('helpers.last_used_at') + ' : ' + last_signin_at_text(user.last_signin_at)]
     card['footnotes'].push("[#{t('helpers.contents_manage')}: #{user.content_manageable? ? t('helpers.possible') : t('helpers.impossible')}]")
@@ -218,6 +218,7 @@ module ApplicationHelper
     card['summary'] = true
     period_footnote = course_period(course, false).empty? ? '' : course_period(course, false) + ' / '
     card['footnotes'] = [period_footnote + term_display_title(course.term.title)]
+    # card['footnotes'] = [period_footnote + term_display_title(course.term.title)]
     card
   end
 
@@ -229,19 +230,19 @@ module ApplicationHelper
       non_self_eval_num = lesson_resources['non_self_eval'].size
       if non_self_eval_num.zero?
         card['icon'] = 'fa fa-check-circle'
-        card['body'] = '全ての公開レッスンで、自己評価済みです'
+        card['body'] = 'It is self-rated with all open lessons'
       else
         card['icon'] = 'fa fa-exclamation-circle'
-        card['body'] = "以下のレッスンで、自己評価がされていません\n"
+        card['body'] = "Self assessment is not done in the lessons below\n"
         lesson_resources['non_self_eval'].each_with_index do |lesson, i|
-          card['body'] += "　・レッスン#{lesson.display_order}: #{lesson.content.title} \n"
+          card['body'] += "·lesson#{lesson.display_order}: #{lesson.content.title} \n"
           card['body'] += "\n" if (i == 1) && non_self_eval_num > 2
         end
       end
       card['summary'] = true
     else
       card['icon'] = 'fa fa-info-circle'
-      card['body'] = '学生には、自己評価をしていないレッスンが表示されます'
+      card['body'] = 'For students, lessons that do not self-evaluate are displayed'
       card['summary'] = false
     end
     card['footnotes'] = []
@@ -258,7 +259,7 @@ module ApplicationHelper
     card['caption'] = notice.manager.full_name
     card['body'] = notice.message
     card['footnotes'] = [l(notice.updated_at, format: :long)]
-    card['footnotes'].push('[更新]') if notice.created_at != notice.updated_at
+    card['footnotes'].push('[update]') if notice.created_at != notice.updated_at
 
     case action_name
     when 'ajax_edit_notice', 'ajax_notice_pref', 'ajax_create_notice', 'ajax_destroy_notice', 'ajax_reedit_notice', 'ajax_archive_notice', 'ajax_open_notice', 'ajax_update_notice'
@@ -267,7 +268,7 @@ module ApplicationHelper
     when 'signin'
       card['operations'] = nil
     else
-      card['operations'] = [{ label: '公開終了', url: { action: 'ajax_archive_notice_from_course_top', id: course.id, notice_id: notice.id } }] if course.staff? session[:id]
+      card['operations'] = [{ label: 'End of publication', url: { action: 'ajax_archive_notice_from_course_top', id: course.id, notice_id: notice.id } }] if course.staff? session[:id]
     end
     card
   end
@@ -292,9 +293,9 @@ module ApplicationHelper
   def sticky_activity_card_hash(user, stickies)
     card = {}
     card['icon'] = 'fa fa-th-list fa-flip-horizontal'
-    card['header'] = 'ふせんに関する活動'
-    card['body'] = "個人ふせん： 計#{stickies['private']}枚\n"
-    card['body'] += "コースふせん： 計#{stickies['course']}枚\n"
+    card['header'] = 'Activities related to misinformation'
+    card['body'] = "Personal climbing: 計#{stickies['private']}Sheet\n"
+    card['body'] += "course Fix: 計#{stickies['course']}Sheet\n"
     card['summary'] = false
     card['footnotes'] = [t('helpers.last_used_at') + ' : ' + last_signin_at_text(user.last_signin_at)]
     card
@@ -305,12 +306,12 @@ module ApplicationHelper
     case category
     when 'content'
       card['icon'] = 'fa fa-book'
-      card['header'] = '教材とは？'
-      card['body'] = 'PC等で作成した教材ファイルをLePoにアップロードして、教材として利用できます。教材には学習目標と課題の設定が必須です。また、学生は教材の学習目標に対して自己評価を行うことが必須です。教材は以下の手順で新規作成することができます。'
+      card['header'] = 'What is teaching material?'
+      card['body'] = 'You can upload teaching material files created with PC etc to LePo and use it as teaching material. The learning objectives and assignment are essential for teaching materials. Students are also required to self-evaluate the learning objectives of teaching materials. You can create new teaching materials by the following procedure.'
     when 'selfeval_chart'
       card['icon'] = 'fa fa-info-circle'
-      card['header'] = '自己評価の推移'
-      card['body'] = '学生には、自己評価合計の2週間の推移が表示されます。'
+      card['header'] = 'Self-evaluation transition'
+      card['body'] = 'For students, the transition of the self-assessment total for 2 weeks will be displayed.'
     end
     card['summary'] = false
     card['footnotes'] = []
@@ -330,7 +331,7 @@ module ApplicationHelper
     if user.updated_at
       card['footnotes'] = [t('helpers.last_updated_at') + ' : ' + l(user.updated_at, format: :long)]
     else
-      card['footnotes'] = ['最終更新： 未更新']
+      card['footnotes'] = ['Last Updated: Not Updated']
     end
     card
   end
@@ -457,7 +458,7 @@ module ApplicationHelper
     line_data = line_data.slice(0, line_data.length - 1) if line_data.length > 1
     line_data += ']'
 
-    { 'chart_id' => 'self-eval-chart', title: '自己評価合計の推移（過去2週間）', 'x_title' => '', 'x_min' => x_min, 'x_max' => x_max, 'y_title' => '点', 'y_max' => y_max, 'line_data' => line_data }
+    { 'chart_id' => 'self-eval-chart', title: 'Trend of self-evaluation total (past 2 weeks)', 'x_title' => '', 'x_min' => x_min, 'x_max' => x_max, 'y_title' => 'point', 'y_max' => y_max, 'line_data' => line_data }
   end
 
   def get_url_hash(course_id, _course_status)
@@ -498,7 +499,7 @@ module ApplicationHelper
 
       course_id_for_link = sticky.course_id_for_link
       if course_id_for_link > 0
-        link_to(sticky_title, { controller: 'notes', action: 'ajax_show_from_others', nav_id: course_id_for_link, id: sticky.target_id }, title: 'ノートに移動', remote: true)
+        link_to(sticky_title, { controller: 'notes', action: 'ajax_show_from_others', nav_id: course_id_for_link, id: sticky.target_id }, title: 'Move to notebook', remote: true)
       else
         sticky_title
       end
@@ -551,25 +552,25 @@ module ApplicationHelper
       case outcome.status
       when 'draft'
         if evaluator_id > 0
-          link_to(raw("<i class = 'fa fa-times-circle'></i> 再提出をキャンセル"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'return' }, class: 'btn btn-light btn-lg', remote: true) if outcome.score
+          link_to(raw("<i class = 'fa fa-times-circle'></i> Cancel resubmission"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'return' }, class: 'btn btn-light btn-lg', remote: true) if outcome.score
         else
-          link_to(raw("<i class = 'fa fa-times-circle'></i> 再自己評価をキャンセル"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'self_submit' }, class: 'btn btn-light btn-lg', remote: true) if outcome.score
+          link_to(raw("<i class = 'fa fa-times-circle'></i> Cancel re-self evaluation"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'self_submit' }, class: 'btn btn-light btn-lg', remote: true) if outcome.score
         end
       when 'self_submit'
-        link_to(raw("<i class = 'fa fa-check-circle'></i> 自己評価を再入力"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'draft' }, class: 'btn btn-light btn-lg', remote: true)
+        link_to(raw("<i class = 'fa fa-check-circle'></i> Re-enter self evaluation"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'draft' }, class: 'btn btn-light btn-lg', remote: true)
       when 'submit'
         if outcome.checked
-          '教師が評価中のため、評価依頼をキャンセルできません'
+          'Can not cancel evaluation request because teacher is evaluating'
         else
-          link_to(raw("<i class = 'fa fa-times-circle'></i> 評価依頼をキャンセル"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'draft' }, class: 'btn btn-light btn-lg', remote: true)
+          link_to(raw("<i class = 'fa fa-times-circle'></i> Cancel evaluation request"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'draft' }, class: 'btn btn-light btn-lg', remote: true)
         end
       when 'return'
-        link_to(raw("<i class = 'fa fa-check-circle'></i> 課題を再提出"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'draft' }, class: 'btn btn-light btn-lg', remote: true)
+        link_to(raw("<i class = 'fa fa-check-circle'></i> Resubmitting assignments"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'draft' }, class: 'btn btn-light btn-lg', remote: true)
       end
     when 'evaluator'
       case outcome.status
       when 'return'
-        link_to(raw("<i class = 'fa fa-times-circle'></i> 評価をキャンセル"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'submit' }, class: 'btn btn-light btn-lg', remote: true)
+        link_to(raw("<i class = 'fa fa-times-circle'></i> Cancel the evaluation"), { controller: 'outcomes', action: 'ajax_previous_status', id: outcome.id, previous_status: 'submit' }, class: 'btn btn-light btn-lg', remote: true)
       end
     end
   end

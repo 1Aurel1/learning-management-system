@@ -1,21 +1,21 @@
 <div id="course-resource" class="scroll-pane">
   <div class="row" id="edit-lessons">
     <div class="col-md-12">
-      <h1>レッスンの編集</h1>
+      <h1>Edit lesson</h1>
       <%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
 
       <div class="bordered-block">
-        <h2>レッスン構成
-          <div class="header-explanation">1〜<%= COURSE_LESSON_MAX_SIZE %>個のレッスンを登録可能</div>
+        <h2>Lesson composition
+          <div class="header-explanation">1〜<%= COURSE_LESSON_MAX_SIZE %>You can register lessons</div>
         </h2>
 
         <div style="margin-top: 14px;">
-          <h3>新規レッスンの登録</h3>
+          <h3>Register new lesson</h3>
           <div style="padding-left: 20px;">
             <% if @content_array.size == 0 %>
-            新たに追加できる教材がありません
+            There are no teaching materials that can be newly added
             <% elsif @course.lessons.size >= COURSE_LESSON_MAX_SIZE %>
-            登録できるレッスンの上限値<%= COURSE_LESSON_MAX_SIZE %>に達しました
+            Maximum number of lessons that can be registered<%= COURSE_LESSON_MAX_SIZE %>Reached
             <% else %>
             <%= form_for(:lesson, url: {action: 'ajax_create_lesson', id: @course.id}, html: {id: 'lesson-form', class: 'form-inline', style: 'padding: 4px;', remote: true}) do |f| %>
             <%#= f.error_messages %>
@@ -30,7 +30,7 @@
 
         <% if @course.lessons.size > 0 %>
         <div style="margin-top: 10px;">
-          <h3>登録済みレッスン</h3>
+          <h3>Registered lesson</h3>
           <div id="lessons" style="padding-left: 20px; overflow: auto;">
             <%= render partial: 'lesson', collection: @course.lessons %>
           </div>
@@ -39,16 +39,16 @@
       </div>
 
       <div class="bordered-block">
-        <h2>コース目標の確認</h2>
+        <h2>Confirm course objective</h2>
         <ol id="goals">
           <%= render partial: 'goal', collection: @course.goals %>
         </ol>
-        <h2>コース目標とレッスン目標の関連づけ
-          <div class="header-explanation">レッスン教材の到達目標に、関連するコース目標を1つ指定</div>
+        <h2>Associating course objectives with lesson goals
+          <div class="header-explanation">Designate one related course objective for the achievement goal of the lesson material</div>
         </h2>
         <div id="objectives">
           <% @course.lessons.each do |lesson| %>
-          <h3>レッスン<%= lesson.display_order %>： <%= lesson.content.title %></h3>
+          <h3>lesson<%= lesson.display_order %>： <%= lesson.content.title %></h3>
           <%= render partial: 'objective', collection: lesson.content.objectives, locals: {lesson: lesson} %>
           <% end %>
         </div>

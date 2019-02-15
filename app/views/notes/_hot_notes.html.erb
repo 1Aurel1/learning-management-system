@@ -1,5 +1,5 @@
 <% if notes.size > 0 %>
-<h2>注目のノート</h2>
+<h2>Featured notes</h2>
 <div class="block clearfix">
   <%= render partial: 'notes/note', collection: notes, locals: {resource: 'course_index', course_id: course_id, droppable: false} %>
 </div>

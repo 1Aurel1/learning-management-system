@@ -1,4 +1,4 @@
-<h2 class="card-header">レッスン目標の達成率</h2>
+<h2 class="card-header">Lesson target achievement rate</h2>
 <div class="clearfix" style="padding:10px;">
   <% if Outcome.report_displayable? @lesson.id, session[:id], @course_role %>
   <table id="goals-achievements" class="table table-condensed">
@@ -7,17 +7,17 @@
       <tr>
         <th class="width280"></th>
         <th class="width120"></th>
-        <th class="width240 text-center">目標の達成率 [%]</th>
+        <th class="width240 text-center">Goal achievement rate [%]</th>
       </tr>
       <% else %>
       <tr>
         <th class="width280" rowspan="2"></th>
         <th class="width120" rowspan="2"></th>
-        <th class="width240 text-center" colspan="2">目標の達成率 [%]</th>
+        <th class="width240 text-center" colspan="2">Goal achievement rate [%]</th>
       </tr>
       <tr>
-        <th class="width120 text-center">自己評価</th>
-        <th class="width120 text-center">教師評価</th>
+        <th class="width120 text-center">Self assessment</th>
+        <th class="width120 text-center">Teacher evaluation</th>
       </tr>
       <% end %>
       <%= render partial: 'goal_objective_report', collection: objective_reports(@lesson, @learners, @course_role), locals: {eval_report: (@lesson.evaluator_id > 0)} %>

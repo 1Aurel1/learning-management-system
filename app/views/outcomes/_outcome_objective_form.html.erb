@@ -8,11 +8,11 @@
       <br/><span class"criterion"><%= so_form.object.objective.criterion %></span>
       <% end %>
     </td>
-    <th class="self-achievement">自己</th>
+    <th class="self-achievement">self</th>
     <% if evaluator_id > 0 %>
     <th class="eval-achievement"><%= t('activerecord.attributes.course.managers') %></th>
     <% end %>
-    <th class="allocation">配点</th>
+    <th class="allocation">Scoring</th>
   </tr>
   <tr>
     <% if so_form.object.self_achievement %>
@@ -40,7 +40,7 @@
 <% end %>
 
 <div id="outcome_<%= outcome_form.object.id %>_objective_<%= so_form.object.objective.id %>" class="<%= form_class %> control-group" style="display:flex; padding:0.5rem 0.5rem 0;">
-  <div class="control-label" style="width:4rem;">評価：</div>
+  <div class="control-label" style="width:4rem;">Evaluation:</div>
 
   <div class="controls" style="margin-left: 0;" data-lepo-outcome-id="<%= outcome_form.object.id %>" data-lepo-objective-id="<%= so_form.object.objective.id %>" data-lepo-allocation="<%= so_form.object.objective.allocation %>">
     <% (so_form.object.objective.allocation + 1).times do |p| %>

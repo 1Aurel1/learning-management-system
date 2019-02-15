@@ -2,34 +2,34 @@
   <div class="row">
     <div class="col-md-12" style="max-width:720px;">
       <div class="card">
-        <h2 class="card-header">ノート機能の準備</h2>
+        <h2 class="card-header">Preparation of note function</h2>
         <div class="card-body" style="line-height: 150%;">
           <p class="card-text">
-            ノート機能により、Webページ上のさまざまな情報をLePoに保存できます。保存した情報は、ノート内で自分の記載した文章やアップロードした画像ファイルと共に、表示順を指定することができます。
+            With the note function, you can save various information on the web page to LePo. You can specify the display order of the saved information, along with your own sentences and uploaded image files in the notebook.
           </p>
-          【情報を記録する操作】
+          【Operation to record information】
           <ol class="card-text">
-            <li>以下の「+Note」ボタンを、ブラウザのブックマークバー（お気に入りバー）にドラッグ＆ドロップ<br/>
+            <li>以下の「+Drag and drop "Note" button to the bookmark bar (favorite bar) of the browser<br/>
               <a href="<%= lepo_bookmarklet_script %>" class="btn btn-info btn-sm">+Note</a>
             </li>
-            <li>任意のWebページから情報を記録（LePoシステム内やPDFファイルの情報は、記録できません）
+            <li>Information can be recorded from arbitrary Web pages (Information in the system and PDF files can not be recorded)
               <ul>
-                <li>文字：Webページの文字を範囲選択し、ブックマークバーのボタンをクリック！（1回の操作で<%= WEB_SNIPPET_MAX_LENGTH %>文字まで記録可能）</li>
-                <li>画像：何も選択せずボタンをクリック。表示された画像一覧から、任意の画像をクリック！</li>
-                <li>YouTube：特定の動画が表示されたページで、何も選択せずボタンをクリック！</li>
-                <li>TED / Scratch：YouTubeと同様にクリック！</li>
+                <li>Text: Select the range of characters on the web page and click the button on the bookmark bar! (In one operation<%= WEB_SNIPPET_MAX_LENGTH %>Can record up to characters)</li>
+                <li>Image: Click on the button without selecting anything. Click any image from the displayed image list!</li>
+                <li>YouTube: On the page where a specific video was displayed, click on the button without selecting anything!</li>
+                <li>TED / Scratch: Click like YouTube!</li>
               </ul>
             </li>
-            <li>LePoの「ノート管理」から、記録した情報をノートにドラッグ＆ドロップして整理</li>
+            <li>From "note management", organize the recorded information by dragging and dropping it onto the note</li>
           </ol>
         </div>
       </div>
 
       <% if current_user.notes.size.zero? %>
       <div class="card">
-        <h2 class="card-header">標準ノートの設定</h2>
+        <h2 class="card-header">Setting standard notes</h2>
         <div class="card-body" style="line-height: 150%;">
-          現在、管理しているノートがないため、標準ノートの設定はできません。
+          Since there are no notes currently managed, you can not set standard notes.
         </div>
       </div>
       <%= render partial: 'layouts/buttons/ok', locals: {action_hash: {action: 'ajax_index', nav_section: 'home'}} %>
@@ -37,15 +37,15 @@
       <%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
       <%= form_for current_user, url: {action: :ajax_update_default_note}, html: {id: 'user_form', name: 'user_form'}, remote: true do |f| %>
       <div class="card">
-        <h2 class="card-header">標準ノートの設定</h2>
+        <h2 class="card-header">Setting standard notes</h2>
         <div class="card-body" style="line-height: 150%;">
           <p class="card-text">
-            +Noteボタンで記録したWeb情報は、以下で指定する標準ノートに直接保存されます。
+            +The Web information recorded with the Note button is saved directly in the standard note specified below.
           </p>
           <% notes = current_user.notes.where.not(category: :lesson).map {|note| [note.title, note.id]} %>
-          <% notes.unshift ['設定なし', 0] %>
+          <% notes.unshift ['No setting', 0] %>
           <div class="form-group row">
-            <%= f.label :default_note_id, '標準ノート', class: 'col-md-3 col-form-label' %>
+            <%= f.label :default_note_id, 'Standard note', class: 'col-md-3 col-form-label' %>
             <div class="col-md-7">
               <%= f.select :default_note_id, notes, {}, {class: 'form-control'} %>
             </div>

@@ -2,22 +2,22 @@
 <div id="device-resource" class="scroll-pane">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>プッシュ通知をする機器の設定</h1>
+			<h1>Setting of device for push notification</h1>
 			<%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
 
 			<div class="bordered-block">
 				<h2>プッシュ通知とは</h2>
-				<p>提出課題の評価が決定した際に、AndroidスマートフォンやWindowsPC/MacのChromeブラウザに通知を送るサービスです。</p>
+				<p>This service sends notification to Android smartphone or Chrome browser on Windows PC / Mac when evaluation of submission task is decided.</p>
 				<ul>
-					<li>このサービスは試験的な機能であり、iPhone/iPadでは利用することができません。</li>
-					<li>電源オフ、またはインターネットに未接続の時のプッシュ通知は、電源オン、またはインターネットに接続した時点で表示されます。</li>
+					<li>This service is an experimental feature and can not be used on the iPhone / iPad.</li>
+					<li>Push notification when the power is turned off or not connected to the Internet is displayed when the power is turned on or connected to the Internet.</li>
 				</ul>
 			</div>
 
 			<div class="bordered-block">
-				<h2>プッシュ通知をする機器</h2>
+				<h2>Equipment for push notification</h2>
 				<% if current_user.devices.length == 0 %>
-				<p>プッシュ通知をする機器が、登録されていません。</p>
+				<p>A device to push notification is not registered.</p>
 				<% else %>
 				<%= render(partial: 'device', collection: current_user.devices) %>
 				<% end %>

@@ -2,7 +2,7 @@
 <div id="device-resource" class="scroll-pane">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>端末情報更新</h1>
+			<h1>Terminal information update</h1>
 			<%= render partial: 'layouts/required' %>
 			<%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
 			<%= form_for @device, url: {action: :ajax_update, id: @device.id}, html: {id: 'user_form', name: 'user_form', multipart: true}, remote: true do |f| %>
@@ -19,7 +19,7 @@
 					<%= f.label :registration_id, raw("<span class='required'>*</span>通知の有無"), class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-7">
 						<button id="js-push-button" disabled>
-							プッシュ通知を有効にする
+							Enable push notifications
 						</button>
 					</div>
 				</div>

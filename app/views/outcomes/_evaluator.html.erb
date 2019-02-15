@@ -27,7 +27,7 @@
     <% if (outcome.status != 'draft') %>
 
     <div class="accordion-inner">
-      <div class="loc-subheader">提出物</div>
+      <div class="loc-subheader">Submission</div>
       <% case @content.as_category when 'file' %>
       <%= render partial: 'outcomes/file_outcome', locals: {outcome_files: outcome.outcome_files, outcome_id: outcome.id, outcome_status: outcome.status} %>
       <% end %>
@@ -42,11 +42,11 @@
       <%= render partial: 'outcomes/outside_outcome' %>
       <% end %>
 
-      <div class="loc-subheader">達成度評価</div>
+      <div class="loc-subheader">Achievement evaluation</div>
       <div class="loc-subbody">
         <% if (outcome.status == 'submit') && (@lesson_role == 'evaluator') %>
         <%= render partial: 'outcomes/outcome_objective_form', locals: {outcome_form: outcome_form, lesson_role: @lesson_role, evaluator_id: @lesson.evaluator_id} %>
-        <div style="text-align:right;margin-right:1rem;">目標別評価の合計と異なるレッスン評価をする場合の評価： <%= outcome_form.select :score, 0..10, {include_blank: '---', selected: ''}, {class: 'form-control', style: 'display: inline-block; width: 60px;'} %></div>
+        <div style="text-align:right;margin-right:1rem;">Evaluation in case of evaluating a lesson different from the sum of the goal-specific evaluations: <%= outcome_form.select :score, 0..10, {include_blank: '---', selected: ''}, {class: 'form-control', style: 'display: inline-block; width: 60px;'} %></div>
         <% else %>
         <%= render partial: 'outcomes/outcome_objective', collection: outcome.outcomes_objectives, locals: {evaluator_id: @lesson.evaluator_id} %>
         <%= raw("<div style='text-align: right;margin-top:4px;'>（このレッスンの評価担当者ではありません）</div>") if (@lesson.evaluator_id > 0) && (@lesson_role == 'manager') %>
@@ -78,7 +78,7 @@
 
         </div>
         <div class="show_message_form" style="display:<%= ((outcome.status == 'self_submit') || ((outcome.status == 'submit') && (@lesson_role == 'manager'))) ? 'block' : 'none' %>">
-          <a id="create_outcome_message_<%= outcome.id %>" class="btn btn-light" style="cursor:pointer;"><i class='fa fa-comment fa-lg'></i> メッセージを作成</a>
+          <a id="create_outcome_message_<%= outcome.id %>" class="btn btn-light" style="cursor:pointer;"><i class='fa fa-comment fa-lg'></i> Create message</a>
         </div>
       </div>
       <% end %>

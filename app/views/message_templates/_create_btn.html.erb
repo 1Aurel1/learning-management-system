@@ -1,6 +1,6 @@
 <!-- Example split danger button -->
 <div class="btn-group dropup" style="float: left; margin-left: 10px;">
-  <button type="button" id="create_template_<%= outcome_id %>" class="btn btn-light btn-lg"><i class='fa fa-comment'></i> テンプレートに登録</button>
+  <button type="button" id="create_template_<%= outcome_id %>" class="btn btn-light btn-lg"><i class='fa fa-comment'></i> Register in template</button>
   <button type="button" id="create_message_template_option_<%= outcome_id %>" class="btn btn-light btn-lg dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="sr-only">Toggle Dropdown</span>
   </button>
@@ -8,10 +8,10 @@
   <div class="dropdown-menu" aria-labelledby="create_template_<%= outcome_id %>">
     <% if evaluator_id > 0 %>
     <% @content.objectives.each_with_index do |obj, index| %>
-    <a id="create_demerit_template_<%= outcome_id %>_<%= obj.id %>" class="create_template_obj_<%= obj.id %> dropdown-item" style="cursor:pointer;" disabled="disabled">目標<%= index + 1 %>の減点テンプレートに登録</a>
+    <a id="create_demerit_template_<%= outcome_id %>_<%= obj.id %>" class="create_template_obj_<%= obj.id %> dropdown-item" style="cursor:pointer;" disabled="disabled">Register in the deduction template of target <% = index + 1%></a>
     <% end %>
     <% end %>
-    <a id="create_common_template_<%= outcome_id %>" class="dropdown-item" style="cursor:pointer;">全教材テンプレートに登録</a>
+    <a id="create_common_template_<%= outcome_id %>" class="dropdown-item" style="cursor:pointer;">Register to all teaching material template</a>
   </div>
 </div>
 

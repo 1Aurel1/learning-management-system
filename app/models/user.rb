@@ -332,7 +332,7 @@ class User < ApplicationRecord
   end
 
   def password_non_blank
-    errors.add(:password, 'パスワードを入力して下さい') if hashed_password.blank?
+    errors.add(:password, 'Password can not be blank') if hashed_password.blank?
   end
 
   def initialize_ldap_authentication

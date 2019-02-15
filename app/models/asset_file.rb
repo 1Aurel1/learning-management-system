@@ -14,8 +14,10 @@
 
 class AssetFile < ApplicationRecord
   has_attached_file :upload,
-                    path: ':rails_root/public/system/contents/:content_folder_name/:filename',
-                    url: ':relative_url_root/system/contents/:content_folder_name/:filename'
+                    :storage => :cloudinary,
+                    path: 'o_lms/public/system/contents/:content_folder_name/:filename',
+                    url: 'o_lms/system/contents/:content_folder_name/:filename',
+                    :cloudinary_credentials => Rails.root.join("config/cloudinary.yml")
   do_not_validate_attachment_file_type :upload
   validates_attachment_size :upload, less_than: CONTENT_MAX_FILE_SIZE.megabytes
 

@@ -6,41 +6,41 @@
 				<%= t('activerecord.others.user.role.admin') %>
 			</dt>
 			<dd>
-				システムの全管理作業 / 1アカウント（Local認証）を必ず作成
+				Make sure to create the entire system management work / 1 account (Local authentication)
 			</dd>
 			<dt>
 				<%= t('activerecord.others.user.role.manager') %>
 			</dt>
 			<dd>
-				<%= t('activerecord.others.user.role.admin') + 'と' + t('activerecord.others.user.role.manager') %>の編集を除く、システムの全管理作業
+				<%= t('activerecord.others.user.role.admin') + 'と' + t('activerecord.others.user.role.manager') %>All system management work except editing
 			</dd>
 			<dt>
 				<%= t('activerecord.others.user.role.user') %>
 			</dt>
 			<dd>
-				システム管理以外の活動
+				Activities other than system management
 			</dd>
 			<dt>
 				<%= t('activerecord.others.user.role.suspended') %>
 			</dt>
 			<dd>
-				システムにサインインできない状態
+				Inability to sign in to the system
 			</dd>
 		</dl>
 	</div>
 
 	<div class="block alert alert-info">
-		<h4 class="alert-heading">ユーザ登録に用いるCSVフォーマット</h4>
+		<h4 class="alert-heading">CSV format used for user registration</h4>
 		<dl>
 			<dt>
 				role, authentication, signin_name, password, family_name, given_name<%= ', phonetic_family_name, phonetic_given_name' if USER_PHONETIC_NAME_FLAG %>
 			</dt>
 			<dd>
 				<ul>
-					<li>role：manager (システム管理者) / user (一般ユーザ)</li>
+					<li>role：manager (System Administrator) / user (General user)</li>
 					<li>authentication：local / ldap</li>
-					<li>authentication が ldap の場合は、passwordの設定値は無視</li>
-					<li>CSV要素の先頭/最後の空白は削除</li>
+					<li>authentication is ldap, ignore the password setting value</li>
+					<li>Start of CSV element/Delete the last space</li>
 				</ul>
 			</dd>
 		</dl>
@@ -54,8 +54,8 @@
 			<% existing_users_array = [[@admin, 'admin', '']] %>
 			<% existing_users_array = existing_users_array.concat(@managers.zip Array.new(@managers.size, 'manager'), Array.new(@managers.size, 'suspended')) %>
 			<% existing_users_array = existing_users_array.concat(@users.zip Array.new(@users.size, 'user'), Array.new(@users.size, 'suspended')) %>
-			<% footer = @users.size < @users_size ? '一般ユーザ：利用停止中でないアカウントの内、最新10アカウントを表示（全' + @users_size.to_s + 'アカウントが利用中）' : '' %>
-			<%= render(partial: 'layouts/member_candidates', locals: {title: '現在のメンバー', category: 'system', form_category: 'index', users: existing_users_array, resource_id: 0, footer: footer}) %>
+			<% footer = @users.size < @users_size ? 'General user: Of the accounts that are not suspended, the latest 10 accounts are displayed' + @users_size.to_s + 'Account in use)' : '' %>
+			<%= render(partial: 'layouts/member_candidates', locals: {title: 'Current members', category: 'system', form_category: 'index', users: existing_users_array, resource_id: 0, footer: footer}) %>
 			<%= render partial: 'layouts/buttons/ok', locals: {action_hash: {action: 'ajax_index', nav_section: 'home'}} %>
 		</div>
 	</div>

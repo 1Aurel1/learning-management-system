@@ -1,11 +1,11 @@
 <% outcome = learner %>
 <div class="loc">
   <div class="loc-header">
-    提出物と評価 &nbsp; &nbsp;[<%= outcome_status_text outcome.status, outcome.score %>： <%= outcome.score ? outcome_score_text(@lesson.evaluator_id, outcome.score) : '---' %> ]
+    Submission and evaluation &nbsp; &nbsp;[<%= outcome_status_text outcome.status, outcome.score %>： <%= outcome.score ? outcome_score_text(@lesson.evaluator_id, outcome.score) : '---' %> ]
   </div>
 
   <div class="loc-body">
-    <div class="loc-subheader">提出物</div>
+    <div class="loc-subheader">Submission</div>
     <% case @content.as_category when 'file' %>
     <div id="file_outcome">
       <%= render partial: 'outcomes/file_outcome', locals: {outcome_files: outcome.outcome_files, outcome_id: outcome.id, outcome_status: outcome.status} %>
@@ -22,10 +22,10 @@
     <%= render partial: 'outcomes/outside_outcome' %>
     <% end %>
 
-    <div class="loc-subheader">達成度評価</div>
+    <div class="loc-subheader">Achievement evaluation</div>
     <div class="loc-subbody">
       <% if outcome.status == 'draft' %>
-      <div>学習目標の達成度を、配点に基づき自己評価しましょう（授業成績には影響しません）。</div>
+      <div>Let's self-evaluate the degree of achievement of the learning goal based on the score (it does not affect the class performance).</div>
       <%= render partial: 'outcomes/outcome_objective_form', locals: {outcome_form: outcome_form, lesson_role: @lesson_role, evaluator_id: @lesson.evaluator_id} %>
       <% else %>
       <%= render partial: 'outcomes/outcome_objective', collection: outcome.outcomes_objectives, locals: {evaluator_id: @lesson.evaluator_id} %>
@@ -33,7 +33,7 @@
     </div>
 
     <% if outcome.status == 'draft' %>
-    <div class="loc-subheader" style="margin-top:10px;">学習を振り返っての<%= outcome_message_text @lesson.evaluator_id %></div>
+    <div class="loc-subheader" style="margin-top:10px;">Looking back on learning<%= outcome_message_text @lesson.evaluator_id %></div>
     <div class="loc-subbody">
       <%= outcome_form.fields_for :outcome_messages, Outcome.reflect_on_association(:outcome_messages).klass.new do |message_form| %>
       <%= message_form.text_area :message, style: 'width: 100%; height:4em; max-height: 20em; padding:0;', class: 'elastic_textarea' %>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="loc-subheader lesson-menu-header">
-      過去の<%= outcome_message_text @lesson.evaluator_id %>
+      Past<%= outcome_message_text @lesson.evaluator_id %>
       <%= render partial: 'outcomes/lessons_menu', locals: {outcome: outcome, lesson_id: @lesson.id} %>
     </div>
     <div id="messages-<%=outcome.manager_id%>" class="loc-subbody">

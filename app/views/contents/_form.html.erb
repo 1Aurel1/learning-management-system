@@ -3,7 +3,7 @@
 <%#= f.error_messages %>
 
 <div class="bordered-block">
-  <h2>基本情報</h2>
+  <h2>Basic information</h2>
   <%= render partial: 'layouts/required' %>
   <div class="form-group row">
     <%= f.label :title, raw("<span class='required'>*</span>") + t('activerecord.attributes.content.title'), class: 'col-md-3 col-form-label text-sm-right' %>
@@ -21,21 +21,21 @@
     <%= f.label :condition, class: 'col-md-3 col-form-label text-sm-right' %>
     <div class="col-md-7">
       <%= f.text_area :condition, {class: 'form-control', rows: '5', placeholder: t('activerecord.attributes.content.condition')} %>
-      <div class="form-text">学習に必要な知識や器具があれば記載</div>
+      <div class="form-text">Describe any knowledge or instruments necessary for learning</div>
     </div>
   </div>
   <div class="form-group row">
-    <%= f.label :status, raw("<span class='required'>*</span>コースへの新規登録"), class: 'col-md-3 col-form-label text-sm-right' %>
+    <%= f.label :status, raw("<span class='required'>*</span>New registration to the course"), class: 'col-md-3 col-form-label text-sm-right' %>
     <div class="col-md-7">
-      <%= f.select :status, [['可能', 'open'], ['不可能（アーカイブ）', 'archived']], {}, {class: 'form-control'} %>
+      <%= f.select :status, [['Possible', 'open'], ['Impossible (Archive)', 'archived']], {}, {class: 'form-control'} %>
     </div>
   </div>
   <%= f.hidden_field :category, value: @content.category %>
 </div>
 
 <div class="bordered-block">
-  <h2>学習目標
-    <div class="header-explanation">教材の学習目標を、1〜<%= CONTENT_OBJECTIVE_MAX_SIZE %>個設定
+  <h2>Learning goal
+    <div class="header-explanation">Learning objectives of teaching materials are 1 to 1<%= CONTENT_OBJECTIVE_MAX_SIZE %>Individual setting
     </div>
   </h2>
   <%= render partial: 'layouts/required' %>
@@ -49,10 +49,10 @@
   <div class="form-group row">
     <div class="col-md-11 ml-auto">
       <ul class="form-list">
-        <li>削除したい目標は、目標を空欄に設定</li>
-        <li>各目標に設定した配点により、課題評価を実施</li>
-        <li>全目標の配点合計は、1教材10点に規格化（10点になっていない場合は自動修正）</li>
-        <li>課題提出が既にある教材は、目標の数、内容、配点の変更不可</li>
+        <li>Set goal to blank for goal you want to delete</li>
+        <li>Perform assignment evaluation based on the points set for each target</li>
+        <li>The total score of all goals is standardized to 10 teaching materials (automatic correction if not 10 points)</li>
+        <li>The total score of all goals is standardized to 10 teaching materials (automatic correction if not 10 points)...</li>
       </ul>
     </div>
   </div>
@@ -60,11 +60,11 @@
 
 <div class="bordered-block">
   <%= render partial: 'layouts/required' %>
-  <h2>課題
-    <div class="header-explanation">課題を必ず1つ設定</div>
+  <h2>Task
+    <div class="header-explanation">Always set one assignment</div>
   </h2>
   <div class="form-group row">
-    <label class="col-md-3 col-form-label text-sm-right"><span class="required">*</span>種別</label>
+    <label class="col-md-3 col-form-label text-sm-right"><span class="required">*</span>Classification</label>
 
     <div class="col-md-7">
       <%= f.select :as_category, assignment_categories, {}, {class: 'form-control'} %>
@@ -72,7 +72,7 @@
   </div>
 
   <div class="form-group row">
-    <label class="col-md-3 col-form-label text-sm-right">概要</label>
+    <label class="col-md-3 col-form-label text-sm-right">Overview</label>
     <div class="col-md-7">
       <%= f.text_area :as_overview, {class: 'form-control', rows: '5', placeholder: t('activerecord.attributes.content.as_overview')} %>
     </div>

@@ -1,7 +1,7 @@
 <div style="margin-top: 20px; padding-top: 30px; clear: both;">
-  <h2>相互評価の要約（コーススタッフにのみ表示）</h2>
+  <h2>Summary of Mutual Evaluation (Only on Course Staff)</h2>
   <p>
-    相互評価中は、学生ユーザにはノート管理者の氏名・プロフィールイメージを非表示
+    During the mutual evaluation, the student user hides the name and profile image of the note manager
   </p>
   <% members = @course.learners_in_group @group_index %>
   <% members.each do |m| %>
@@ -11,18 +11,18 @@
   <ul>
     <% user_peer_review = get_peer_review group_notes, @group_index, m.id %>
     <% user_peer_review[:eval].each do |upr| %>
-    <li>評価対象：<%= upr.manager.full_name %></li>
+    <li>Evaluation object: <%= upr.manager.full_name %></li>
     <% end %>
   </ul>
   <ul>
     <% stickies = Sticky.where(course_id: @course.id, manager_id: m.id, target_type: 'Note') %>
     <% stickies.each do |s| %>
     <% note = Note.find(s.target_id) %>
-    <li>ふせん：<%= note.manager.full_name %> 「<%= s.message %>」</li>
+    <li>Fix <%= note.manager.full_name %> 「<%= s.message %>」</li>
     <% end %>
     <% stars = NoteStar.where(manager_id: m.id, stared: true) %>
     <% stars.each do |s| %>
-    <li>スター：<%= s.note.manager.full_name %></li>
+    <li>Star:<%= s.note.manager.full_name %></li>
     <% end %>
   </ul>
   <% end %>

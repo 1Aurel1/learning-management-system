@@ -497,7 +497,7 @@ class CoursesController < ApplicationController
     return go_re if ob_no.size.zero?
 
     go_re['id'] = 0
-    go_re['title'] = '（その他）'
+    go_re['title'] = '（Other）'
     go_re['self_allocation_sum'] = 0
 
     ob_no.each do |objective|

@@ -23,6 +23,8 @@ gem 'jquery-rails', '~> 4.3.0'
 gem 'jquery-ui-rails', '~> 6.0.0'
 gem 'net-ldap', '~> 0.16.0'
 gem 'paperclip', '~> 6.0.0'
+gem 'paperclip-cloudinary', '~> 1.3', '>= 1.3.2'
+gem "shrine-cloudinary"
 gem 'pdfjs_viewer-rails', '~> 0.2.8', github: 'lepo-project/pdfjs_viewer-rails'
 gem 'rails', '~> 5.0.4'
 gem 'rails-assets-tether', '~> 1.1'

@@ -13,11 +13,11 @@ module ContentsHelper
   def content_icon_info(resource_status)
     case resource_status
     when 'open'
-      { class: 'no-icon', text: '公開中' }
+      { class: 'no-icon', text: 'Now open' }
     when 'draft'
-      { class: 'fa fa-lock fa-lg', text: '準備中' }
+      { class: 'fa fa-lock fa-lg', text: 'in preparation' }
     when 'archived'
-      { class: 'fa fa-archive fa-lg', text: 'アーカイブ' }
+      { class: 'fa fa-archive fa-lg', text: 'archive' }
     end
   end
 end

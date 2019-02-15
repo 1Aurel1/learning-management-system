@@ -59,6 +59,7 @@ GEM
     autoprefixer-rails (8.6.5)
       execjs
     autosize (2.4.0.0)
+    aws_cf_signer (0.1.3)
     bindex (0.5.0)
     bootstrap (4.1.3)
       autoprefixer-rails (>= 6.0.3)
@@ -79,6 +80,9 @@ GEM
       nokogiri (~> 1.8)
     chronic (0.10.2)
     climate_control (0.2.0)
+    cloudinary (1.11.1)
+      aws_cf_signer
+      rest-client
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -106,9 +110,16 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    http (3.3.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.0)
+      http_parser.rb (~> 0.6.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    http-form_data (2.1.1)
     http_accept_language (2.1.1)
+    http_parser.rb (0.6.0)
     i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     i18n_generators (2.2.0)
@@ -162,6 +173,8 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    paperclip-cloudinary (1.3.2)
+      cloudinary (~> 1.1)
     parallel (1.13.0)
     parser (2.6.0.0)
       ast (~> 2.4.0)
@@ -239,6 +252,11 @@ GEM
       rubyzip (~> 1.2, >= 1.2.2)
     shrine (2.11.0)
       down (~> 4.1)
+    shrine-cloudinary (1.0.1)
+      cloudinary (< 2)
+      down (~> 4.4)
+      http (~> 3.2)
+      shrine (~> 2.11)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -306,6 +324,7 @@ DEPENDENCIES
   mysql2 (~> 0.4.0)
   net-ldap (~> 0.16.0)
   paperclip (~> 6.0.0)
+  paperclip-cloudinary (~> 1.3, >= 1.3.2)
   pdfjs_viewer-rails (~> 0.2.8)!
   puma (~> 3.0)
   rails (~> 5.0.4)
@@ -317,6 +336,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.6)
   selenium-webdriver (~> 3.4)
   shrine (~> 2.11.0)
+  shrine-cloudinary
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.3.0)

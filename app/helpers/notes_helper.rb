@@ -60,7 +60,7 @@ module NotesHelper
   end
 
   def note_snippet_text(manager_flag, stickies)
-    title = 'ふせんの数[枚]'
+    title = 'Number of stickers [pieces]'
     if manager_flag
       title += ': '
       stickies.each_with_index do |st, i|
@@ -72,7 +72,7 @@ module NotesHelper
   end
 
   def note_star_text(manager_flag, stared_users)
-    title = 'スターの数[個]'
+    title = 'Number of stars [pieces]'
     if manager_flag
       title += ': '
       stared_users.each_with_index do |st, i|

@@ -11,7 +11,7 @@
         <div class="loc-header"><%= t('activerecord.attributes.content.as_overview') %></div>
         <div class="loc-body">
           <% if session[:nav_section] == 'home' %>
-          マニュアルには課題はありません（このページは課題ページのサンプルです）。
+          There is no problem in the manual (This page is a sample of the assignment page).
           <% else %>
           <%= sanitize add_br @content.as_overview %>
           <% end %>

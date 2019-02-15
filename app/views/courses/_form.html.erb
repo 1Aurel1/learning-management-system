@@ -3,7 +3,7 @@
 <%#= f.error_messages %>
 
 <div class="bordered-block">
-  <h2>基本情報</h2>
+  <h2>Basic information</h2>
   <%= render partial: 'layouts/required' %>
   <div class="form-group row">
     <%= f.label :title, raw("<span class='required'>*</span>") + t('activerecord.attributes.course.title'), class: 'col-md-3 col-form-label text-sm-right' %>
@@ -16,7 +16,7 @@
     <%= f.label :overview, raw("<span class='required'>*</span>") + t('activerecord.attributes.course.overview'), class: 'col-md-3 col-form-label text-sm-right' %>
     <div class="col-md-8">
       <%= f.text_area :overview, {class: 'form-control', rows: '5', placeholder: t('activerecord.attributes.course.overview')} %>
-      <div class="form-text">改行を続けて挿入した位置で、文章を折りたたんで表示</div>
+      <div class="form-text">Collapse and display the sentences at the inserted position where the line feed continues</div>
     </div>
   </div>
 
@@ -105,7 +105,7 @@
 
 <div class="bordered-block">
   <h2><%= t('activerecord.models.goal') %>
-    <div class="header-explanation">1〜<%= COURSE_GOAL_MAX_SIZE %>個設定</div>
+    <div class="header-explanation">1〜<%= COURSE_GOAL_MAX_SIZE %>Individual setting</div>
   </h2>
   <%= render partial: 'layouts/required' %>
   <% required = true %>
@@ -116,7 +116,7 @@
 
   <div class="form-group row">
     <div class="col-md-9 ml-auto">
-      <div class="form-text">不必要な目標は空欄に設定</div>
+      <div class="form-text">Unnecessary goal set to blank</div>
     </div>
   </div>
 </div>

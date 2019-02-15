@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: relimaster
+  api_key: '263284285417456'
+  api_secret: QsZJM-JuALTG1girakeEYeaLAyg
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: relimaster
+  api_key: '263284285417456'
+  api_secret: QsZJM-JuALTG1girakeEYeaLAyg
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: relimaster
+  api_key: '263284285417456'
+  api_secret: QsZJM-JuALTG1girakeEYeaLAyg
+  enhance_image_tag: true
+  static_image_support: false

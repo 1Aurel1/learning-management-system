@@ -1,7 +1,7 @@
 <div id="user-resource" class="scroll-pane">
 	<div class="row">
 		<div class="col-md-12">
-			<h1>プロフィールの設定</h1>
+			<h1>Profile settings</h1>
 			<%= render partial: 'layouts/system_message', locals: {message: flash[:message], message_category: flash[:message_category]} %>
 			<%= form_for current_user, url: {action: :ajax_update_profile}, html: {id: 'user_form', name: 'user_form', multipart: true}, remote: true do |f| %>
 			<%#= f.error_messages %>
@@ -26,19 +26,19 @@
 					<%= f.label :phonetic_family_name, '氏名のよみ（セイ）', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :phonetic_family_name, class: 'form-control' %>
-						<div class="form-text">カタカナで入力</div>
+						<div class="form-text">Enter in ??</div>
 					</div>
 				</div>
 				<div class="form-group row">
 					<%= f.label :phonetic_given_name, '（メイ）', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :phonetic_given_name, class: 'form-control' %>
-						<div class="form-text">カタカナで入力</div>
+						<div class="form-text">Enter in ??</div>
 					</div>
 				</div>
 				<% end %>
 				<div class="form-group row">
-					<%= f.label :image, '画像ファイル', class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :image, 'Image file', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.hidden_field :image, value: current_user.cached_image_data %>
 			      <%= f.file_field :image, class: 'form-control-file', style: 'color: #fff;' %>
@@ -56,10 +56,10 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<%= f.label :description, '自己紹介', class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :description, 'Self-introduction', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_area :description, class: 'form-control', rows: 6 %>
-						<div class="form-text">絵文字や一部の記号は使用できません。「完了」ボタンを押しても保存できない場合は、記号を取り除いてください</div>
+						<div class="form-text">Pictograms and some symbols can not be used. If you can not save even if you click "Finish" button, please remove the symbol</div>
 					</div>
 				</div>
 				<div class="form-group row">

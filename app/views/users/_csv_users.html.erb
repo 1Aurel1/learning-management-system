@@ -1,5 +1,5 @@
 <div class ="bordered-block selected">
-  <h2>CSVによるユーザ登録</h2>
+  <h2>User registration with CSV</h2>
   <div style="margin:1rem;">
     <%= form_tag({action: 'ajax_csv_candidates'}, remote: true) do %>
     <% candidates_csv = @candidates_csv ? @candidates_csv : '' %>

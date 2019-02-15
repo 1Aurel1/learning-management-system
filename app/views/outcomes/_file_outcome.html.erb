@@ -2,7 +2,7 @@
   <table class="file-outcome-list">
     <% if outcome_files.size.zero? %>
     <tr>
-      <td>ファイルは提出されていません</td>
+      <td>File has not been submitted</td>
     </tr>
     <% else %>
     <% outcome_files.each do |file| %>
@@ -31,7 +31,7 @@
     <% end %>
   </div>
   <% else %>
-  <div class="file-explanation">ファイルは<%= OUTCOME_MAX_SIZE %>個までしか提出できません</div>
+  <div class="file-explanation">ファイルは<%= OUTCOME_MAX_SIZE %>You can only submit up to items</div>
   <% end %>
   <% end %>
 </div>

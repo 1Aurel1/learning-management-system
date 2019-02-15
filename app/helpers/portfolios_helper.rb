@@ -220,14 +220,14 @@ module PortfoliosHelper
 
     sticky_stars = average sticky_stars, learners.size, 0
     note_stars = average note_stars, learners.size, 0
-    star_hash '学生の平均', sticky_stars, note_stars, -1, 'success'
+    star_hash 'Student average', sticky_stars, note_stars, -1, 'success'
   end
 
   def average_achievement(learners, course_id, lessons)
     open_lessons = Lesson.select_open lessons
     eval_lessons = Lesson.select_evaluator open_lessons
     if learners.size.zero? || open_lessons.size.zero?
-      achievement_hash '学生の平均', '', '', '', '', 0, 0, 'success'
+      achievement_hash 'Student average', '', '', '', '', 0, 0, 'success'
     else
       self_lesson = 0
       self_achievement = 0
@@ -246,7 +246,7 @@ module PortfoliosHelper
       self_achievement = average self_achievement, learners.size, 0
       eval_achievement = average eval_achievement, learners.size, 0
       lesson_score = average lesson_score, learners.size, 0
-      achievement_hash '学生の平均', self_lesson, self_achievement, eval_achievement, lesson_score, open_lessons.size, eval_lessons.size, 'success'
+      achievement_hash 'Student average', self_lesson, self_achievement, eval_achievement, lesson_score, open_lessons.size, eval_lessons.size, 'success'
     end
   end
 
@@ -393,7 +393,7 @@ module PortfoliosHelper
       # access = average access, learners.size, 1
       # ratio = average ratio, learners.size, 1
     end
-    signin_hash '', '学生の平均', '---', access_num_week1, access_num_week2
+    signin_hash '', 'Student average', '---', access_num_week1, access_num_week2
   end
 
   def user_signin(user)

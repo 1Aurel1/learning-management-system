@@ -12,7 +12,7 @@
 <tr>
 	<% end %>
 
-	<td class="text-right">学生の平均</td>
+	<td class="text-right">Student average</td>
 	<% display = (@learners.size > 0) && (report[:self_allocation] > 0) %>
 	<%= render "bar", style: "success", ratio: report[:average_self_achievement], display: display %>
 	<% if eval_report %>

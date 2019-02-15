@@ -1,12 +1,12 @@
 <div class="bordered-block" style="margin-top:1rem;">
-  <h2>オプション（コース担当教師のみ利用可能）
+  <h2>Option (available only for the course teacher)
     <div class="header-explanation">
-      <span id="option_form_opener"><a class="bright-link" style="cursor:pointer;">オプションを表示/非表示</a></span>
+      <span id="option_form_opener"><a class="bright-link" style="cursor:pointer;">Show / hide options</a></span>
     </div>
   </h2>
   <div id="option_form" style="display: none; margin-left:20px;">
     <div style="margin-bottom:1rem;">
-      <h3>1. コースの複製</h3>
+      <h3>1. Duplicate course</h3>
       <% if selectable_terms('hereafter').size > 0 %>
       <%= form_for :course, url: {action: 'ajax_duplicate', original_id: @course.id}, remote: true do |f| %>
       <p>
@@ -23,16 +23,16 @@
       </div>
       <% end %>
       <% else %>
-      <p>コースを複製できる学期がありません。システム管理者に相談して下さい。</p>
+      <p>There is no semester that you can duplicate the course. Please consult your system administrator.</p>
       <% end %>
     </div>
 
     <div>
-      <h3>2. コースの削除</h3>
+      <h3>2. Delete course</h3>
       <% if @course.lessons.size > 0 %>
-      <p>レッスンが登録されているコースは、削除できません</p>
+      <p>Courses for which lessons are registered can not be deleted</p>
       <% else %>
-      <p>この操作は、取り消すことができません</p>
+      <p>This operation can not be undone</p>
       <%= render partial: 'layouts/buttons/delete', locals: {action_hash: {action: 'ajax_destroy', id: @course.id}} %>
       <% end %>
     </div>

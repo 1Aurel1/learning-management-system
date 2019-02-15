@@ -9,7 +9,7 @@
           <th colspan="<%= @course.goals.size + 1 %>" class="goal-title"><%= get_short_string(objective.title, 20) %></th>
         </tr>
         <tr>
-          <% goal_title = '0. その他' %>
+          <% goal_title = '0. Other' %>
           <% if selected_association.new_record? or selected_association.goal_id == 0 %>
               <td class="selected"><%= goal_title %></td>
           <% else %>

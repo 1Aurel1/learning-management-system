@@ -56,7 +56,9 @@ class Snippet < ApplicationRecord
   end
 
   def image_rails_url
-    "#{Rails.application.config.relative_url_root}/snippets/#{id}/image?file_id=#{image_id}" if image
+    "https://res.cloudinary.com/relimaster/image/upload/v1550263250/o_lms/images/store/snippets/#{id}/#{image_id}.png"
+
+   # "#{Rails.application.config.relative_url_root}/snippets/#{id}/image?file_id=#{image_id}" if image
   end
 
   def reference_num(note_id)

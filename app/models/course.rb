@@ -180,7 +180,7 @@ class Course < ApplicationRecord
 
   def image_rails_url(version_num)
     file_id = image_id('px' + version_num)
-    "#{Rails.application.config.relative_url_root}/courses/#{id}/image?file_id=#{file_id}&version=px#{version_num}" if image && (%w[40 80 160].include? version_num)
+    "https://res.cloudinary.com/relimaster/image/upload/v1550263250/o_lms/images/store/courses/#{id}/#{file_id}.png"
   end
 
   def learner_work_sheets(user_id, course_staff)
@@ -266,7 +266,7 @@ class Course < ApplicationRecord
   end
 
   def presence_of_goal
-    errors.add(:goals, 'を、1つ以上設定する必要があります') if goals.empty?
+    errors.add(:goals, 'You need to set at least one') if goals.empty?
   end
 
   def user_role(user_id)

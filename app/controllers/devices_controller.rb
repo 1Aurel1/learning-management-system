@@ -17,7 +17,7 @@ class DevicesController < ApplicationController
     if @device.save
       render_device 'index'
     else
-      flash[:message] = '入力した情報に誤りがあります。'
+      flash[:message] = 'The information you entered is incorrect.'
       flash[:message_category] = 'error'
       render_device 'new'
     end

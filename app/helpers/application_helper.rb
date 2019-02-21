@@ -307,7 +307,7 @@ module ApplicationHelper
     when 'content'
       card['icon'] = 'fa fa-book'
       card['header'] = 'What is teaching material?'
-      card['body'] = 'You can upload teaching material files created with PC etc to LePo and use it as teaching material. The learning objectives and assignment are essential for teaching materials. Students are also required to self-evaluate the learning objectives of teaching materials. You can create new teaching materials by the following procedure.'
+      card['body'] = 'You can upload teaching material files created with PC etc to  and use it as teaching material. The learning objectives and assignment are essential for teaching materials. Students are also required to self-evaluate the learning objectives of teaching materials. You can create new teaching materials by the following procedure.'
     when 'selfeval_chart'
       card['icon'] = 'fa fa-info-circle'
       card['header'] = 'Self-evaluation transition'

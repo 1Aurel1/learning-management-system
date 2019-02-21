@@ -90,9 +90,9 @@ class CourseMembersController < ApplicationController
         course_member.destroy
       else
         if course_member.role == 'manager'
-          flash.now[:message] = 'レッスンの評価担当者、またはコース内でふせんを記載している場合は削除できません。'
+          flash.now[:message] = 'You can not delete the lesson if you are stating the staff in charge of the lesson or in the course.'
         else
-          flash.now[:message] = 'コース内でふせんを記載しているユーザ、または課題を提出済みの学生ユーザは削除できません'
+          flash.now[:message] = 'You can not delete a user who is describing misleading in a course or a student user who submitted an assignment'
         end
         flash[:message_category] = 'error'
       end
@@ -130,7 +130,7 @@ class CourseMembersController < ApplicationController
       if course_user.nil? || course_user.deletable?
         manager_ids.delete(params[:manager_id])
       else
-        flash.now[:message] = 'レッスンの評価担当者、またはコース内でふせんを記載している場合は削除できません。'
+        flash.now[:message] = 'You can not delete the lesson if you are stating the staff in charge of the lesson or in the course.'
         flash[:message_category] = 'error'
       end
     when 'add' then
@@ -180,18 +180,18 @@ class CourseMembersController < ApplicationController
     course = Course.find_enabled_by course_id
     if course_member
       if (course_member.role == 'manager') && (course.evaluator? user_id)
-        flash.now[:message] = 'レッスンの評価担当者は、教師である必要があります'
+        flash.now[:message] = 'Evaluator of the lesson must be a teacher'
         flash[:message_category] = 'error'
       else
         unless course_member.update_attributes(role: role)
-          flash.now[:message] = 'コース管理者は、コース管理権限のあるユーザのみ登録できます'
+          flash.now[:message] = 'Course managers can only register users with course administration authority'
           flash[:message_category] = 'error'
         end
       end
     else
       new_coourse_user = CourseMember.new(user_id: user_id, course_id: course_id, role: role)
       unless new_coourse_user.save
-        flash.now[:message] = 'コース管理者は、コース管理権限のあるユーザのみ登録できます'
+        flash.now[:message] = 'Course managers can only register users with course administration authority'
         flash[:message_category] = 'error'
       end
     end

@@ -136,7 +136,7 @@ class CoursesController < ApplicationController
   def ajax_create
     @course = Course.new(course_params)
     unless @course.term_id
-      flash[:message] = 'コースを登録できる学期がありません。システム管理者に相談して下さい。'
+      flash[:message] = 'There is no semester to register the course. Please consult your system administrator.'
       flash[:message_category] = 'error'
       @course.fill_goals
       render 'layouts/renders/resource', locals: { resource: 'new' }
@@ -149,13 +149,13 @@ class CoursesController < ApplicationController
         record_user_action('created', @course.id)
         render 'layouts/renders/all', locals: { resource: 'edit_lessons' }
       else
-        flash[:message] = 'コースと教師の関連づけに失敗しました'
+        flash[:message] = 'I failed to associate course with teacher'
         flash[:message_category] = 'error'
         @course.fill_goals
         render 'layouts/renders/resource', locals: { resource: 'new' }
       end
     else
-      flash[:message] = 'コースの作成に失敗しました'
+      flash[:message] = 'Failed to create course'
       flash[:message_category] = 'error'
       @course.fill_goals
       render 'layouts/renders/resource', locals: { resource: 'new' }
@@ -217,7 +217,7 @@ class CoursesController < ApplicationController
       end
       @course.reload
     else
-      flash[:message] = '課題提出やふせん添付があるレッスンは、削除できません'
+      flash[:message] = 'You can not delete lessons with submission of assignments or attachments'
       flash[:message_category] = 'error'
     end
 
@@ -253,10 +253,10 @@ class CoursesController < ApplicationController
         @course.fill_goals
         render 'layouts/renders/all', locals: { resource: 'courses/edit' }
       else
-        render_duplicate_error('コースと教師の関連づけに失敗しました', params[:original_id].to_i)
+        render_duplicate_error('I failed to associate course with teacher', params[:original_id].to_i)
       end
     else
-      render_duplicate_error('コースの複製に失敗しました', params[:original_id].to_i)
+      render_duplicate_error('Course duplication failed', params[:original_id].to_i)
     end
   end
 
@@ -282,12 +282,12 @@ class CoursesController < ApplicationController
     course_form.delete(:remove_image) if course_form[:image] && course_form[:image].size.nonzero?
 
     if all_blank_title? course_form[:goals_attributes]
-      flash[:message] = '到達目標を、1つ以上設定する必要があります'
+      flash[:message] = 'You need to set at least one goal'
       flash[:message_category] = 'error'
       @course.fill_goals
       render 'layouts/renders/resource', locals: { resource: 'edit' }
     elsif !register_course_managers
-      flash[:message] = 'コースと教師の関連づけに失敗しました'
+      flash[:message] = 'I failed to associate course with teacher'
       flash[:message_category] = 'error'
       @course.fill_goals
       render 'layouts/renders/resource', locals: { resource: 'edit' }

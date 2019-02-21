@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     return if (controller_name == 'snippets') && (action_name == 'create_web_snippet')
     # For mainly expired session
     reset_session
-    flash[:message] = 'サインインしてください'
+    flash[:message] = 'Please sign in.'
     render 'layouts/renders/signout'
   end
 

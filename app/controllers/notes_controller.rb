@@ -82,7 +82,7 @@ class NotesController < ApplicationController
     else
       @notes = current_user.open_notes
       @snippets = @note.snippets
-      flash[:message] = '切り抜き または コースふせんのあるノートは削除できません'
+      flash[:message] = 'You can not delete notes with clipping or course'
       render 'layouts/renders/main_pane', locals: { resource: 'edit' }
     end
   end

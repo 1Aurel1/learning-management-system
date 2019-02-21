@@ -5,11 +5,11 @@ class TermsController < ApplicationController
   def ajax_create
     @term = Term.new(term_params)
     if @term.save
-      flash.now[:message] = '学期を追加しました'
+      flash.now[:message] = 'Added semester'
       flash.now[:message_category] = 'info'
       @term = Term.new
     else
-      flash.now[:message] = '学期の追加に失敗しました'
+      flash.now[:message] = 'I failed to add the semester'
       flash.now[:message_category] = 'error'
     end
 
@@ -20,10 +20,10 @@ class TermsController < ApplicationController
     term = Term.find params[:term][:id]
 
     if term.update_attributes(term_params)
-      flash.now[:message] = '学期情報を更新しました'
+      flash.now[:message] = 'We updated semester information'
       flash.now[:message_category] = 'info'
     else
-      flash.now[:message] = '学期情報の更新に失敗しました'
+      flash.now[:message] = 'Failed to update semester information'
       flash.now[:message_category] = 'error'
     end
 
@@ -39,7 +39,7 @@ class TermsController < ApplicationController
     if term.deletable? session[:id]
       term.destroy
     else
-      flash.now[:message] = '学期の削除に失敗しました。学期は登録コースがゼロの時のみ、削除可能です。'
+      flash.now[:message] = 'I failed to delete the semester. The term can be deleted only when the registration course is zero.'
       flash.now[:message_category] = 'error'
     end
     render_term

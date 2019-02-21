@@ -55,7 +55,7 @@ class ContentMembersController < ApplicationController
       if content_member && content_member.deletable?
         content_member.destroy
         if session[:id] == params[:user_id].to_i
-          flash.now[:message] = 'この教材のメンバー編集権限がなくなりました'
+          flash.now[:message] = 'I lost the authority to edit members of this material'
           flash[:message_category] = 'error'
         end
       end
@@ -65,7 +65,7 @@ class ContentMembersController < ApplicationController
         update_role manager_id, params[:content_id], 'assistant' if params[:update_to] == 'manager'
         update_role params[:user_id], params[:content_id], params[:update_to]
       end
-      flash.now[:message] = 'この教材のメンバー編集権限がなくなりました' if (session[:id] == params[:user_id].to_i) && (params[:update_to] == 'user')
+      flash.now[:message] = 'I lost the authority to edit members of this material' if (session[:id] == params[:user_id].to_i) && (params[:update_to] == 'user')
       flash[:message_category] = 'error'
     end
 
@@ -98,13 +98,13 @@ class ContentMembersController < ApplicationController
     content_member = ContentMember.find_by(user_id: user_id, content_id: content_id)
     if content_member
       unless content_member.update_attributes!(role: role)
-        flash.now[:message] = '教材の管理/利用許可者は、コース管理権限のあるユーザのみ登録できます'
+        flash.now[:message] = 'Managing teaching materials / authorized users can only register for users with the course administration authority'
         flash[:message_category] = 'error'
       end
     else
       new_content_member = ContentMember.new(user_id: user_id, content_id: content_id, role: role)
       unless new_content_member.save!
-        flash.now[:message] = '教材の管理/利用許可者は、コース管理権限のあるユーザのみ登録できます'
+        flash.now[:message] = 'Managing teaching materials / authorized users can only register for users with the course administration authority'
         flash[:message_category] = 'error'
       end
     end

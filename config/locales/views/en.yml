@@ -36,7 +36,7 @@ en:
       remarks_for_edge: Note function can not be used with Edge browser.
       shortcut_keys: Shortcut Keys
       system_version: System Version
-      use_following_browsers: Please use LePo in the following web browsers
+      use_following_browsers: Please use in the following web browsers
     toolbar_show:
       edit: :layouts.buttons.edit.edit
 
@@ -285,13 +285,13 @@ en:
       config_message3: Please set values for secret_key_base in the above file. For the production environment, set the value of secret_key_base as an environment variable.
       config_message4: To generate random string of secret_key_base, you can use "rails secret" command etc.
       config_message5: After correcting the config files, restart the Rails server and proceed to Step 3.
-      header: Welcome to LePo !
+      header: Welcome!
       license_header: License
       license_message1: This software is released under the GNU Affero General Public License, version 3 as open source software.
       license_message2: For this license, please check the link below.
       message1: Before using LePo, let's complete the following steps.
       message2: Creation of administrator account is complete !
-      message3: Please reload the page, display the sign in page, and sign-in to LePo as administrator.
+      message3: Please reload the page, display the sign in page, and sign-in to as administrator.
       password_confirmation: Password (Confirmation)
       ok: :layouts.buttons.ok.ok
     sub_toolbar:

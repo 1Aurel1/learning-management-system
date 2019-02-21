@@ -31,7 +31,7 @@
       <% current_course_members = @course.managers.zip Array.new(@course.managers.size, 'manager'), Array.new(@course.managers.size, @course.managers.size ==1 ? '' : 'none') %>
       <% current_course_members = current_course_members.concat(@course.assistants.zip Array.new(@course.assistants.size, 'assistant'), Array.new(@course.assistants.size, 'none')) %>
       <% current_course_members = current_course_members.concat(@course.learners.zip Array.new(@course.learners.size, 'learner'), Array.new(@course.learners.size, 'none')) %>
-      <%= render(partial: 'layouts/member_candidates', locals: {title: '現在のメンバー', category: 'course', form_category: 'index', users: current_course_members, resource_id: @course.id, footer:''}) %>
+      <%= render(partial: 'layouts/member_candidates', locals: {title: 'Current members', category: 'course', form_category: 'index', users: current_course_members, resource_id: @course.id, footer:''}) %>
       <p>
         <%= render partial: 'layouts/buttons/ok', locals: {action_hash: {action: 'ajax_index', nav_section: session[:nav_section], nav_id: @course.id}} %>
       </p>

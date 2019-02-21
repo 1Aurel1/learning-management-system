@@ -55,7 +55,7 @@ class UsersController < ApplicationController
       user_hash[:phonetic_family_name] = params[:phonetic_family_name] if USER_PHONETIC_NAME_FLAG
       user_hash[:phonetic_given_name] = params[:phonetic_given_name] if USER_PHONETIC_NAME_FLAG
       unless User.create(user_hash)
-        flash.now[:message] = 'ユーザの新規作成に失敗しました'
+        flash.now[:message] = 'New creation of user failed'
         flash[:message_category] = 'error'
       end
       ajax_csv_candidates
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
       @candidates = User.search @search_word, @role
       if @candidates.size.zero? || (!User.system_staff? session[:id])
         @candidates = nil
-        flash[:message] = '条件を満たすユーザが見つかりません'
+        flash[:message] = 'We can not find a user that meets the criteria'
         flash[:message_category] = 'error'
       end
       render_main_pane 'user_account_pref'
@@ -109,10 +109,10 @@ class UsersController < ApplicationController
         end
 
         if update_result
-          flash[:message] = selected_user.full_name + 'のアカウントを更新しました。'
+          flash[:message] = selected_user.full_name + 'Your account has been updated.'
           flash[:message_category] = 'info'
         else
-          flash[:message] = '入力した情報に誤りがあります。'
+          flash[:message] = 'The information you entered is incorrect.'
           flash[:message_category] = 'error'
         end
       end
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
       candidates = []
       CSV.parse(users_in_csv) do |row|
         unless appropriate_user_format? row
-          flash[:message] = 'CSVデータに、不適切なフォーマットの行があります'
+          flash[:message] = 'There is an inappropriate formatted line in the CSV data'
           flash[:message_category] = 'error'
           return candidates
         end
@@ -162,7 +162,7 @@ class UsersController < ApplicationController
         end
 
         if role == 'manager' && !manager_creatable
-          flash[:message] = 'システム管理者は、システム最高管理者のみ登録出来ます'
+          flash[:message] = 'System administrator can register only the system highest administrator'
           flash[:message_category] = 'error'
           return candidates
         end
@@ -214,7 +214,7 @@ class UsersController < ApplicationController
         @stickies = Sticky.size_by_user session[:id]
         render 'layouts/renders/main_pane', locals: { resource: 'index' }
       else
-        flash[:message] = '入力した情報に誤りがあります。'
+        flash[:message] = 'The information you entered is incorrect.'
         flash[:message_category] = 'error'
         render 'layouts/renders/resource', locals: { resource: render_resource }
       end

@@ -13,12 +13,12 @@ class OutcomeFilesController < ApplicationController
       same_name_file = new_file.same_name_file
       if same_name_file
         same_name_file.destroy
-        flash.now[:message] = '提出ファイル「' + new_file.file_name + '」を更新しました'
+        flash.now[:message] = 'Submission file "' + new_file.file_name + '"The has been updated'
         flash[:message_category] = 'info'
       end
       new_file.save
     else
-      flash.now[:message] = '「' + new_file.file_name + '」のアップロードに失敗しました'
+      flash.now[:message] = '"' + new_file.file_name + 'Upload failed "'
       flash[:message_category] = 'error'
     end
 

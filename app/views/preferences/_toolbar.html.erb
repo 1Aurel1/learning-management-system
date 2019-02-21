@@ -4,7 +4,7 @@
 </nav>
 
 <% when 'ajax_profile_pref', 'ajax_destroy_user_image', 'ajax_account_pref' %>
-<% crumb_title = (controller.action_name == 'ajax_account_pref') ? 'アカウント' : 'プロフィール' %>
+<% crumb_title = (controller.action_name == 'ajax_account_pref') ? 'account' : 'profile' %>
 <nav id="sub-nav">
   <%= render partial: 'layouts/breadcrumb', locals: {crumbs: [['', {action: 'ajax_index', nav_section: session[:nav_section]}], [crumb_title]]} %>
 </nav>

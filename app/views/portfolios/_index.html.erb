@@ -7,7 +7,7 @@
         <%#= render partial: 'lessons_card' %>
         <% eval_category = @course.eval_category %>
         <% if !eval_category %>
-        <%= render partial: 'layouts/system_message', locals: {message: 'コースにレッスンが登録されていません', message_category: 'info'} %>
+        <%= render partial: 'layouts/system_message', locals: {message: 'Lesson is not registered in the course', message_category: 'info'} %>
         <% else %>
         <div id="achievement_reports" class="report-card card">
           <%= render(partial: 'achievement_reports', locals: {eval_category: eval_category}) %>

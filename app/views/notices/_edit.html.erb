@@ -1,7 +1,7 @@
 <div id="versatile-resource" class="scroll-pane">
   <div class="row">
     <div class="col-md-12">
-      <h1><%= controller_name == 'preferences' ? 'システム' : 'コース' %>Edit announcement</h1>
+      <h1><%= controller_name == 'preferences' ? 'system' : 'couse' %>Edit announcement</h1>
       <% if (@editting_notice) %>
       <%= form_for(@editting_notice, url: {action: :ajax_update_notice, id: @course_id, notice_id: @editting_notice.id}, remote: true) do |f| %>
       <%= render(partial: 'notices/update', locals: {f: f, value: @editting_notice.message}) %>

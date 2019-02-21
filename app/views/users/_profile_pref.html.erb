@@ -10,27 +10,27 @@
 				<p class="text-right small"><%= t('.open_within_courses') %></p>
 				<%= render partial: 'layouts/required' %>
 				<div class="form-group row">
-					<%= f.label :family_name, raw("<span class='required'>*</span>氏名（姓）"), class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :family_name, raw("<span class='required'>*</span>Name (surname)"), class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :family_name, class: 'form-control' %>
 					</div>
 				</div>
 				<div class="form-group row">
-					<%= f.label :given_name, '（名）', class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :given_name, '(Name)', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :given_name, class: 'form-control' %>
 					</div>
 				</div>
 				<% if USER_PHONETIC_NAME_FLAG %>
 				<div class="form-group row">
-					<%= f.label :phonetic_family_name, '氏名のよみ（セイ）', class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :phonetic_family_name, 'Name reading (Sei)', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :phonetic_family_name, class: 'form-control' %>
 						<div class="form-text">Enter in ??</div>
 					</div>
 				</div>
 				<div class="form-group row">
-					<%= f.label :phonetic_given_name, '（メイ）', class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :phonetic_given_name, '(May)', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :phonetic_given_name, class: 'form-control' %>
 						<div class="form-text">Enter in ??</div>
@@ -63,7 +63,7 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<%= f.label :web_url, 'WebページURL', class: 'col-md-3 col-form-label text-sm-right' %>
+					<%= f.label :web_url, 'Web page URL', class: 'col-md-3 col-form-label text-sm-right' %>
 					<div class="col-md-8">
 						<%= f.text_field :web_url, class: 'form-control' %>
 					</div>

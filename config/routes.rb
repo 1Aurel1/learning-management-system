@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'landing/home'
+
+  get 'landing/about_us'
+
+  get 'landing/contact'
+
+  get 'landing/courses'
+
+  get 'landing/blog'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -29,6 +29,9 @@ module LepoApp
     # Protect the layout from collapsing by preventing the div tag from being automatically inserted when an form error occurs.
     config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
 
+    #
+    config.assets.initialize_on_precompile = false
+
     #  version
     config.version = '0.3.1'
     config.version_date = Date.new(2018, 11, 10)

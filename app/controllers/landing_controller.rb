@@ -12,7 +12,4 @@ class LandingController < ApplicationController
 
   def courses
   end
-
-  def blog
-  end
 end

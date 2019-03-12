@@ -30,6 +30,11 @@ gem 'rails', '~> 5.0.4'
 gem 'rails-assets-tether', '~> 1.1'
 gem 'rails_autolink'
 gem 'remotipart', '~> 1.4.2'
+# Blog gems
+gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
+gem 'rmagick'
+gem 'lines-engine', '~> 1.2', '>= 1.2.6.1'
+
 # FIXME: PushNotification
 gem 'rest-client', '~> 2.0.0'
 # Use SCSS for stylesheets

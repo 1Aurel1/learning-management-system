@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
-  get 'landing/home'
 
-  get 'landing/about_us'
+  #root 'signin#index'
+  root 'landing#home'
 
-  get 'landing/contact'
+  #The blog spot
 
-  get 'landing/courses'
+  mount Lines::Engine => "/blog"
+  
+  #the landing spot
+  
+  get 'home', to: 'landing#home'
+  get 'about_us', to: 'landing#about_us'
+  get 'contact', to: 'landing#contact'
+  get 'courses', to: 'landing#courses'
 
-  get 'landing/blog'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  #lms
 
-  # You can have the root of your site routed with "root"
-  root 'signin#index'
+  get 'lms', to: 'signin#index'
 
   get '/courses/:id/image', to: 'courses#show_image'
   get '/snippets/:id/image', to: 'snippets#show_image'

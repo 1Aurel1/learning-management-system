@@ -214,7 +214,9 @@ class ContentsController < ApplicationController
   end
 
   def split_pdf_pages(create_file)
-    filepath = "https://res.cloudinary.com/relimaster/image/upload/v1550267408/" + create_file.upload.path
+    filepath = "https://res.cloudinary.com/relimaster/image/upload/v1550267408/" + create_file.upload.path + "/"
+    puts filepath
+
     dirname = File.dirname(filepath)
     extname = File.extname(filepath)
     filename = File.basename(filepath, extname)

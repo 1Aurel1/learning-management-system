@@ -17181,7 +17181,9 @@ var pdfjsWebLibs;
    var HOSTED_VIEWER_ORIGINS = [
     'null',
     'http://mozilla.github.io',
-    'https://mozilla.github.io'
+    'https://mozilla.github.io',
+    'http://localhost:3000',
+    'http://http://res.cloudinary.com'
    ];
    validateFileURL = function validateFileURL(file) {
     try {

@@ -21,11 +21,12 @@ class ImageUploader < Shrine
 
     case context[:record].class.name.downcase
     when 'user', 'course'
+      px280_img = pipeline.resize_to_limit!(280, 280)
       px160_img = pipeline.resize_to_limit!(160, 160)
       px80_img = pipeline.resize_to_limit!(80, 80)
       px40_img = pipeline.resize_to_limit!(40, 40)
       original.close!
-      { px160: px160_img, px80: px80_img, px40: px40_img }
+      { px280: px280_img, px160: px160_img, px80: px80_img, px40: px40_img }
     when 'snippet'
       px1280_img = pipeline.resize_to_limit!(1280, 1280)
       original.close!

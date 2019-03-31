@@ -3,16 +3,33 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
+
+
 body {
     color: #383749;
     font-size: 16px;
     line-height: 1.8;
     font-family: 'Roboto', sans-serif;
+
 }
 
 img {
     vertical-align: baseline;
 }
+
+.hero-content {
+    min-height: 100%;
+}
+
+/**/
+.hamburger-menu {
+    z-index: 99999;
+}
+
+.new_user{
+    background-color: white;
+}
+
 
 /*--------------------------------------------------------------
 # Links
@@ -49,9 +66,6 @@ a:hover, a:active {
 # Site Header
 --------------------------------------------------------------*/
 .site-header {
-    position: absolute;
-    top: 0;
-    left: 0;
     z-index: 9999;
     width: 100%;
 }
@@ -155,7 +169,6 @@ a:hover, a:active {
 }
 
 .header-bar-menu li a {
-    position: relative;
     display: block;
     padding: 0 6px;
     color: #383749;
@@ -179,7 +192,7 @@ a:hover, a:active {
 --------------------------------*/
 .nav-bar {
     padding: 20px 0;
-    background: rgba(255,255,255,.1);
+    background: $primary-color;
 }
 
 /*
@@ -275,7 +288,7 @@ a:hover, a:active {
     position: fixed;
     top: 0;
     left: -320px;
-    z-index: 9999;
+    z-index: 999;
     width: 320px;
     max-width: calc(100% - 120px);
     height: 100%;
@@ -342,10 +355,13 @@ a:hover, a:active {
 
 .hero-content-overlay {
     background: rgba(21,20,33,.5);
+    margin: auto;
+    padding: 7rem;
+    min-height: 80vh;
 }
 
 .hero-content-wrap {
-    height: 820px;
+    height: 100%;
     padding-top: 130px;
 }
 

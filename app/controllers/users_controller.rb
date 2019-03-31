@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :authorize, only: [:new, :create]
+
   def show_image
     @user = User.find(params[:id])
     if %w[px40 px80 px160].include? params[:version]
@@ -8,6 +10,35 @@ class UsersController < ApplicationController
       filepath = Rails.root.join('storage', url[1, url.length-1])
       send_file filepath, disposition: "inline"
     end
+  end
+
+  def index
+  end
+
+  def update
+  end
+
+  def show
+  end
+
+  def destroy
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+
+    @user = User.new(user_params)
+    @user.role = "user"
+
+    if @user.save
+      flash[:success] = "Registration was compleated successfully"
+    else
+      flash[:error] = "Registrations was not compleated successfully"
+    end
+    
   end
 
   module AllActions
@@ -220,4 +251,12 @@ class UsersController < ApplicationController
       end
     end
   end
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:signin_name, :password, :password_confirmation, :family_name, :phonetic_family_name, :given_name, :phonetic_given_name, :image, :web_url)
+    end
 end

@@ -200,6 +200,7 @@ GEM
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    magnific-popup-rails (1.1.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     meta-tags (2.11.1)
@@ -396,6 +397,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 6.0.0)
   lines-engine (~> 1.2, >= 1.2.6.1)
   listen (~> 3.1.0)
+  magnific-popup-rails (~> 1.1)
   minitest-capybara
   mysql2 (~> 0.4.0)
   net-ldap (~> 0.16.0)

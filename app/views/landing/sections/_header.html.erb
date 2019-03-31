@@ -23,9 +23,30 @@
 
                             <div class="header-bar-menu">
                                 <ul class="flex justify-content-center align-items-center py-2 pt-md-0">
-                                    <li><a href="#">Register</a></li>
+                                    <li>
+                                    <%= link_to "Register", new_user_url, class: "register-popup" %>
+                                    </li>
                                     <li><a href="<%= lms_url %>">Login</a></li>
                                 </ul>
+                                <style>
+                                    .mfp-content {
+                                        max-width: 620px;
+                                        z-index: 99999999;
+                                    }
+                                </style>
+                                <script>
+                                    $(document).ready(function() {
+
+                                    $('.register-popup').magnificPopup({
+                                    type: 'ajax',
+                                    midClick: true,
+                                    mainClass: 'mfp-fade',
+                                    closeOnBgClick: false 
+                                    });
+
+                                    
+                                    });
+                                </script>    
                             </div><!-- .header-bar-menu -->
                         </div><!-- .col -->
                     </div><!-- .row -->
@@ -42,7 +63,7 @@
                         </div><!-- .col -->
 
                         <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
-                            <nav class="site-navigation flex justify-content-end align-items-center">
+                            <nav id="site-navigation" class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                                     <li class="current-menu-item"><a href="<%= root_url %>">Home</a></li>
                                     <li><a href="<%= about_us_url %>">About</a></li>
@@ -51,7 +72,7 @@
                                     <li><a href="<%= contact_url %>">Contact</a></li>
                                 </ul>
 
-                                <div class="hamburger-menu d-lg-none">
+                                <div onclick="togglenavigation()" id="hamburger-menu" class="hamburger-menu d-lg-none">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -91,3 +112,13 @@
             </div><!-- .container -->
         </div><!-- .hero-content-hero-content-overlay -->
     </div><!-- .hero-content -->
+
+    <script>
+   
+    function togglenavigation() {
+        var element = document.getElementById("hamburger-menu");
+        element.classList.toggle("open");
+        var el2 = document.getElementById("site-navigation");
+        el2.classList.toggle("show")
+    }
+</script>

@@ -42,7 +42,7 @@
                         </div><!-- .col -->
 
                         <div class="col-3 col-lg-9 flex justify-content-end align-content-center">
-                            <nav class="site-navigation flex justify-content-end align-items-center">
+                            <nav id="site-navigation" class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                                     <li class="current-menu-item"><a href="<%= root_url %>">Home</a></li>
                                     <li><a href="<%= about_us_url %>">About</a></li>
@@ -51,7 +51,7 @@
                                     <li><a href="<%= contact_url %>">Contact</a></li>
                                 </ul>
 
-                                <div class="hamburger-menu d-lg-none">
+                                <div onclick="togglenavigation()" id="hamburger-menu" class="hamburger-menu d-lg-none">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -69,3 +69,12 @@
         </header><!-- .site-header -->
         
 </div>
+
+<script>
+   
+    function togglenavigation() {
+        var element = document.getElementById("hamburger-menu");
+        element.classList.toggle("open");
+        var el2 = document.getElementById("site-navigation");
+    }
+</script>

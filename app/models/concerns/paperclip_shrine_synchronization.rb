@@ -22,6 +22,15 @@ module PaperclipShrineSynchronization
 
   def attachment_to_shrine_data(class_name, instance_id, attachment)
     {
+      px280: {
+        id: class_name + '/' + instance_id + '/px280/' + attachment.original_filename,
+        storage: :store,
+        metadata: {
+          filename: attachment.original_filename,
+          size: attachment.size,
+          mime_type: attachment.content_type,
+        }
+      },
       px160: {
         id: class_name + '/' + instance_id + '/original/' + attachment.original_filename,
         storage: :store,

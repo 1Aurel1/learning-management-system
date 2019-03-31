@@ -30,6 +30,9 @@ gem 'rails', '~> 5.0.4'
 gem 'rails-assets-tether', '~> 1.1'
 gem 'rails_autolink'
 gem 'remotipart', '~> 1.4.2'
+
+gem 'magnific-popup-rails', '~> 1.1'
+
 # Blog gems
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 gem 'rmagick'

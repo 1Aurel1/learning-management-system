@@ -1,6 +1,26 @@
 //
 // CSS for general purpose
 //
+:root {
+  overflow-x: hidden;
+}
+@media screen and (min-width: 992px) {
+  body::-webkit-scrollbar {
+    width: 1em;
+    background-color: transparent;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0.7em;
+    background: transparent;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid transparent;
+  }
+  
+}
 
 html {
   font-size: 14px;

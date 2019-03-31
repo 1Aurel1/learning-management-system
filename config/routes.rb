@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :course_categories
+  resources :users, only: [:new, :create]
+  
+
   #root 'signin#index'
   root 'landing#home'
 

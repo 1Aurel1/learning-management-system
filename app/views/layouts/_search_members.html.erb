@@ -23,6 +23,6 @@
 
   <% if selected_form %>
   <% category = (update_model == 'content_member') ? 'content' : 'course' %>
-  <%= render(partial: 'layouts/member_candidates', locals: {title: '検索結果', category: category, form_category: 'search', users: @candidates, resource_id: resource_id, footer: ''}) %>
+  <%= render(partial: 'layouts/member_candidates', locals: {title: 'search results', category: category, form_category: 'search', users: @candidates, resource_id: resource_id, footer: ''}) %>
   <% end %>
 </div>

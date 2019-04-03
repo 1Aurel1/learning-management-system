@@ -33,7 +33,7 @@ en:
     new_user_summary: new user creation
     no_title: ( No Title )
     not_distribute:  ( Not distribute )
-    not_using_lepo: Not using LePo
+    not_using_lepo: Not using Our LMS
     note: Note
     note_summary: +Note Button / Default Note
     note_management: Note Management
@@ -61,7 +61,7 @@ en:
     term_year: "%{year} - "
     unspecified: Unspecified
     update: System Update
-    update_summary: Correction of DB etc. after updating LePo
+    update_summary: Correction of DB etc. after updating the LMS
     user_account: Existing User
     user_account_summary: search and edit for existing user
     worksheet_note: Worksheet

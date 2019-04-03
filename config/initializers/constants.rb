@@ -2,7 +2,7 @@
 
 # ===== System constatns =====
 # system name shown at title bar and signin page
-SYSTEM_NAME = 'LePo'.freeze
+SYSTEM_NAME = "Oliver's LMS".freeze
 
 # flag for use of ssl
 SYSTEM_SSL_FLAG = false

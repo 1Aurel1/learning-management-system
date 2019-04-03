@@ -289,7 +289,7 @@ en:
       license_header: License
       license_message1: This software is released under the GNU Affero General Public License, version 3 as open source software.
       license_message2: For this license, please check the link below.
-      message1: Before using LePo, let's complete the following steps.
+      message1: Before using this LMS, let's complete the following steps.
       message2: Creation of administrator account is complete !
       message3: Please reload the page, display the sign in page, and sign-in to as administrator.
       password_confirmation: Password (Confirmation)

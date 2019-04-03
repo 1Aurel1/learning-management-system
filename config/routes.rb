@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'landing#contact'
   get 'courses', to: 'landing#courses'
 
+  #
+  get '/courses/:id', to: 'courses#show'
 
   #lms
 

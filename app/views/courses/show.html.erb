@@ -1,0 +1,27 @@
+<div class="courseContainer col-lg-8 col-sm-10">
+    <div class="card courseCard">
+        <%= render partial: 'layouts/image', locals: {obj: @course, fa_class: ' card-img-top', img_px: '280'} %>
+
+        <div class="card-body">
+        <h5 class="card-title"><%= @course.title %></h5>
+        <h6>
+            <i>Teacher(s):</i> 
+            <% @course_members.each do |m| %>
+                <%= m.user.given_name %> <%= m.user.family_name %>
+            <%end%>
+        </h6>
+        <p class="card-text"><%= @course.overview %></p>
+        <ul class="list-group">
+            <li class="list-group-item active">Course Goals</li>
+            <% @goals.each do |g| %>
+            <li class="list-group-item">
+                <%= g.title %>
+            </li>
+            <% end %>
+        </ul>
+        <div class="text-center pt-4">
+            <a href="#" class="btn btn-success">Enroll now</a>
+        </div>
+        
+    </div>
+</div>

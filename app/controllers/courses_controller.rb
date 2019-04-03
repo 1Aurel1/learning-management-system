@@ -1,9 +1,17 @@
 class CoursesController < ApplicationController
   include ::NoticesController::AllActions
   include ::StickiesController::AllActions
+  skip_before_action :authorize, only: [:show]
   # ====================================================================
   # Public Functions
   # ====================================================================
+  def show
+    set_course()
+    @goals = Goal.where(course_id: @course.id)
+    @course_members = CourseMember.where(course_id: @course.id)
+    teachers = @course_members.size
+  end
+
   def ajax_index
     record_user_action('read', params[:nav_id])
     render_course_index(params[:nav_section], params[:nav_id])
@@ -385,6 +393,10 @@ class CoursesController < ApplicationController
   # ====================================================================
 
   private
+
+  def set_course
+    @course = Course.find_by_id(params[:id]);
+  end
 
   def ajax_index_no_course
     @candidates = nil

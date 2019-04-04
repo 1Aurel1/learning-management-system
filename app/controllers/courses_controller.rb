@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   # ====================================================================
   # Public Functions
   # ====================================================================
-  def show
+  def show_course
     set_course()
     @goals = Goal.where(course_id: @course.id)
     @course_members = CourseMember.where(course_id: @course.id)

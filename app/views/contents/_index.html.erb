@@ -35,14 +35,7 @@
         </div>
       </div>
 
-      <div class="card">
-        <h2 class="card-header"><%= t('.system_version') %></h2>
-        <div class="card-body">
-          <p class="card-text">
-            <%= Rails.configuration.version %> (<%= t '.released_at' %> <%= l(Rails.configuration.version_date, format: :default) %>)
-          </p>
-        </div>
-      </div>
+      
 
       <% when 'repository' %>
       <div class="card-l course-border">

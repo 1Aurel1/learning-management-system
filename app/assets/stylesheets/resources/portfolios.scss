@@ -6,4 +6,7 @@
 
 #resource #portfolio-resource {
 	@include report-card;
+	.block {
+		margin: 0 auto;
+	}
 }

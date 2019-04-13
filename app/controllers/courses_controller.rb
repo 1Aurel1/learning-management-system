@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   include ::NoticesController::AllActions
   include ::StickiesController::AllActions
-  skip_before_action :authorize, only: [:show]
+  skip_before_action :authorize, only: [:show_course]
   # ====================================================================
   # Public Functions
   # ====================================================================

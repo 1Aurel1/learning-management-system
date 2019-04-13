@@ -5,10 +5,10 @@
 @import 'components/toolbar';
 
 #sub-pane {
-  background-color: #d0ddee;
-  border-right: 1px solid #ccc;
+  background-color: $primary-color;
   height: inherit;
   overflow: hidden;
+  
   #main-nav {
     height: calc(100% - #{$toolbar-height});
     left: 0;
@@ -16,25 +16,45 @@
     position: absolute;
     top: 0;
     width: $sub-pane-toolbar-width;
+    #nav-home {
+      h1 {
+        height: $toolbar-height;
+        color: $dark-light;
+        background-color: $dark1;
+        margin:0;
+        padding: 10px 0 0 4px;
+      }
+  
+    }
+    #nav-open-courses {
+      ul {
+        padding-top: 15px;
+        background-color: $dark1;
+      }
+    }
     h1 {
-      color: #356;
+      color: $dark-light;
       font-size: 14px;
       font-weight: bold;
       line-height: 120%;
-      margin: 10px 0 0 4px;
+      
       a {
+        padding: 0 15px;
         clear: both;
-        color: #356;
+        color: $dark-light;
         display: block;
         font-size: 14px;
         font-weight: bold;
         margin: 10px 0 0 4px;
         text-decoration: none;
         white-space: nowrap;
+        span {
+          float: right;
+        }
       }
     }
     ul {
-      margin: 4px 0 14px;
+      margin-top: 15px;
       padding-left: 0;
       li {
         font-weight: normal;
@@ -42,18 +62,17 @@
         margin-left: 0;
         overflow: hidden;
         a {
-          color: #333;
+          color: $light;
           display: block;
           height: 30px;
           padding-left: 16px;
-          padding-top: 7px;
           position: relative;
           text-decoration: none;
           vertical-align: top;
           white-space: nowrap;
           width: 100%;
           i {
-            color: #333;
+            color: $light;
             &.no-icon {
               text-indent: -9999px;
             }
@@ -68,11 +87,10 @@
         }
       }
       li#selected {
-        background-color: #6f7faf;
         a {
-          color: #fff;
+          color: $bright-light;
           i {
-            color: #fff;
+            color: $bright-light;
           }
         }
       }
@@ -80,7 +98,7 @@
   }
 
   #sub-toolbar {
-    background-color: $toolbar-bgcolor;
+    background-color: $dark2;
     bottom: 0;
     height: $toolbar-height;
     left: 0;
@@ -107,7 +125,7 @@
       }
     }
     a.toolbar-btn, button.toolbar-btn {
-      color: $toolbar-color;
+      color: $light;
       text-decoration: none;
       &:hover {
         color: $toolbar-hover-color;

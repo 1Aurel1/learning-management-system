@@ -11,11 +11,14 @@
   <%= favicon_link_tag 'lms-fav.png' %>
   
   <!-- FIXME: PushNotification -->
-  <!-- <link rel="manifest" href="<%#= asset_path 'manifest.json' %>"> -->
+  <link rel="manifest" href="<%#= asset_path 'manifest.json' %>">
   <title>LMS olie</title>
 </head>
-
-<body>
+<% if current_page?(lms_path)%>
+  <body class="beforeSignIn">
+<%else%>
+  <body>
+<%end%>
   <%= yield %>
 </body>
 

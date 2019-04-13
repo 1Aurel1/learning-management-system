@@ -4,6 +4,80 @@
 :root {
   overflow-x: hidden;
 }
+body {
+  overflow-x: hidden;
+}
+
+//bashboard
+.fa-navicon {
+  color: $primary-color;
+}
+#dashboard-resource {
+  .block{
+    margin: 0 auto;
+  }
+}
+
+//signIn
+
+@media screen and (min-width: 992px){
+  #resource {
+
+    left: -240px;
+
+  }
+}
+.beforeSignIn{
+  background-image: image-url("blurred-bg-9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  #sub-pane {
+    display: none;
+  }
+  
+  .signInContainer {
+    display: table;
+  }
+  #resource {
+    position: relative;
+    top: -32px;
+    
+    width: 101vw;
+    height: 105vh;
+    overflow: hidden;
+    background-color: transparent !important;
+  }
+  #main-toolbar {
+    display: none;
+  }
+  #signin-resource {
+    background-color: transparent !important;
+    .col-md-10 {
+      margin: 0 auto;
+    }
+    .block {
+      display: table-cell;
+      vertical-align: middle;
+      .col-md-4 {
+        background-color: white;
+        padding: 35px 35px 25px 35px;
+        border-radius: 3px;
+        box-shadow: 2px 2px 6px 1px black;
+        margin: 0 auto;
+        h1 {
+          color: $primary-color;
+        }
+      }
+
+    }
+  }
+  #main-pane #resource .scroll-pane {
+    background-color: transparent !important;
+  }
+}
+   
+
+
 @media screen and (min-width: 992px) {
   body::-webkit-scrollbar {
     width: 1em;
@@ -11,7 +85,7 @@
   }
   
   body::-webkit-scrollbar {
-    width: 0.7em;
+    width: 0.3em;
     background: transparent;
   }
   

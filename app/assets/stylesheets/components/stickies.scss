@@ -10,7 +10,7 @@
 #resource #sticky-panel {
   @include image-40px;
   background-color: $toolbar-bgcolor;
-  border: 1px solid #ccc;
+  margin-top: -9px;
   border-top: 0;
   color: #000;
   max-height: 92%;

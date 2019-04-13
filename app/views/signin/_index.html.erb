@@ -1,23 +1,26 @@
 <div id="signin-resource" class="scroll-pane">
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12 signInContainer">
       <div class="block">
-        <%= form_tag({action: 'ajax_authenticate'}, id: 'signin-form', remote: true) do %>
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label col-form-label-lg text-sm-right" for="signin_name"><%= t('activerecord.attributes.user.signin_name') %></label>
-          <div class="col-md-8">
-            <%= text_field_tag :signin_name, params[:signin_name], {placeholder: t('activerecord.attributes.user.signin_name'), class: 'form-control'} %>
+        <div class="col-md-4">
+          <%= form_tag({action: 'ajax_authenticate'}, id: 'signin-form', remote: true) do %>
+          <h1 class="text-center"><%= t('signin.greeting').html_safe %></h1>
+          <div class="form-group row">
+            <%# <label class="col-md-4 col-form-label col-form-label-lg text-sm-right" for="signin_name"><%= t('activerecord.attributes.user.signin_name') %>
+            <div class="col-md-12">
+              <%= text_field_tag :signin_name, params[:signin_name], {placeholder: "Username", class: 'form-control'} %>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label col-form-label-lg text-sm-right" for="password">Password</label>
-          <div class="col-md-8">
-            <%= password_field_tag :password, params[:password], {placeholder: 'Password', class: 'form-control', autocomplete: 'off'} %>
+          <div class="form-group row">
+            <%# <label class="col-md-4 col-form-label col-form-label-lg text-sm-right" for="password">Password</label> %>
+            <div class="col-md-12">
+              <%= password_field_tag :password, params[:password], {placeholder: 'Password', class: 'form-control', autocomplete: 'off'} %>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="controls col-md-8 ml-auto">
-            <%= submit_tag t('activerecord.models.signin'), id: 'signin-submit-btn', class: 'btn btn-primary btn-block' %>
+          <div class="form-group row">
+            <div class="controls col-md-12">
+              <%= submit_tag t('activerecord.models.signin'), id: 'signin-submit-btn', class: 'btn btn-primary btn-block' %>
+            </div>
           </div>
         </div>
         <% end %>

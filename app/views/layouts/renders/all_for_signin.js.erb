@@ -5,6 +5,8 @@ try {
 } catch(err) {
   console.error(err);
 }
+// removeClass
+$("body").removeClass("beforeSignIn");
 
 // partial renderings
 $("#main-nav").html("<%= j render(partial: 'layouts/main_nav') %>");

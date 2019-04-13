@@ -39,7 +39,6 @@
     top: 0;
     width: 100%;
     div#fixed-toolbar {
-      border-right: 1px solid #bbb;
       margin-right: 8px;
     }
     div#variable-toolbar {
@@ -193,8 +192,7 @@
     @include image-80px;
     @include report-card;
     @include resources-card;
-    background-color: #444;
-    color: #fff;
+    color: $primary-color;
     height: 100%;
     overflow: auto;
     padding: $toolbar-height 0 0;
@@ -270,7 +268,7 @@
       margin-bottom: 10px;
     }
     div.scroll-pane {
-      background-color: #444;
+      background-color: #ececec;
       height: 100%;
       overflow: auto;
       padding: 15px;

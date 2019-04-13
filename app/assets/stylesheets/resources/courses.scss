@@ -10,6 +10,9 @@
   @include goal-card;
   @include source-card;
   @include note-card;
+  .block {
+    margin: 0 auto;
+  }
   div {
     hr {
       border: 1px dashed #ccc;

@@ -17,11 +17,20 @@ img {
     vertical-align: baseline;
 }
 
+
+
 .hero-content {
     min-height: 100%;
 }
 
 /**/
+
+button.mfp-close, button.mfp-arrow {
+    background: #ca2d2d !important;
+    border-radius: 0 0 0 30px;
+
+    color: white !important;
+}
 .hamburger-menu {
     z-index: 99999;
 }
@@ -422,7 +431,7 @@ a:hover, a:active {
 }
 
 .icon-box {
-    width: 25%;
+    width: 33%;
     padding: 50px 60px 50px;
     border-right: 1px solid #ebebeb;
 }
@@ -659,7 +668,6 @@ a:hover, a:active {
 }
 
 a.btn {
-    padding: 16px 48px;
     border: 2px solid #34d986;
     border-radius: 0;
     font-size: 13px;

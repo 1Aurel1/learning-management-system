@@ -211,3 +211,31 @@ en:
       long: "%-d %b %Y %H:%M"
       short: "%-d %b %Y"
     pm: pm
+  landing:
+    search_placeholder: "What would you like to learn"
+    register: "Register"
+    login: "login"
+    header:
+      home: "Home"
+      about: "About"
+      courses: "Courses"
+      blog: "Blog"
+      contact: "Contact"
+      big_text: "best place<br/>to learn english"
+      small_text: "GET STARTED WITH ONLINE COURSES"
+      text: "Are you ready to learn a new language? You can start to learn English with (Name) whether you are already taking formal courses or studying on your own. At (Name), you can experience the language in the comfort of your own home or even on the go!"  
+      call_to_action: "Read more"
+    what_we_offer:
+      lfe: "Learn from the experts"
+      lfe_text: "Lessons from Prominent English Language Experts online to help you become an emboldened and empowered communicator through authentic, passion-based learning."
+      bls: "Book Library & Store"
+      bls_text: "English-language books and other products for children, teens and adults"
+      bco: "Best Course Online"
+      bco_text: "Don't have time to attend classes on campus on a weekly basis but wish to learn from home? (Name) offers classes with affordable prices and customized schedules to make learning English accessible, easy, and fun."
+      call_to_action: "Read more"  
+    about:
+      about_us: "Welcome to Oliver's lms"
+      text: "Founded in 2019 by one of Albania’s finest English teachers, (Name) brings together the best of Albania’s teachers, actors, web programmers, writers, and designers... all to create an unparalleled experience for you to learn Albanian. At (Name), we believe that the key to mastering English is listening and speaking. So we’ve created an affordable learning platform with a unique 4-part interactive lesson technique that will guide you step by step along the exciting journey towards learning English. At (Name), we also understand that life doesn’t stop just because it’s time to learn English... so we strive to help you make the most of every minute! We’ve created a program that allows you continue learning English whether you are at home or are on the go. Download (name)’s lessons to your MP3 player, or utilize the extensive selection of audio lessons and Hebrew learning tools available on (name)’s mobile and desktop websites. (Name) team is based in Tirana, Albania and is working hard every day to bring you high-quality English lessons and help you stay motivated to learn."
+  signin:
+    greeting: "Welcome back"
+    

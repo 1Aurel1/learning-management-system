@@ -71,28 +71,28 @@ body {
 
     }
   }
-  #main-pane #resource .scroll-pane {
-    background-color: transparent !important;
-  }
+  // #main-pane #resource .scroll-pane {
+  //   background-color: transparent !important;
+  // }
 }
    
 
 
 @media screen and (min-width: 992px) {
-  body::-webkit-scrollbar {
-    width: 1em;
-    background-color: transparent;
-  }
+  // body::-webkit-scrollbar {
+  //   width: 1em;
+  //   background-color: transparent;
+  // }
   
-  body::-webkit-scrollbar {
-    width: 0.3em;
-    background: transparent;
-  }
+  // body::-webkit-scrollbar {
+  //   width: 0.3em;
+  //   background: transparent;
+  // }
   
-  body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid transparent;
-  }
+  // body::-webkit-scrollbar-thumb {
+  // background-color: darkgrey;
+  // outline: 1px solid transparent;
+  // }
   
 }
 

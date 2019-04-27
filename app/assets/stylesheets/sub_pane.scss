@@ -4,6 +4,13 @@
 
 @import 'components/toolbar';
 
+nav#main-nav::-webkit-scrollbar-thumb {
+  background-color: #ffffff08;
+  border-radius: 10px;
+}
+nav#main-nav::-webkit-scrollbar{
+  width: 5px;
+}
 #sub-pane {
   background-color: $primary-color;
   height: inherit;
@@ -16,6 +23,7 @@
     position: absolute;
     top: 0;
     width: $sub-pane-toolbar-width;
+   
     #nav-home {
       h1 {
         height: $toolbar-height;

@@ -27,7 +27,11 @@
 
                             <div class="course-content-wrap">
                                 <header class="entry-header">
-                                    <h2 class="entry-title"><a class="course-popup" href="course/<%= c.id %>"><%= c.title %></a></h2>
+                                    <%
+=begin%>
+ <h2 class="entry-title"><a class="course-popup" href="course/<%= c.id %>"></a></h2> 
+<%
+=end%>
 
                                     <div class="entry-meta flex align-items-center">
                                         <div class="">Created at <%= c.created_at.strftime("%b %d, %Y") %></div>

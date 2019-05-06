@@ -89,27 +89,51 @@
             </div><!-- .nav-bar -->
         </header><!-- .site-header -->
 
+        <!-- carousel -->
         <div class="hero-content-overlay">
-            <div class="container">
-                <div class="row">
+                <div class="row hero-height">
                     <div class="col-12">
-                        <div class="hero-content-wrap flex flex-column justify-content-center align-items-start">
-                            <header class="entry-header">
-                                <h4><%= t('landing.header.small_text').html_safe %></h4>
-                                <h1><%= t('landing.header.big_text').html_safe %></h1>
-                            </header><!-- .entry-header -->
-
-                            <div class="entry-content">
-                                <p><%= t('landing.header.text').html_safe %></p>
-                            </div><!-- .entry-content -->
-
-                            <footer class="entry-footer read-more">
-                                <a href="#"><%= t('landing.header.call_to_action').html_safe %></a>
-                            </footer><!-- .entry-footer -->
-                        </div><!-- .hero-content-wrap -->
+                        <div id="carouselExampleControls" class="carousel slide hero-height flex flex-column justify-content-center align-items-start" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="d-block hero-height img-c img-s1" %>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-block hero-height img-c img-s2" %>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-block hero-height img-c img-s3" %>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="scroll-down" address="true"></a>
+                            <div class="row hero-height hero-absolute">
+                                <div class="col-12 hero-height text-center hero-dt">
+                                    <div class="hero-text">
+                                        <div class="entry-header">
+                                            <h4><%= t('landing.header.small_text') %></h4>
+                                            <h1><%= t('landing.header.big_text').html_safe %></h1>
+                                        </div>
+                                        <div class="entry-content">
+                                            <p><%= t('landing.header.text') %></p>
+                                        </div>
+                                        <button type="button" class="btn btn-success">Play Video</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
                     </div><!-- .col -->
                 </div><!-- .row -->
-            </div><!-- .container -->
         </div><!-- .hero-content-hero-content-overlay -->
     </div><!-- .hero-content -->
 

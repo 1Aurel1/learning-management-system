@@ -34,6 +34,9 @@ gem 'remotipart', '~> 1.4.2'
 
 gem 'magnific-popup-rails', '~> 1.1'
 
+# pagination with kaminari
+gem 'kaminari'
+
 # Blog gems
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 gem 'rmagick'

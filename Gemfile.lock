@@ -396,6 +396,7 @@ DEPENDENCIES
   jquery-hotkeys-rails (~> 0.7.9)
   jquery-rails (~> 4.3.0)
   jquery-ui-rails (~> 6.0.0)
+  kaminari
   lines-engine (~> 1.2, >= 1.2.6.1)
   listen (~> 3.1.0)
   magnific-popup-rails (~> 1.1)

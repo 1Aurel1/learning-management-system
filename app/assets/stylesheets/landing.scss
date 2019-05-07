@@ -36,7 +36,7 @@ header-header
     height: 100vh;
     overflow: hidden;
     .hero-height {
-        height: calc(100vh - 138px);
+        height: calc(100vh - 88px);
         min-width: 100%;
     }
     .carousel-item {
@@ -238,7 +238,7 @@ a:hover, a:active {
 # Nav Bar
 --------------------------------*/
 .nav-bar {
-    padding: 20px 0;
+    padding: 15px 0;
     background: $primary-color;
 }
 

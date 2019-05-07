@@ -15,225 +15,67 @@
             <div class="col-12 col-lg-8">
                 <div class="featured-courses courses-wrap">
                     <div class="row mx-m-25">
-                        <div class="col-12 col-md-6 px-25">
-                            <div class="course-content">
-                                <figure class="course-thumbnail">
-                                    <a href="#"><img src="<%= asset_url 'test_img/1.jpg' %>" alt=""></a>
-                                </figure><!-- .course-thumbnail -->
+                        <% @courses.each do |c| %>
+                            <%
+                                @course_members = CourseMember.where(course_id: c.id)
+                                teachers = @course_members.size
+                            %>
+                            <div class="col-12 col-md-6 px-25">
+                                <div class="course-content">
+                                    <figure class="course-thumbnail">
+                                        <a href="course/<%= c.id %>">
+                                            <%= render partial: 'layouts/image', locals: {obj: c, fa_class: 'aa', img_px: '280'} %>
+                                        </a>
+                                    </figure><!-- .course-thumbnail -->
 
-                                <div class="course-content-wrap">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="#">Lorem ipsum dolor sit amet.</a></h2>
+                                    <div class="course-content-wrap">
+                                        <header class="entry-header">
+                                            <h2 class="entry-title"><a href="#"><%= c.title %>.</a></h2>
 
-                                        <div class="entry-meta flex flex-wrap align-items-center">
-                                            <div class="course-author"><a href="#">Lorem, ipsum dolor. </a></div>
+                                            <div class="entry-meta flex flex-wrap align-items-center">
+                                                <div class="course-author"><a href="#">By 
+                                                    <%
+=begin%>
+ <% @teachers.each do |m| %>
+                                                        <%= m.user.given_name %> <%= m.user.family_name %>
+                                                    <%end%>                         
+                                                </a></div> 
+<%
+=end%>
 
-                                            <div class="course-date">July 21, 2018</div>
-                                        </div><!-- .course-date -->
-                                    </header><!-- .entry-header -->
+                                                <div class="course-date"><%= c.created_at.strftime('%b %d, %Y') %></div>
+                                            </div><!-- .course-date -->
+                                        </header><!-- .entry-header -->
 
-                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
-                                        <div class="course-cost">
-                                            $45 <span class="price-drop">Paid</span>
-                                        </div><!-- .course-cost -->
+                                        <%
+=begin%>
+ <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
+                                            <div class="course-cost">
+                                                $45 <span class="price-drop">Paid</span>
+                                            </div><!-- .course-cost -->
 
-                                        <div class="course-ratings flex justify-content-end align-items-center">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star-o"></span>
+                                            <div class="course-ratings flex justify-content-end align-items-center">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star-o"></span>
 
-                                            <span class="course-ratings-count">(4 votes)</span>
-                                        </div><!-- .course-ratings -->
-                                    </footer><!-- .entry-footer -->
-                                </div><!-- .course-content-wrap -->
-                            </div><!-- .course-content -->
-                        </div><!-- .col -->
-
-                        <div class="col-12 col-md-6 px-25">
-                            <div class="course-content">
-                                <figure class="course-thumbnail">
-                                    <a href="#"><img src="<%= asset_url 'test_img/2.jpg' %>" alt=""></a>
-                                </figure><!-- .course-thumbnail -->
-
-                                <div class="course-content-wrap">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h2>
-
-                                        <div class="entry-meta flex flex-wrap align-items-center">
-                                            <div class="course-author"><a href="#">Lorem, ipsum.</a></div>
-
-                                            <div class="course-date">Mar 14, 2018</div>
-                                        </div><!-- .course-date -->
-                                    </header><!-- .entry-header -->
-
-                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
-                                        <div class="course-cost">
-                                            <span class="free-cost">Free</span>
-                                        </div><!-- .price-drop -->
-
-                                        <div class="course-ratings flex justify-content-end align-items-center">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star-o"></span>
-
-                                            <span class="course-ratings-count">(4 votes)</span>
-                                        </div><!-- .course-ratings -->
-                                    </footer><!-- .entry-footer -->
-                                </div><!-- .course-content-wrap -->
-                            </div><!-- .course-content -->
-                        </div><!-- .col -->
-
-                        <div class="col-12 col-md-6 px-25">
-                            <div class="course-content">
-                                <figure class="course-thumbnail">
-                                    <a href="#"><img src="<%= asset_url 'test_img/3.jpg' %>" alt=""></a>
-                                </figure><!-- .course-thumbnail -->
-
-                                <div class="course-content-wrap">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="#">Lorem ipsum dolor sit amet.</a></h2>
-
-                                        <div class="entry-meta flex flex-wrap align-items-center">
-                                            <div class="course-author"><a href="#">Lorem, ipsum.</a></div>
-
-                                            <div class="course-date">Dec 18, 2018</div>
-                                        </div><!-- .course-date -->
-                                    </header><!-- .entry-header -->
-
-                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
-                                        <div class="course-cost">
-                                            $55 <span class="price-drop">Paid</span>
-                                        </div><!-- .course-cost -->
-
-                                        <div class="course-ratings flex justify-content-end align-items-center">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star-o"></span>
-
-                                            <span class="course-ratings-count">(4 votes)</span>
-                                        </div><!-- .course-ratings -->
-                                    </footer><!-- .entry-footer -->
-                                </div><!-- .course-content-wrap -->
-                            </div><!-- .course-content -->
-                        </div><!-- .col -->
-
-                        <div class="col-12 col-md-6 px-25">
-                            <div class="course-content">
-                                <figure class="course-thumbnail">
-                                    <a href="#"><img src="<%= asset_url 'test_img/4.jpg' %>" alt=""></a>
-                                </figure><!-- .course-thumbnail -->
-
-                                <div class="course-content-wrap">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="#">Lorem ipsum dolor sit amet.</a></h2>
-
-                                        <div class="entry-meta flex flex-wrap align-items-center">
-                                            <div class="course-author"><a href="#">Mr. John Wick</a></div>
-
-                                            <div class="course-date">Otc 17, 2018</div>
-                                        </div><!-- .course-date -->
-                                    </header><!-- .entry-header -->
-
-                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
-                                        <div class="course-cost">
-                                            <span class="free-cost">Free</span>
-                                        </div><!-- .course-cost -->
-
-                                        <div class="course-ratings flex justify-content-end align-items-center">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star-o"></span>
-
-                                            <span class="course-ratings-count">(4 votes)</span>
-                                        </div><!-- .course-ratings -->
-                                    </footer><!-- .entry-footer -->
-                                </div><!-- .course-content-wrap -->
-                            </div><!-- .course-content -->
-                        </div><!-- .col -->
-
-                        <div class="col-12 col-md-6 px-25">
-                            <div class="course-content">
-                                <figure class="course-thumbnail">
-                                    <a href="#"><img src="<%= asset_url 'test_img/5.jpg' %>" alt=""></a>
-                                </figure><!-- .course-thumbnail -->
-
-                                <div class="course-content-wrap">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="#">Lorem ipsum dolor sit amet consectetur.</a></h2>
-
-                                        <div class="entry-meta flex flex-wrap align-items-center">
-                                            <div class="course-author"><a href="#">Mr. Lorem, ipsum.</a></div>
-
-                                            <div class="course-date">Sep 14, 2018</div>
-                                        </div><!-- .course-date -->
-                                    </header><!-- .entry-header -->
-
-                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
-                                        <div class="course-cost">
-                                            $38 <span class="price-drop">Paid</span>
-                                        </div><!-- .course-cost -->
-
-                                        <div class="course-ratings flex justify-content-end align-items-center">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star-o"></span>
-
-                                            <span class="course-ratings-count">(4 votes)</span>
-                                        </div><!-- .course-ratings -->
-                                    </footer><!-- .entry-footer -->
-                                </div><!-- .course-content-wrap -->
-                            </div><!-- .course-content -->
-                        </div><!-- .col -->
-
-                        <div class="col-12 col-md-6 px-25">
-                            <div class="course-content">
-                                <figure class="course-thumbnail">
-                                    <a href="#"><img src="<%= asset_url 'test_img/6.jpg' %>" alt=""></a>
-                                </figure><!-- .course-thumbnail -->
-
-                                <div class="course-content-wrap">
-                                    <header class="entry-header">
-                                        <h2 class="entry-title"><a href="#">Lorem ipsum dolor sit.</a></h2>
-
-                                        <div class="entry-meta flex flex-wrap align-items-center">
-                                            <div class="course-author"><a href="#">Lorem, ipsum.</a></div>
-
-                                            <div class="course-date">Nov 06, 2018</div>
-                                        </div><!-- .course-date -->
-                                    </header><!-- .entry-header -->
-
-                                    <footer class="entry-footer flex flex-wrap justify-content-between align-items-center">
-                                        <div class="course-cost">
-                                            <span class="free-cost">Free</span>
-                                        </div><!-- .course-cost -->
-
-                                        <div class="course-ratings flex justify-content-end align-items-center">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star-o"></span>
-
-                                            <span class="course-ratings-count">(4 votes)</span>
-                                        </div><!-- .course-ratings -->
-                                    </footer><!-- .entry-footer -->
-                                </div><!-- .course-content-wrap -->
-                            </div><!-- .course-content -->
-                        </div><!-- .col -->
+                                                <span class="course-ratings-count">(4 votes)</span>
+                                            </div><!-- .course-ratings -->
+                                        </footer><!-- .entry-footer --> 
+<%
+=end%>
+                                    </div><!-- .course-content-wrap -->
+                                </div><!-- .course-content -->
+                            </div><!-- .col -->
+                        <% end %>
                     </div><!-- .row -->
                 </div><!-- .featured-courses -->
-
-                <div class="pagination flex flex-wrap justify-content-between align-items-center">
+                <%= paginate @courses %>
+                <%
+=begin%>
+ <div class="pagination flex flex-wrap justify-content-between align-items-center">
                     <div class="col-12 col-lg-4 order-2 order-lg-1 mt-3 mt-lg-0">
                         <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0">
                             <li class="active"><a href="#">1</a></li>
@@ -257,7 +99,9 @@
                             </form>
                         </div><!-- .pagination-results -->
                     </div>
-                </div><!-- .pagination -->
+                </div><!-- .pagination --> 
+<%
+=end%>
             </div><!-- .col -->
 
             <div class="col-12 col-lg-4">
